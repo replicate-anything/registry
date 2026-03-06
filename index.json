@@ -1,0 +1,14 @@
+[
+  {
+    "doi": "10.1257/aer.20221688",
+    "title": "Market Design and Moral Behavior",
+    "authors": ["Bartling", "Fehr"],
+    "repo": "replicate-anything/aer-replications"
+  },
+  {
+    "doi": "10.1257/aer.91.2.134",
+    "title": "Minimum Wages and Employment",
+    "authors": ["Card", "Krueger"],
+    "repo": "replicate-anything/aer-replications"
+  }
+]
