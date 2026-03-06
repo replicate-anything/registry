@@ -1,0 +1,4 @@
+repositories:
+
+  - name: demo-replications
+    url: https://github.com/replicate-anything/demo-replications
