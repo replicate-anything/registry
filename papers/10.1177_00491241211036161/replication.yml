@@ -3,7 +3,7 @@ paper:
   title: Bounding Causes of Effects With Mediators
   journal: Sociological Methods &amp; Research
   year: 2022
-  authors: Macartan Humphreys
+  authors: Macartan Humphreys, Philip Dawid, Monica Musio
 
 replications:
 
@@ -12,5 +12,7 @@ replications:
     description: Example figure
     data: processed/fig_1.csv
     code: code/fig_1.R
+
+
 
 
