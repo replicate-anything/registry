@@ -1,5 +1,13 @@
 [
   {
+    "doi": "10.1177/00491241211036161",
+    "title": "Bounding Causes of Effects With Mediators",
+    "authors": "Macartan Humphreys",
+    "year": 2022,
+    "journal": "Sociological Methods &amp; Research",
+    "repo": "replicate-anything/registry"
+  },
+  {
     "doi": "10.1515/jci-2024-0040",
     "title": "Bounds on the fixed effects estimand in the presence of heterogeneous assignment propensities",
     "authors": "",
