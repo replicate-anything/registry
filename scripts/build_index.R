@@ -1,40 +1,11 @@
 library(yaml)
 library(jsonlite)
 
-
-get_doi_metadata <- function(doi){
-  
-  library(httr)
-  library(jsonlite)
-  
-  url <- paste0("https://doi.org/", doi)
-  
-  res <- httr::GET(
-    url,
-    httr::add_headers(
-      "Accept" = "application/vnd.citationstyles.csl+json"
-    )
-  )
-  
-  if (httr::status_code(res) != 200) {
-    stop("DOI metadata not available")
-  }
-  
-  txt <- httr::content(res, "text", encoding = "UTF-8")
-  
-  meta <- jsonlite::fromJSON(txt)
-  
-  authors <- paste(meta$author$given, meta$author$family)
-  
-  list(
-    title = meta$title,
-    journal = meta$`container-title`,
-    year = meta$issued$`date-parts`[[1]][1],
-    authors = authors
-  )
+normalize_doi <- function(doi){
+  doi <- tolower(doi)
+  doi <- gsub("^https?://doi.org/", "", doi)
+  trimws(doi)
 }
-
-
 
 papers_dir <- "papers"
 
@@ -44,49 +15,65 @@ folders <- list.dirs(
   full.names = TRUE
 )
 
-records <- lapply(folders, function(folder){
+records <- list()
+
+for(folder in folders){
   
   yml_file <- file.path(folder, "replication.yml")
   
   if(!file.exists(yml_file)){
-    return(NULL)
+    message("Skipping: no replication.yml in ", folder)
+    next
   }
   
-  meta <- yaml::read_yaml(yml_file)
+  meta <- tryCatch(
+    yaml::read_yaml(yml_file),
+    error = function(e){
+      message("Skipping invalid YAML: ", folder)
+      return(NULL)
+    }
+  )
+  
+  if(is.null(meta)) next
   
   paper <- meta$paper
   
-  # Resolve authors
-  if(is.null(paper$authors)){
-    
-    meta_doi <- get_doi_metadata(paper$doi)
-    
-    authors <- paste(meta_doi$authors, collapse = ", ")
-    
-  } else {
-    
-    authors <- paste(paper$authors, collapse = ", ")
-    
+  if(is.null(paper$doi)){
+    message("Skipping: DOI missing in ", folder)
+    next
   }
   
-  data.frame(
-    doi = paper$doi,
-    title = paper$title,
+  doi <- normalize_doi(paper$doi)
+  
+  authors <- if(!is.null(paper$authors)){
+    paste(paper$authors, collapse = ", ")
+  } else {
+    ""
+  }
+  
+  record <- data.frame(
+    doi = doi,
+    title = paper$title %||% "",
     authors = authors,
-    year = paper$year,
-    journal = paper$journal,
+    year = paper$year %||% NA,
+    journal = paper$journal %||% "",
     repo = "replicate-anything/registry",
     stringsAsFactors = FALSE
   )
   
-})
+  records[[length(records)+1]] <- record
+}
 
-records <- Filter(Negate(is.null), records)
+if(length(records) > 0){
+  index <- do.call(rbind, records)
+} else {
+  index <- data.frame()
+}
 
-records <- do.call(rbind, records)
+index <- unique(index)
 
 write_json(
-  records,
+  index,
   "index.json",
   pretty = TRUE,
   auto_unbox = TRUE
