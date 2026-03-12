@@ -11,6 +11,9 @@ generate_figure <- function(data){
   
   loo_data$estimate <- loo_data$estimate * 100
   
+  n_colors <- length(unique(loo_data$tag))
+  palette <- grDevices::colorRampPalette(safe_colorblind_palette)(n_colors)
+  
   fig_hist_loo <-
     ggplot2::ggplot(
       loo_data,
