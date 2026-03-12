@@ -1,5 +1,14 @@
 generate_figure <- function(data){
 
+  
+  
+  if (!require(pacman)) install.packages("pacman")
+  
+  pacman::p_load(tidyverse, magrittr, knitr, kableExtra, DT, lazyeval, 
+                 labelled, forcats, readxl, googledrive, estimatr, ggforce, fastDummies,
+                 stringr, RColorBrewer, readstata13, metaplus, sjlabelled, ggrepel, tikzDevice)
+  
+  
   # Prep levels
 
   main_results <-
