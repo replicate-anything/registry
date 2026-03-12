@@ -17,14 +17,14 @@ generate_figure <- function(data){
   fig_hist_loo <-
     ggplot2::ggplot(
       loo_data,
-      ggplot2::aes(estimate, color = tag, fill = tag)
+      ggplot2::aes(x = estimate, color = tag, fill = tag)
     ) +
     ggplot2::geom_histogram(
-      ggplot2::aes(y = ..density..),
+      ggplot2::aes(y = after_stat(density)),
       bins = 200,
       position = "dodge",
       alpha = .3,
-      size = .3
+      linewidth = .3
     ) +
     ggplot2::geom_vline(
       data = ref_data,
@@ -33,22 +33,25 @@ generate_figure <- function(data){
         color = cat,
         linetype = group
       ),
-      size = .9
+      linewidth = .9
     ) +
     ggplot2::facet_grid(var + tag ~ m) +
     ggplot2::scale_color_manual(
       name = "Subgroups",
-      values = safe_colorblind_palette
+      values = palette
     ) +
     ggplot2::scale_fill_manual(
       name = "Subgroups",
-      values = safe_colorblind_palette
+      values = palette
     ) +
     ggplot2::scale_linetype_manual(
       name = "Sample Average",
-      values = c("solid", "11", "dashed")
+      values = c("solid","11","dashed")
     ) +
-    ggplot2::scale_x_continuous(n.breaks = 8, name = "estimate") +
+    ggplot2::scale_x_continuous(
+      n.breaks = 8,
+      name = "estimate"
+    ) +
     ggplot2::scale_y_continuous(
       labels = scales::percent_format(scale = 1, suffix = "", accuracy = 0.1)
     ) +
@@ -59,7 +62,9 @@ generate_figure <- function(data){
       linetype = ggplot2::guide_legend(keyheight = 2)
     ) +
     ggplot2::theme_bw(base_size = 12) +
-    ggplot2::theme(legend.position = "bottom")
+    ggplot2::theme(
+      legend.position = "bottom"
+    )
   
   return(fig_hist_loo)
   
