@@ -9,6 +9,128 @@ generate_figure <- function(data){
                  stringr, RColorBrewer, readstata13, metaplus, sjlabelled, ggrepel, tikzDevice)
   
   
+  # helper functions 
+  
+  # The helper renormalizes weights so that each study gets the 
+  # same total weight even if they are missing data
+  
+  study_weighting <- function(data)
+    data %>% 
+    dplyr::group_by(country) %>% 
+    dplyr::mutate(weight = weight/sum(weight)) %>% 
+    dplyr::ungroup() 
+  
+  lm_helper <- function(data,
+                        ...) {
+    data %>% 
+      study_weighting() %>% 
+      estimatr::lm_robust(data = .,...) %>% 
+      {bind_cols( tidy(.), n = nobs(.) )}
+  }
+  
+  # Leave-X-out helper that takes data and sample_var, 
+  # nests by sample_var performs LOO with loo_n observations out
+  # applying loo_fun to each sample
+  
+  loo_helper <- function(data, 
+                         sample_var, 
+                         loo_n = 1,
+                         loo_fun = 
+                           function(dat) 
+                             lm_helper(data = dat, 
+                                       formula = take_vaccine_num ~ 1, 
+                                       cluster = cluster,
+                                       weight = weight, 
+                                       se_type = "stata")) {
+    
+    .var <- data[[sample_var]]
+    
+    # Data is recombined and loo_fun applied to each combination 
+    data %>% 
+      {
+        plyr::adply(.data = combn(unique(.var), loo_n), 
+                    .margins = 2, 
+                    .fun = function(x) loo_fun(.[!(.var %in% x), ]) )
+      }
+  }
+  
+  # # Illustration of loo_helper
+  # loo_helper(
+  #   data = data.frame(country = 1:3, Y = 1:3),
+  #   loo_n = 2,
+  #   sample_var = "country",
+  #   loo_fun = function(dat) mean(dat$Y)
+  # )
+  
+  # Subgroup analysis : Function to apply analysis function over groups
+  
+  grp_analysis <- function(df, 
+                           y, 
+                           x) {
+    df %>%
+      dplyr::filter(if_all(c(all_of(x), all_of(y), cluster, weight), ~ !is.na(.))) %>%
+      dplyr::nest_by(group, get(x)) %>%
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(y, "~ 1")), cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop") %>% 
+      dplyr::rename(!!x := "get(x)")
+  }
+  
+  # Reasons analysis: Function to apply analysis function over groups
+  
+  reasons_together <- function(df, 
+                               reason, 
+                               num = "Yes") {
+    df %>%
+      dplyr::filter(take_vaccine %in% num, 
+                    if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
+      dplyr::nest_by(group) %>%
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(reason, "~ 1")), 
+                  cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop")
+  }
+  
+  
+  reasons_together_subgroup <- function(df, 
+                                        reason, num = "Yes", 
+                                        dem_group = NA, 
+                                        dem_subgroup = NA) {
+    
+    if (dem_group == "gender")
+      df <- filter(df, gender %in% dem_subgroup)
+    
+    df %>%
+      dplyr::filter(take_vaccine %in% num,
+                    !is.na(get(reason))) %>%
+      dplyr::nest_by(group) %>%
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(reason, "~ 1")), cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop")
+  }
+  
+  # Age analysis for reasons
+  
+  age_analysis <- function(df, 
+                           reason, 
+                           num = "Yes", 
+                           filter_by = NA) {
+    df %>%
+      dplyr::filter({{filter_by}} == 1)  %>%
+      dplyr::filter(take_vaccine %in% num, 
+                    if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
+      dplyr::nest_by(group) %>%
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(reason, "~ 1")), 
+                  cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop")
+  }
+  
+  
   # Prep levels
 
   main_results <-
