@@ -11,7 +11,8 @@ generate_figure <- function(data){
   
   loo_data$estimate <- loo_data$estimate * 100
   
-  palette_fun <- grDevices::colorRampPalette(safe_colorblind_palette)
+  n_colors <- length(unique(loo_data$tag))
+  palette <- grDevices::colorRampPalette(safe_colorblind_palette)(n_colors)
   
   fig_hist_loo <-
     ggplot2::ggplot(
@@ -37,11 +38,11 @@ generate_figure <- function(data){
     ggplot2::facet_grid(var + tag ~ m) +
     ggplot2::scale_color_manual(
       name = "Subgroups",
-      values = palette_fun
+      values = palette
     ) +
     ggplot2::scale_fill_manual(
       name = "Subgroups",
-      values = palette_fun
+      values = palette
     ) +
     ggplot2::scale_linetype_manual(
       name = "Sample Average",
