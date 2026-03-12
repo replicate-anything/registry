@@ -16,7 +16,9 @@ replications:
   - id: fig_2
     type: figure
     description: Robustness check using leave-m-out approach
-    data: processed/fig_2.csv
+    data: 
+    - processed/fig_2_hist.csv
+    - processed/fig_2_ref.csv
     code: code/fig_2.R
 
   - id: fig_3
