@@ -28,11 +28,8 @@ generate_figure <- function(data){
     ) +
     ggplot2::geom_vline(
       data = ref_data,
-      ggplot2::aes(
-        xintercept = estimate,
-        color = cat,
-        linetype = group
-      ),
+      ggplot2::aes(xintercept = estimate, linetype = group),
+      color = "black",
       linewidth = .9
     ) +
     ggplot2::facet_grid(var + tag ~ m) +
