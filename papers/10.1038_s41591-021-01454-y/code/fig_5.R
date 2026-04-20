@@ -2,7 +2,7 @@ generate_figure <- function(data){
 
   #Group together categories
 
-  data %<>%
+  data %>%
     dplyr::mutate(
       trust_recode_1 = ifelse(trust_vaccine_1 == 1 | trust_vaccine_2 == 1, 1, 0),
       trust_recode_1 = ifelse((country == "Nigeria" | country == "USA") &
