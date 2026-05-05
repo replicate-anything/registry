@@ -1,5 +1,4 @@
 generate_figure <- function(data){
-
   # Support sizes
   amounts_d <- seq(0, 22, .5)
   amounts_v <- seq(0, 200, 1)
@@ -43,21 +42,21 @@ generate_figure <- function(data){
 
 
   supports <-
-    ggarrange(
-      s1 %>% ggplot(aes(amounts, support, color = Costs)) + geom_line() + ylim(0, 1) +
+    egg::ggarrange(
+      s1 %>% ggplot2::ggplot(aes(amounts, support, color = Costs)) + geom_line() + ylim(0, 1) +
         theme_bw() +
         xlab("German contribution (bn Euro)") + ylab("Share supporting")  +
         theme(legend.position = "bottom"),
 
-      s2 %>% ggplot(aes(amounts, support, color = Multilateralism)) + geom_line() + ylim(0, 1) +
+      s2 %>% ggplot2::ggplot(aes(amounts, support, color = Multilateralism)) + geom_line() + ylim(0, 1) +
         theme_bw() +
         xlab("German contribution (bn  Euro)") +
         ylab("Share supporting")   +
         theme(legend.position = "bottom") + ylab(""),
 
-      s3 %>% ggplot(aes(amounts, support, color = Costs)) + geom_line() + ylim(0, 1) + theme_bw() + xlab("German contribution (mio vaccines)") + ylab("Share supporting")  + theme(legend.position = "bottom"),
+      s3 %>% ggplot2::ggplot(aes(amounts, support, color = Costs)) + geom_line() + ylim(0, 1) + theme_bw() + xlab("German contribution (mio vaccines)") + ylab("Share supporting")  + theme(legend.position = "bottom"),
 
-      s4 %>% ggplot(aes(amounts, support, color = Multilateralism)) + geom_line() + ylim(0, 1) + theme_bw() + xlab("German contribution (mio vaccines)") + ylab("Share supporting")   + theme(legend.position =  "bottom") + ylab(""),
+      s4 %>% ggplot2::ggplot(aes(amounts, support, color = Multilateralism)) + geom_line() + ylim(0, 1) + theme_bw() + xlab("German contribution (mio vaccines)") + ylab("Share supporting")   + theme(legend.position =  "bottom") + ylab(""),
 
       nrow = 2,
       ncol = 2

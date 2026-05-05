@@ -1,6 +1,6 @@
 paper:
   doi: https://doi.org/10.1371/journal.pone.0278337
-  title: Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany
+  title: "Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany"
   journal: PLOS ONE
   year: 2022
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke
@@ -12,6 +12,10 @@ replications:
     description: "Distribution of support for contributions of different sizes"
     data: processed/fig_1.csv
     code: code/fig_1.R
+    dependencies: 
+    - dplyr
+    - ggplot2
+    - egg
 
   - id: fig_2
     type: figure
@@ -55,3 +59,26 @@ replications:
     data: processed/fig_1.csv
     code: code/fig_7.R
     
+  - id: tab_1
+    type: table
+    description: "Structural Parameter Estimates"
+    data: processed/fig_1.csv
+    code: code/tab_1.R
+    dependencies: 
+    - dplyr
+    - knitr
+    - bbmle
+    - kableExtra
+    
+  - id: tab_2
+    type: table
+    description: "Additional Analyses: Wave 2 conjoint"
+    data: 
+    - processed/fig_3.csv
+    - processed/labels.csv
+    code: code/tab_2.R
+    dependencies: 
+    - dplyr
+    - estimatr
+    - modelsummary
+    - kableExtra
