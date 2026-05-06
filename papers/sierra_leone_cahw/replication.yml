@@ -1,0 +1,94 @@
+paper:
+  doi: 
+  title: Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone
+  journal: 
+  year: 2026
+  authors: Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo Prato, Peter van der Windt
+
+
+replications:
+
+  - id: fig_1
+    type: figure
+    description: "Components of performance outcome variable"
+    data: processed/y_df.csv
+    code: code/fig_1.R
+    dependencies: 
+    - dplyr
+    - tidyr
+    - ggplot2
+    
+  - id: fig_2
+    type: figure
+    description: "Components of quality / surveillance outcome variable"
+    data: processed/y_df.csv
+    code: code/fig_2.R
+    dependencies:   
+    - dplyr
+    - tidyr
+    - ggplot2
+    
+  - id: tab_1
+    type: table
+    description: "Results Service Provider Quality Period 2 (post)"
+    data: processed/table_objects_quality_period2.rds
+    code: code/html_table.R
+
+  - id: tab_2
+    type: table
+    description: "Results Service Provider Quality Period 1 (pre)"
+    data: processed/table_objects_quality_period1.rds
+    code: code/html_table.R
+
+  - id: tab_3
+    type: table
+    description: "Results Service Provider Quality (Average)"
+    data: processed/table_objects_quality_average.rds
+    code: code/html_table.R
+
+  - id: tab_4
+    type: table
+    description: "Results Service Provider Performance (Effort, Period 2)"
+    data: processed/table_objects_effort_period2.rds
+    code: code/html_table.R
+
+  - id: tab_5
+    type: table
+    description: "Results Service Provider Performance (Effort, Period 1)"
+    data: processed/table_objects_effort_period1.rds
+    code: code/html_table.R
+
+  - id: tab_6
+    type: table
+    description: "Results Service Provider Performance (Effort, Average)"
+    data: processed/table_objects_effort_average.rds
+    code: code/html_table.R
+    
+  - id: fig_3
+    type: figure
+    description: "Structural Model: Posterior Distributions on Model parameters"
+    data: processed/structural_1.rds
+    code: code/return_rds_plot.R
+    
+  - id: fig_4
+    type: figure
+    description: "Experiments: Expected CAHW Effort"
+    data: processed/structural_2.rds
+    code: code/return_rds_plot.R
+    
+  - id: fig_5
+    type: figure
+    description: "Experiments: Posterior Probability that Bureaucratic Package Outperforms Community Package"
+    data: processed/structural_3.rds
+    code: code/return_rds_plot.R
+
+  - id: fig_6
+    type: figure
+    description: "Model-Based Estimates of Treatment Effects"
+    data: processed/model_te.rds
+    code: code/return_rds_plot.R
+    
+    
+    
+
+ 
