@@ -1,0 +1,125 @@
+---
+title: "Replication Registry"
+embed-resources: true
+format:
+  html:
+    output-file: index.html
+    toc: false
+execute:
+  echo: false
+  warning: false
+---
+
+Welcome to the **Replication Registry**. This catalog lists replication packages in `papers/`, one row per study folder, with metadata from each folder's `replication.yml`.
+
+```{r}
+#| label: papers-table
+
+library(yaml)
+
+field_or <- function(x, default = "") {
+  if (is.null(x) || length(x) == 0) default else x
+}
+
+format_authors <- function(authors) {
+  if (is.null(authors)) {
+    ""
+  } else if (is.character(authors) && length(authors) == 1) {
+    authors
+  } else {
+    paste(authors, collapse = ", ")
+  }
+}
+
+doi_href <- function(doi) {
+  doi <- trimws(field_or(doi))
+  if (doi == "") return("")
+  if (grepl("^https?://", doi, ignore.case = TRUE)) {
+    return(doi)
+  }
+  paste0("https://doi.org/", gsub("^https?://doi.org/", "", tolower(doi)))
+}
+
+papers_dir <- "papers"
+folders <- list.dirs(papers_dir, recursive = FALSE, full.names = FALSE)
+folders <- sort(folders)
+
+rows <- lapply(folders, function(folder) {
+  yml_file <- file.path(papers_dir, folder, "replication.yml")
+  if (!file.exists(yml_file)) {
+    return(NULL)
+  }
+
+  meta <- tryCatch(
+    yaml::read_yaml(yml_file),
+    error = function(e) NULL
+  )
+  if (is.null(meta) || is.null(meta$paper)) {
+    return(NULL)
+  }
+
+  paper <- meta$paper
+  doi <- field_or(paper$doi)
+  href <- doi_href(doi)
+
+  data.frame(
+    folder = folder,
+    doi = doi,
+    doi_href = href,
+    title = field_or(paper$title),
+    journal = field_or(paper$journal),
+    year = field_or(paper$year, NA),
+    authors = format_authors(paper$authors),
+    stringsAsFactors = FALSE
+  )
+})
+
+papers <- if (length(rows) > 0) {
+  do.call(rbind, rows)
+} else {
+  data.frame(
+    folder = character(),
+    doi = character(),
+    doi_href = character(),
+    title = character(),
+    journal = character(),
+    year = integer(),
+    authors = character(),
+    stringsAsFactors = FALSE
+  )
+}
+
+if (nrow(papers) == 0) {
+  knitr::kable(
+    data.frame(Message = "No papers with replication.yml found in papers/."),
+    format = "html",
+    escape = FALSE
+  )
+} else {
+  display <- data.frame(
+    Folder = sprintf(
+      '<a href="papers/%s/">%s</a>',
+      papers$folder,
+      papers$folder
+    ),
+    DOI = ifelse(
+      papers$doi_href != "",
+      sprintf('<a href="%s">%s</a>', papers$doi_href, papers$doi),
+      papers$doi
+    ),
+    Title = papers$title,
+    Journal = papers$journal,
+    Year = papers$year,
+    Authors = papers$authors,
+    stringsAsFactors = FALSE,
+    check.names = FALSE
+  )
+
+  knitr::kable(
+    display,
+    format = "html",
+    escape = FALSE,
+    table.attr = 'class="table table-striped"'
+  )
+}
+```
