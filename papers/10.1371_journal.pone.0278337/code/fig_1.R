@@ -12,33 +12,33 @@ generate_figure <- function(data){
 
   s1 <- list(
     Low = support(
-      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "Low") |> pull(cash_billions),
+      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "Low") |> dplyr::pull(cash_billions),
       amounts = amounts_d),
     High  =  support(
-      data |> dplyr::filter(risk_factor == "High" & trading_factor == "High")|> pull(cash_billions), amounts = amounts_d)) |>
-    bind_rows(.id = "Costs")
+      data |> dplyr::filter(risk_factor == "High" & trading_factor == "High")|> dplyr::pull(cash_billions), amounts = amounts_d)) |>
+    dplyr::bind_rows(.id = "Costs")
 
   s2 <- list(
     Low = support(
-      data |> dplyr::filter(deal == "No deal") |> pull(cash_billions)),
+      data |> dplyr::filter(deal == "No deal") |> dplyr::pull(cash_billions)),
     High  =  support(
-      data |> dplyr::filter(deal == "40 give 40 bn") |> pull(cash_billions))) |>
-    bind_rows(.id = "Multilateralism")
+      data |> dplyr::filter(deal == "40 give 40 bn") |> dplyr::pull(cash_billions))) |>
+    dplyr::bind_rows(.id = "Multilateralism")
 
 
   s3 <- list(
     Low = support(
-      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "Low") |> pull(doses), amounts_v),
+      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "Low") |> dplyr::pull(doses), amounts_v),
     High  =  support(
-      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "High") |> pull(doses), amounts_v)) |>
-    bind_rows(.id = "Costs")
+      data |> dplyr::filter(risk_factor == "Low" & trading_factor == "High") |> dplyr::pull(doses), amounts_v)) |>
+    dplyr::bind_rows(.id = "Costs")
 
   s4 <- list(
     Low = support(
-      data |> dplyr::filter(deal == "No deal") |> pull(doses), amounts_v),
+      data |> dplyr::filter(deal == "No deal") |> dplyr::pull(doses), amounts_v),
     High  =  support(
-      data |> dplyr::filter(deal == "40 give 40 bn") |> pull(doses), amounts_v)) |>
-    bind_rows(.id = "Multilateralism")
+      data |> dplyr::filter(deal == "40 give 40 bn") |> dplyr::pull(doses), amounts_v)) |>
+    dplyr::bind_rows(.id = "Multilateralism")
 
 
   supports <-
