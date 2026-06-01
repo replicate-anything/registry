@@ -18,8 +18,8 @@ generate_figure <- function(data){
     dplyr::mutate(Treatment = factor(term, treatments_norm, treatment_labels),
            outcome = factor(outcome, c("cash_billions", "doses"), c("Cash (billion Euros)", "Doses (Millions)"))) |>
 
-    ggplot2::ggplot(aes(estimate, Treatment)) + ggplot2::geom_point()+
-    ggplot2::geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = .1)+
+    ggplot2::ggplot(ggplot2::aes(estimate, Treatment)) + ggplot2::geom_point()+
+    ggplot2::geom_errorbar(ggplot2::aes(xmin = conf.low, xmax = conf.high), width = .1)+
     ggplot2::geom_vline(xintercept=0, linetype="longdash", lwd=0.35, colour = "#B55555") +
     ggplot2::theme_bw() + 
     ggplot2::facet_grid(~outcome, scales = "free_x")+
