@@ -2,7 +2,7 @@ generate_figure <- function(data){
 
   main_results <-
     list(
-      cash = estimatr::lm_robust(cash_billions ~ trading_importance*risk*others_number_norm*others_giving_norm  + round, fixed_effects = ~id,  se_type = "stata", data = data) |> tidy,
+      cash = estimatr::lm_robust(cash_billions ~ trading_importance*risk*others_number_norm*others_giving_norm  + round, fixed_effects = ~id,  se_type = "stata", data = data) |> broom:tidy(),
       doses = estimatr::lm_robust(doses ~ trading_importance*risk*others_number_norm*others_giving_norm  + round, fixed_effects = ~id,  se_type = "stata", data = data) |> tidy) |> dplyr::bind_rows()
 
 
