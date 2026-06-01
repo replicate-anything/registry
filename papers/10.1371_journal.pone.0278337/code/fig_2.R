@@ -23,7 +23,7 @@ generate_figure <- function(data){
     ggplot2::geom_vline(xintercept=0, linetype="longdash", lwd=0.35, colour = "#B55555") +
     ggplot2::theme_bw() + 
     ggplot2::facet_grid(~outcome, scales = "free_x")+
-    ylab("")
+    ggplot2::ylab("")
 
   return(figure_2)
 
