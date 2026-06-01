@@ -7,21 +7,21 @@ generate_figure <- function(data){
 
 
   models_basic <- lapply(c(outcomes), function(y)
-    lm_robust(as.formula(paste(y, "~ treatment_video")),
+    estimatr::lm_robust(as.formula(paste(y, "~ treatment_video")),
               data = data))
 
   names(models_basic) <- outcomes
 
   figure_3 <-
-    lapply(models_basic, tidy) %>% bind_rows(.id = "outcome") %>%
-    dplyr::filter(term != "(Intercept)") %>%
-    mutate(outcome = factor(outcome, outcomes, outcome_labels)) %>%
-    ggplot(aes(estimate, outcome)) + geom_point()+
-    geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = .1)+
-    geom_vline(xintercept=0, linetype="longdash", lwd=0.35, colour = "#B55555") +
-    theme_bw() +
-    ggtitle("Effect of video treatment") +
-    ylab("")
+    lapply(models_basic, tidy) |> dplyr::bind_rows(.id = "outcome") |>
+    dplyr::filter(term != "(Intercept)") |>
+    dplyr::mutate(outcome = factor(outcome, outcomes, outcome_labels)) |>
+    ggplot2::ggplot(aes(estimate, outcome)) + ggplot2::geom_point()+
+    ggplot2::geom_errorbar(aes(xmin = conf.low, xmax = conf.high), width = .1)+
+    ggplot2::geom_vline(xintercept=0, linetype="longdash", lwd=0.35, colour = "#B55555") +
+    ggplot2::theme_bw() +
+    ggplot2::ggtitle("Effect of video treatment") +
+    ggplot2::ylab("")
 
   return(figure_3)
 }
