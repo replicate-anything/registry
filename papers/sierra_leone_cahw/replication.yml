@@ -1,9 +1,9 @@
 paper:
   doi: 
-  title: Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone
+  title: "Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone"
   journal: 
   year: 2026
-  authors: Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo Prato, Peter van der Windt
+  authors: "Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo Prato, Peter van der Windt"
 
 
 replications:
@@ -88,7 +88,86 @@ replications:
     data: processed/model_te.rds
     code: code/return_rds_plot.R
     
-    
-    
 
- 
+  - id: fig_7 
+    type: figure 
+    description: "Appendix: Performance Index components (without standardization)" 
+    data: processed/fig_components_prestand.rds
+    code: code/return_rds_plot.R
+    
+  - id: tab_5 
+    type: table
+    description: "Appendix: Variable Description and Summary Information" 
+    data: processed/vardesc.rds
+    code: code/tab_5.R
+    
+  - id: tab_6
+    type: table
+    description: "Appendix: Manipulation checks" 
+    data: processed/tab_baseline.rds
+    code: code/tab_6.R
+    
+    
+  - id: tab_7 # FLAG!!!!!!
+    type: table
+    description: "Appendix: Manipulation checks, social sanctions" 
+    data: processed/soc_sanctions.rds
+    code: code/tab_7.R
+    
+  - id: tab_8
+    type: table
+    description: "Appendix: Manipulation checks, frequency reward CAHW" 
+    data: processed/sanctioning_plans.rds
+    code: code/tab_8.R
+    
+  - id: tab_9 
+    type: table
+    description: "Appendix: Manipulation checks, frequency motivation CAHW" 
+    data: processed/sanctioning_plans.rds
+    code: code/tab_9.R
+    
+  - id: tab_10
+    type: table
+    description: "Appendix: Timeline" 
+    data: processed/timeline.csv
+    code: code/tab_10.R
+
+  - id: tab_11 
+    type: table
+    description: "Appendix: Balance table"
+    data: processed/balance_table.rds
+    code: code/tab_11.R
+
+  - id: tab_12 # FLAG not done bc requires multitple data input!!!
+    type: table
+    description: "Appendix: Balance table"
+    data: 
+    - processed/lm_attrition_hh.rds
+    - processed/lm_attrition_main.rds
+    - processed/lm_attrition.rds
+    code: code/tab_12.R
+    
+  - id: fig_8
+    type: figure
+    description: "Appendix: Distribution CAHW Performance Index by Treatment Arm"
+    data: processed/fig_perf_dist.rds
+    code: code/return_rds_plot.R
+    
+  - id: tab_13
+    type: table
+    description: "Appendix: Results by CAHW Performance Index's Subcomponents"
+    data: processed/table_subcomponents_std.rds
+    code: code/tab_13.R
+    
+  - id: tab_14 # FLAG 
+    type: table
+    description: "Appendix: Results by CAHW Performance Index's Subcomponents"
+    data: processed/table_subcomponents_not_std.rds
+    code: code/tab_14.R
+        
+  - id: tab_15
+    type: table
+    description: "Appendix: Results by CAHW Quality Index's Subcomponents"
+    data: processed/table_subcomponents_not_std.rds
+    code: code/tab_15.R
+  
