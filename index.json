@@ -22,5 +22,13 @@
     "year": 2022,
     "journal": "PLOS ONE",
     "repo": "replicate-anything/registry"
-  }
+  }, 
+{
+    "doi": "sierra_leone_cahw",
+    "title": "Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone",
+    "authors": "Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo Prato, Peter van der Windt",
+    "year": 2026,
+    "journal": null,
+    "repo": null
+  }, 
 ]
