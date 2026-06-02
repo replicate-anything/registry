@@ -12,7 +12,7 @@ generate_table <- function(data){
           maxx(a, b, c, g, k, ZT, ZR, ZY, Zy), 
           sd = sigma)
   
-  df_4 <- data %>% mutate(x = cash_billions)
+  df_4 <- data |> dplyr::mutate(x = cash_billions)
   
   LL  <- function(a=1,b=1,c=1,g=1,k=1, sigma=1) {
     
@@ -64,9 +64,8 @@ generate_table <- function(data){
       align = "c"
     ) %>%
     kableExtra::kable_styling(full_width = FALSE)
-  
-  print(tbl)
-  
-  
+
+  # In Shiny, return HTML so it renders instead of printing raw tags.
+  htmltools::HTML(as.character(tbl))
 } 
 
