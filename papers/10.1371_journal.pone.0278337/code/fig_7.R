@@ -4,15 +4,28 @@ generate_figure <- function(data){
   treatment_labels <- c("Trading importance", "Risk", "Number of others giving (10s)", "Amount given by other countries\n(10s of billions)")
 
   main_results_by_background <-
-    lapply(unique(data$migration_background), function(p)
-      list(
-        cash = estimatr::lm_robust(cash_billions ~ trading_importance*risk*others_number_norm*others_giving_norm  + round,
-                         fixed_effects = ~id,  se_type = "stata",
-                         data = data |> dplyr::filter(migration_background == p)) |> broom::tidy(),
-        doses = estimatr::lm_robust(doses ~ trading_importance*risk*others_number_norm*others_giving_norm  + round,
-                          fixed_effects = ~id,  se_type = "stata",
-                          data = data |> dplyr::filter(migration_background == p)) |> broom::tidy()) |>
-        dplyr::bind_rows() |> dplyr::mutate(migration_background = factor(p))) |>
+    lapply(unique(data$migration_background), function(p) {
+      dplyr::bind_rows(
+        cash = broom::tidy(
+          estimatr::lm_robust(
+            cash_billions ~ trading_importance * risk * others_number_norm * others_giving_norm + round,
+            fixed_effects = ~id,
+            se_type = "stata",
+            data = dplyr::filter(data, migration_background == p)
+          )
+        ),
+        doses = broom::tidy(
+          estimatr::lm_robust(
+            doses ~ trading_importance * risk * others_number_norm * others_giving_norm + round,
+            fixed_effects = ~id,
+            se_type = "stata",
+            data = dplyr::filter(data, migration_background == p)
+          )
+        ),
+        .id = "outcome"
+      ) |>
+        dplyr::mutate(migration_background = factor(p))
+    }) |>
     dplyr::bind_rows()
 
   figure_1_background <-
