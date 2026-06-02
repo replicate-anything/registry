@@ -2,7 +2,7 @@ generate_figure <- function(data){
 
   amounts_d <- seq(0, 22, .5)
 
-  support <- function(x = df_4$cash_billions, amounts = amounts_d)
+  support <- function(x, amounts = amounts_d)
     data.frame(
       amounts = amounts,
       support = sapply(amounts, function(j) 
@@ -10,15 +10,15 @@ generate_figure <- function(data){
   
   sp <- lapply(unique(data$party), function(p)
     support(
-      data %>% dplyr::filter(party == p) %>% pull(cash_billions),
+      data |> dplyr::filter(party == p) |> pull(cash_billions),
       amounts = amounts_d))
 
   names(sp) <- unique(data$party)
 
-  sp <- sp %>% bind_rows(.id = "Party")
+  sp <- sp |> bind_rows(.id = "Party")
 
   supports_by_party <-
-    sp %>% ggplot(aes(amounts, support, color = Party)) + geom_line() + ylim(0,1) + theme_bw() + xlab("German contribution (bn Euro)") + ylab("Share supporting")  + theme(legend.position="bottom")
+    sp |> ggplot(aes(amounts, support, color = Party)) + geom_line() + ylim(0,1) + theme_bw() + xlab("German contribution (bn Euro)") + ylab("Share supporting")  + theme(legend.position="bottom")
 
   return(supports_by_party)
 }
