@@ -18,7 +18,7 @@ generate_figure <- function(data){
   sp <- sp |> dplyr::bind_rows(.id = "Party")
 
   supports_by_party <-
-    sp |> gplot2::ggplot(aes(amounts, support, color = Party)) + geom_line() + ylim(0,1) + theme_bw() + xlab("German contribution (bn Euro)") + ylab("Share supporting")  + theme(legend.position="bottom")
+    sp |> ggplot2::ggplot(aes(amounts, support, color = Party)) + geom_line() + ylim(0,1) + theme_bw() + xlab("German contribution (bn Euro)") + ylab("Share supporting")  + theme(legend.position="bottom")
 
   return(supports_by_party)
 }
