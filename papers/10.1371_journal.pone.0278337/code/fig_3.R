@@ -13,7 +13,7 @@ generate_figure <- function(data){
   names(models_basic) <- outcomes
 
   figure_3 <-
-    lapply(models_basic, broom::tidy()) |> dplyr::bind_rows(.id = "outcome") |>
+    lapply(models_basic, tidy()) |> dplyr::bind_rows(.id = "outcome") |>
     dplyr::filter(term != "(Intercept)") |>
     dplyr::mutate(outcome = factor(outcome, outcomes, outcome_labels)) |>
     ggplot2::ggplot(aes(estimate, outcome)) + ggplot2::geom_point()+
