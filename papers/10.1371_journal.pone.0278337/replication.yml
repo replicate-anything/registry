@@ -57,7 +57,7 @@ replications:
     type: figure
     description: "Results Refreshment Sample"
     data: processed/fig_1.csv
-    code: code/fig_7.R
+    code: code/fig_8.R
     
   - id: tab_1
     type: table
