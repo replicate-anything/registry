@@ -55,17 +55,13 @@ generate_table <- function(data){
     dplyr::mutate(
       conf.low  = estimate - 1.96 * std.error,
       conf.high = estimate + 1.96 * std.error
-    ) %>%
-    knitr::kable(
-      format = "html",
-      caption = "Structural parameter estimates",
-      digits = 2,
-      row.names = FALSE,
-      align = "c"
-    ) %>%
-    kableExtra::kable_styling(full_width = FALSE)
+    )
 
-  # In Shiny, return HTML so it renders instead of printing raw tags.
-  htmltools::HTML(as.character(tbl))
+  # If the Shiny app uses renderTable()/renderPrint(), returning a data.frame
+  # displays an actual table, whereas HTML would appear as raw tags.
+  tbl <- tbl %>%
+    dplyr::mutate(dplyr::across(where(is.numeric), ~ round(.x, 2)))
+
+  tbl
 } 
 
