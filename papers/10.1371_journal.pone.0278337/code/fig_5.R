@@ -17,7 +17,13 @@ generate_figure <- function(data){
   sm <- sm |> dplyr::bind_rows(.id = "Migration_background")
 
   supports_by_migration <-
-    sm |> ggplot2::ggplot(aes(amounts, support, color = Migration_background)) + geom_line() + ylim(0,1) + theme_bw() + xlab("German contribution (bn Euro)") + ylab("Share supporting")  + theme(legend.position="bottom")
+    sm |> ggplot2::ggplot(ggplot2::aes(amounts, support, color = Migration_background)) + 
+    ggplot2::geom_line() + 
+    ggplot2::ylim(0,1) + 
+    ggplot2::theme_bw() + 
+    ggplot2::xlab("German contribution (bn Euro)") + 
+    ggplot2::ylab("Share supporting")  + 
+    ggplot2::theme(legend.position="bottom")
 
   return(supports_by_migration)
 }
