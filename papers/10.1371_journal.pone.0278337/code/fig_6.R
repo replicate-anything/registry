@@ -8,19 +8,19 @@ generate_figure <- function(data){
       list(
         cash = lm_robust(cash_billions ~ trading_importance*risk*others_number_norm*others_giving_norm  + round,
                          fixed_effects = ~id,  se_type = "stata",
-                         data = data %>% dplyr::filter(party == p)) %>% tidy,
+                         data = data |>  dplyr::filter(party == p)) |>  tidy,
         doses = lm_robust(doses ~ trading_importance*risk*others_number_norm*others_giving_norm  + round,
                           fixed_effects = ~id,  se_type = "stata",
-                          data = data %>% dplyr::filter(party == p)) %>% tidy) %>%
-        bind_rows() %>% mutate(party = p)) %>%
+                          data = data |>  dplyr::filter(party == p)) |>  tidy) |> 
+        bind_rows() |>  mutate(party = p)) |> 
     bind_rows()
 
   figure_1_party <-
 
-    main_results_by_party %>%
-    dplyr::filter(term %in% treatments_norm) %>%
+    main_results_by_party |> 
+    dplyr::filter(term %in% treatments_norm) |> 
     mutate(Treatment = factor(term, treatments_norm, treatment_labels),
-           outcome = factor(outcome, c("cash_billions", "doses"), c("Cash (billion Euros)", "Doses (Millions)"))) %>%
+           outcome = factor(outcome, c("cash_billions", "doses"), c("Cash (billion Euros)", "Doses (Millions)"))) |> 
 
     ggplot(aes(Treatment, estimate, color = party)) +
     geom_point(position = position_dodge(0.3))+

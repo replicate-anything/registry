@@ -1,7 +1,13 @@
 generate_figure <- function(data){
 
   amounts_d <- seq(0, 22, .5)
-
+  
+  support <- function(x = df_4$cash_billions, amounts = amounts_d)
+    data.frame(
+      amounts = amounts,
+      support = sapply(amounts, function(j) 
+        mean(x >= j, na.rm = TRUE)))
+  
   sm <- lapply(0:1, function(m)
     support(
       data %>% dplyr::filter(migration_background == m) %>% pull(cash_billions),
