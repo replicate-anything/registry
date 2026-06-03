@@ -102,19 +102,63 @@ generate_table <- function(data){
     "treatment_video:vig_benefit_health" = "Video * Health"
   )
 
-  tbl <- modelsummary::modelsummary(
-    models_treatments,
-    coef_map = coef_map,
-    estimate = "{estimate}{stars}",
-    statistic = "({std.error})",
-    stars = c('***' = .001, '**' = .01, '*' = .05),
-    gof_map = c("r.squared", "adj.r.squared", "nobs", "rmse"),
-    output = "data.frame",
-    title = "Effects of treatment on drivers of support for agreements.",
-    notes = "*** p<0.001; ** p<0.01; * p<0.05",
-    colnames = c("rating", "choice")
+  add_stars <- function(p) {
+    dplyr::case_when(
+      p < 0.001 ~ "***",
+      p < 0.01 ~ "**",
+      p < 0.05 ~ "*",
+      TRUE ~ ""
+    )
+  }
+
+  format_coef <- function(estimate, std.error, p.value, digits = 3) {
+    est <- sprintf(paste0("%.", digits, "f"), estimate)
+    se <- sprintf(paste0("%.", digits, "f"), std.error)
+    paste0(est, add_stars(p.value), " (", se, ")")
+  }
+
+  tidy_rating <- broom::tidy(models_treatments$rating)
+  tidy_choice <- broom::tidy(models_treatments$choice)
+
+  coef_tbl <- dplyr::inner_join(
+    tidy_rating |> dplyr::select(term, estimate, std.error, p.value),
+    tidy_choice |> dplyr::select(term, estimate, std.error, p.value),
+    by = "term",
+    suffix = c("_rating", "_choice")
+  ) |>
+    dplyr::mutate(
+      term = factor(term, levels = names(coef_map)),
+      Variable = coef_map[as.character(term)],
+      rating = format_coef(estimate_rating, std.error_rating, p.value_rating),
+      choice = format_coef(estimate_choice, std.error_choice, p.value_choice)
+    ) |>
+    dplyr::filter(!is.na(Variable)) |>
+    dplyr::arrange(term) |>
+    dplyr::select(Variable, rating, choice)
+
+  g_rating <- broom::glance(models_treatments$rating)
+  g_choice <- broom::glance(models_treatments$choice)
+
+  gof_tbl <- data.frame(
+    Variable = c("R²", "Adj. R²", "N", "RMSE"),
+    rating = c(
+      sprintf("%.3f", g_rating$r.squared),
+      sprintf("%.3f", g_rating$adj.r.squared),
+      as.character(g_rating$nobs),
+      sprintf("%.3f", g_rating$sigma)
+    ),
+    choice = c(
+      sprintf("%.3f", g_choice$r.squared),
+      sprintf("%.3f", g_choice$adj.r.squared),
+      as.character(g_choice$nobs),
+      sprintf("%.3f", g_choice$sigma)
+    ),
+    stringsAsFactors = FALSE
   )
 
+  tbl <- dplyr::bind_rows(coef_tbl, gof_tbl)
+
+  # Wide regression table for renderTable()/renderPrint() in Shiny.
   tbl
 }
 
