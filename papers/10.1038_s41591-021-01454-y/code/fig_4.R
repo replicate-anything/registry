@@ -1,7 +1,21 @@
 generate_figure <- function(data){
 
-  #Group together categories
 
+  reasons_together <- function(df, 
+                             reason, 
+                             num = "Yes") {
+  df %>%
+    dplyr::filter(take_vaccine %in% num, 
+                  if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
+    dplyr::nest_by(group) %>%
+    dplyr::summarize(
+      lm_helper(data = data, 
+                formula = as.formula(paste0(reason, "~ 1")), 
+                cluster = cluster,
+                weight = weight, se_type = "stata"), .groups = "drop")
+  }
+
+  #Group together categories
   data |>
     dplyr::mutate(
       trust_recode_1 = ifelse(trust_vaccine_1 == 1 | trust_vaccine_2 == 1, 1, 0),
