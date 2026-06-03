@@ -108,7 +108,6 @@ generate_table <- function(data){
     statistic = "({std.error})",
     stars = c('***' = .001, '**' = .01, '*' = .05),
     gof_map = c("r.squared", "adj.r.squared", "nobs", "rmse"),
-    output = "data.frame",
     title = "Effects of treatment on drivers of support for agreements.",
     notes = "*** p<0.001; ** p<0.01; * p<0.05",
     colnames = c("rating", "choice") 
