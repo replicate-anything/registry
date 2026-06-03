@@ -106,6 +106,7 @@ generate_table <- function(data){
     coef_map = coef_map,
     estimate = "{estimate}{stars}",
     statistic = "({std.error})",
+    output = "kableExtra",
     stars = c('***' = .001, '**' = .01, '*' = .05),
     gof_map = c("r.squared", "adj.r.squared", "nobs", "rmse"),
     title = "Effects of treatment on drivers of support for agreements.",
