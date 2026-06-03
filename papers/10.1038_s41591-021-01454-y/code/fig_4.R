@@ -4,16 +4,26 @@ generate_figure <- function(data){
   reasons_together <- function(df, 
                              reason, 
                              num = "Yes") {
-  df %>%
+  df <- df |>
     dplyr::filter(take_vaccine %in% num, 
-                  if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
-    dplyr::nest_by(group) %>%
+                  if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) |>
+    dplyr::nest_by(group) |>
     dplyr::summarize(
       lm_helper(data = data, 
                 formula = as.formula(paste0(reason, "~ 1")), 
                 cluster = cluster,
                 weight = weight, se_type = "stata"), .groups = "drop")
+  return(df)
   }
+
+  data <- 
+    dplyr::bind_rows(
+      mutate(data, group = country),
+      mutate(filter(data, country != "USA" & country != "Russia"), group = "All")) |> 
+    dplyr::mutate(
+      cluster = if_else(group == "All", 
+                        gsub(pattern = " ", replacement = "_", x = tolower(country)), 
+                        cluster)) 
 
   #Group together categories
   data |>
