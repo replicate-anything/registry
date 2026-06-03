@@ -2,7 +2,7 @@ generate_figure <- function(data){
 
   #Group together categories
 
-  data %>%
+  data |>
     dplyr::mutate(
       trust_recode_1 = ifelse(trust_vaccine_1 == 1 | trust_vaccine_2 == 1, 1, 0),
       trust_recode_1 = ifelse((country == "Nigeria" | country == "USA") &
@@ -43,22 +43,22 @@ generate_figure <- function(data){
   trust_vacc_together <-
     list(
       All = lapply(trust_names, reasons_together,
-                   df = data, num = c("Yes", "No", "DK")) %>%
+                   df = data, num = c("Yes", "No", "DK")) |>
         dplyr::bind_rows(),
       Yes = lapply(trust_names, reasons_together,
-                   df = data, num = c("Yes")) %>%
+                   df = data, num = c("Yes")) |>
         dplyr::bind_rows(),
       No = lapply(trust_names, reasons_together,
-                  df = data, num = c("No", "DK")) %>%
-        dplyr::bind_rows()) %>%
-    dplyr::bind_rows(.id = "sub") %>%
-    dplyr::filter(!is.nan(statistic)) %>%
+                  df = data, num = c("No", "DK")) |>
+        dplyr::bind_rows()) |>
+    dplyr::bind_rows(.id = "sub") |>
+    dplyr::filter(!is.nan(statistic)) |>
     dplyr::mutate(
       across(c(conf.low, conf.high, estimate), ~ round(. * 100, digits = 1)),
       n_sub = round(n * estimate, 0),
       n_sub = ifelse(n_sub == 0, NA_integer_, n_sub),
-      group = factor(group, levels = studies_levels)) %>%
-    dplyr::left_join(dictionary, by = "outcome") %>%
+      group = factor(group, levels = studies_levels)) |>
+    dplyr::left_join(dictionary, by = "outcome") |>
     dplyr::mutate(
       size = cut(n_sub, c(0, 50, 500, Inf), include.lowest = TRUE),
       size = forcats::fct_recode(size, "500+" = "(500,Inf]"),
@@ -77,9 +77,9 @@ generate_figure <- function(data){
 
   #Plot
   fig_hist2 <-
-    trust_vacc_together %>%
-    dplyr::mutate(group = plyr::mapvalues(group, "All", "All LMICs")) %>%
-    dplyr::filter(sub == "Any") %>%
+    trust_vacc_together |>
+    dplyr::mutate(group = plyr::mapvalues(group, "All", "All LMICs")) |>
+    dplyr::filter(sub == "Any") |>
     ggplot(aes(estimate, tag)) +
     geom_bar(stat = "identity", position = "dodge", fill = "#DDCC77") +
     facet_wrap(~group, ncol = 2, strip.position = "left")  +
