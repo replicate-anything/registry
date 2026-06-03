@@ -1,7 +1,9 @@
 generate_figure <- function(data){
   
-  hist_data <- data$hist
-  ref_data  <- data$ref
+ # hist_data <- data$hist
+  #ref_data  <- data$ref
+  hist_data <- data[[1]]
+  ref_data  <- data[[2]]
   
   safe_colorblind_palette <- c(
     "#CC6677","#DDCC77","#117733","#332288",
@@ -11,9 +13,9 @@ generate_figure <- function(data){
   
   hist_data$estimate <- hist_data$estimate * 100
   
-  ggplot2::ggplot(hist_data, ggplot2::aes(estimate, color = tag, fill = tag)) +
+  fig_2 <- ggplot2::ggplot(hist_data, ggplot2::aes(estimate, color = tag, fill = tag)) +
     ggplot2::geom_histogram(
-      ggplot2::aes(y = after_stat(density)),
+      ggplot2::aes(y = ggplot2::after_stat(density)),
       bins = 200,
       position = "dodge",
       alpha = .3,
@@ -34,4 +36,6 @@ generate_figure <- function(data){
     ) +
     ggplot2::theme_bw(base_size = 12) +
     ggplot2::theme(legend.position = "bottom")
+
+  return(fig_2)
 }
