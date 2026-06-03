@@ -30,7 +30,7 @@ replications:
   - id: fig_4
     type: figure
     description: Trust
-    data: processed/tab_3.csv
+    data: processed/combined.csv
     code: code/fig_4.R
 
   - id: fig_5
