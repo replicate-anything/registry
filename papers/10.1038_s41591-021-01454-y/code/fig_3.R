@@ -6,7 +6,7 @@ generate_figure <- function(data){
   "#CC6677","#DDCC77","#117733","#332288",
   "#AA4499","#44AA99","#999933","#882255",
   "#661100","#6699CC","#888888","#88CCEE")
-  
+
   fig_3 <-
     data |>
     dplyr::filter(!is.na(n_sub)) |>
@@ -32,6 +32,6 @@ generate_figure <- function(data){
           axis.text.y = element_text(hjust = 0))
 
 
-  return(fig_2)
+  return(fig_3)
 
 }
