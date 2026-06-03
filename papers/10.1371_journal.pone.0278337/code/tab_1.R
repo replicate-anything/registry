@@ -62,6 +62,6 @@ generate_table <- function(data){
   tbl <- tbl %>%
     dplyr::mutate(dplyr::across(where(is.numeric), ~ round(.x, 2)))
 
-  tbl
+  as.character(tbl)
 } 
 
