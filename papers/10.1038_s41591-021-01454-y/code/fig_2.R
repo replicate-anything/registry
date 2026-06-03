@@ -4,7 +4,11 @@ generate_figure <- function(data){
   #ref_data  <- data$ref
   hist_data <- data[[1]]
   ref_data  <- data[[2]]
-  
+
+  # Drop rows with missing facet levels so facet_grid does not show an NA column.
+  hist_data <- hist_data |> dplyr::filter(!is.na(m), !is.na(var), !is.na(tag))
+  ref_data  <- ref_data  |> dplyr::filter(!is.na(m), !is.na(var), !is.na(tag))
+
   safe_colorblind_palette <- c(
     "#CC6677","#DDCC77","#117733","#332288",
     "#AA4499","#44AA99","#999933","#882255",
