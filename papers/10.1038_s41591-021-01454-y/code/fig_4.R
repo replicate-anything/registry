@@ -18,8 +18,8 @@ generate_figure <- function(data){
 
   data <- 
     dplyr::bind_rows(
-      mutate(data, group = country),
-      mutate(filter(data, country != "USA" & country != "Russia"), group = "All")) |> 
+      dplyr::mutate(data, group = country),
+      dplyr::mutate(filter(data, country != "USA" & country != "Russia"), group = "All")) |> 
     dplyr::mutate(
       cluster = if_else(group == "All", 
                         gsub(pattern = " ", replacement = "_", x = tolower(country)), 
