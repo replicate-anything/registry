@@ -22,7 +22,7 @@ generate_figure <- function(data){
     data |> 
     dplyr::group_by(study) |> 
     dplyr::mutate(
-      cluster = ifelse(is.na(cluster), paste(1:n()), cluster),
+      cluster = ifelse(is.na(cluster), paste(1:dplyr::n()), cluster),
       cluster = paste0(gsub(" ", "_", tolower(country)), "_", cluster))
   
   data <- 
