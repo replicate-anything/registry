@@ -36,13 +36,13 @@ replications:
   - id: fig_5
     type: figure
     description: Trust by acceptance
-    data: processed/fig_1.csv
+    data: processed/combined.csv
     code: code/fig_5.R
 
   - id: fig_6
     type: figure
     description: Trust by gender
-    data: processed/fig_1.csv
+    data: processed/combined.csv
     code: code/fig_6.R
 
   - id: tab_1
