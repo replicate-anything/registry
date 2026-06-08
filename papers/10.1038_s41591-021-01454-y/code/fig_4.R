@@ -30,8 +30,8 @@ generate_figure <- function(data){
                         ...) {
     data = data |> 
       study_weighting() |> 
-      estimatr::lm_robust(data = .,...) |> 
-      {dplyr::bind_cols( tidy(.), n = nobs(.) )}
+      estimatr::lm_robust(data = ., ...) |>
+      (\(m) dplyr::bind_cols(tidy(m), n = nobs(m)))()
     
     return(data)
   }
