@@ -114,6 +114,46 @@ generate_figure <- function(data){
       "Sierra Leone 1", "Sierra Leone 2", "Uganda 2",
       "All", "Russia", "USA" )
   
+  dictionary <- data.frame(
+    outcome = c(
+      "study", "country", "take_vaccine", "take_vaccine_num",
+      "age", "age_groups", "age_groups_binary", "educ", "educ_binary",
+      "gender", "cluster", "weight",
+      "yes_vaccine_1", "yes_vaccine_2", "yes_vaccine_3", "yes_vaccine_4",
+      "yes_vaccine_5", "yes_vaccine_666",
+      "no_vaccine_1", "no_vaccine_2", "no_vaccine_3", "no_vaccine_4",
+      "no_vaccine_5", "no_vaccine_6", "no_vaccine_7", "no_vaccine_8",
+      "no_vaccine_9", "no_vaccine_666",
+      "trust_vaccine_1", "trust_vaccine_2", "trust_vaccine_3", "trust_vaccine_4",
+      "trust_vaccine_5", "trust_vaccine_6", "trust_vaccine_7", "trust_vaccine_8",
+      "trust_vaccine_9", "trust_vaccine_dk", "trust_vaccine_refuse",
+      "trust_vaccine_nr", "trust_vaccine_666", "trust_vaccine_other",
+      "trust_recode_1", "trust_recode_2", "trust_recode_3",
+      "trust_recode_4", "trust_recode_5"
+    ),
+    tag = c(
+      "Study code", "Study name", "Respondent would take the vaccine if available?",
+      "Respondent would take the vaccine if available? Yes = 1",
+      "Age", "Age grouped", "Age recoded", "Education", "Education recoded",
+      "Male", "Survey clusters", "Survey weights",
+      "Protection: self", "Protection: family", "Protection: community",
+      "If recommended by: Health workers", "If recommended by: Government", "Other",
+      "Concerned about side effects", "Concerned about getting coronavirus from the vaccine",
+      "Not concerned about getting seriously ill", "Doesn't think vaccines are effective",
+      "Doesn't think Coronavirus outbreak is as serious as people say",
+      "Doesn't like needles", "Allergic to vaccines", "Won't have time to get vaccinated",
+      "Mentions a conspiracy theory", "Other reasons",
+      "Family", "Friends", "Religious leader", "Famous person",
+      "Health workers", "Government or MoH", "Traditional healers",
+      "Media", "Online medical groups", "Don't know", "Refuse",
+      "No response", "Other (specify)", "Other (category)",
+      "Family or Friends", "Newspapers, radio or online groups",
+      "Famous person, religious leader or traditional healers",
+      "Other", "Don't know or Refuse"
+    ),
+    stringsAsFactors = FALSE
+  )
+  
   #Get estimates
   trust_vacc_together <-
     list(
