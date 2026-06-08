@@ -1,5 +1,8 @@
 generate_figure <- function(data){
   
+  library(ggplot2)
+  
+  
   lm_helper <- function(data, ...) {
     data <- study_weighting(data)
     fit  <- estimatr::lm_robust(data = data, ...)
