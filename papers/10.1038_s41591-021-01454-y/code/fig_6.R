@@ -1,9 +1,17 @@
 generate_figure <- function(data){
   
   library(ggplot2)
+  library(dplyr)
+  
+  study_weighting <- function(data)
+    data %>% 
+    dplyr::group_by(country) %>% 
+    dplyr::mutate(weight = weight/sum(weight)) %>% 
+    dplyr::ungroup()
   
   
   lm_helper <- function(data, ...) {
+    
     data <- study_weighting(data)
     fit  <- estimatr::lm_robust(data = data, ...)
     out  <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
