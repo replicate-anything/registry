@@ -27,14 +27,11 @@ generate_figure <- function(data){
     return(data)
   }
       
-  lm_helper <- function(data,
-                        ...) {
-    data = data |> 
-      study_weighting() |> 
-      estimatr::lm_robust(data = ., ...) |>
-      (\(m) dplyr::bind_cols(broom::tidy(m), n = nobs(m)))()
-    
-    return(data)
+  lm_helper <- function(data, ...) {
+    data <- study_weighting(data)
+    fit  <- estimatr::lm_robust(data = data, ...)
+    out  <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
+    return(out)
   }
   
 # apply on df
