@@ -190,6 +190,11 @@ generate_figure <- function(data){
       sub = plyr::mapvalues(sub, from = c("No", "Yes", "All"),
                             to = c("No, Don't know", "Yes", "Any")))
   
+  safe_colorblind_palette <- c(
+    "#CC6677","#DDCC77","#117733","#332288",
+    "#AA4499","#44AA99","#999933","#882255",
+    "#661100","#6699CC","#888888","#88CCEE")
+  
   #Plot
   fig_hist2 <- 
     trust_vacc_together |>
