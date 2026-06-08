@@ -24,34 +24,6 @@ generate_figure <- function(data){
                   formula = as.formula(paste0(reason, "~ 1")), cluster = cluster,
                   weight = weight, se_type = "stata"), .groups = "drop")
   }
-  
-  # Group together categories
-  data2 <- data2 |> 
-    dplyr::mutate(
-      trust_recode_1 = ifelse(trust_vaccine_1 == 1 | trust_vaccine_2 == 1, 1, 0),
-      trust_recode_1 = ifelse((country == "Nigeria" | country == "USA") &
-                                is.na(trust_recode_1), 0, trust_recode_1),
-      trust_recode_2 = ifelse(trust_vaccine_8 == 1 | trust_vaccine_9 == 1, 1, 0),
-      trust_recode_2 = ifelse((country == "Sierra Leone 2") & 
-                                is.na(trust_recode_2), 0, trust_recode_2),
-      trust_recode_3 = ifelse(trust_vaccine_3 == 1 | 
-                                trust_vaccine_7 == 1 | 
-                                trust_vaccine_4 == 1, 1, 0),
-      trust_recode_3 = 
-        ifelse((country == "Nigeria" | country == "USA" | country == "Russia") & 
-                 is.na(trust_recode_3), 0, trust_recode_3),
-      trust_recode_4 = ifelse(trust_vaccine_666 == 1 | trust_vaccine_other == 1, 1, 0),
-      trust_recode_4 = 
-        ifelse((country == "Burkina Faso" | 
-                  country == "Sierra Leone 2" | 
-                  country == "Russia") & 
-                 is.na(trust_recode_4), 0, trust_recode_4),
-      trust_recode_5 = ifelse(trust_vaccine_dk == 1 | 
-                                trust_vaccine_refuse == 1 | 
-                                trust_vaccine_nr == 1, 1, 0),
-      trust_recode_5 = 
-        ifelse((country == "Nigeria" | country == "Sierra Leone 2" | country == "USA") &
-                 is.na(trust_recode_5), 0, trust_recode_5))
 
   trust_names <- c("trust_recode_1", "trust_recode_2", "trust_recode_3",
                    "trust_recode_4", "trust_recode_5", "trust_vaccine_5", "trust_vaccine_6")
@@ -101,12 +73,6 @@ generate_figure <- function(data){
     ),
     stringsAsFactors = FALSE
   )
-
-
-  
-  
-
-  
 
   data <- 
     data |> 
