@@ -1,4 +1,5 @@
 generate_figure <- function(data){
+  library(dplyr)
   
   # define functions
   reasons_together <- function(data, 
