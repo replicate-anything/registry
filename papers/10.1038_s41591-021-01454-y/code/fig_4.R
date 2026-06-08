@@ -1,5 +1,7 @@
 generate_figure <- function(data){
+  
   library(dplyr)
+  library(ggplot2)
   
   # define functions
   reasons_together <- function(data, 
