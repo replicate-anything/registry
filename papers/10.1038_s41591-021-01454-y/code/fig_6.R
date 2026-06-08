@@ -198,6 +198,11 @@ generate_figure <- function(data){
                                  "Don't know or Refuse"),
       sub = forcats::fct_relevel(as.factor(sub), "Female", "Male", "All"))
   
+  safe_colorblind_palette <- c(
+    "#CC6677","#DDCC77","#117733","#332288",
+    "#AA4499","#44AA99","#999933","#882255",
+    "#661100","#6699CC","#888888","#88CCEE")
+  
   #Plot
   hist_gender <-
     trust_vacc_gender %>%
