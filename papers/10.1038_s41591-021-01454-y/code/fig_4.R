@@ -33,8 +33,7 @@ generate_figure <- function(data){
     out  <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
     return(out)
   }
-  
-# apply on df
+
   data <- 
     data |> 
     dplyr::group_by(study) |> 
