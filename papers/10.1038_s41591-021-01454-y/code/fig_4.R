@@ -17,28 +17,33 @@ generate_figure <- function(data){
     return(data)
     }
   
-  study_weighting <- function(data)
-    data |> 
+  study_weighting <- function(data){ 
+    data = data |> 
     dplyr::group_by(country) |> 
     dplyr::mutate(weight = weight/sum(weight)) |> 
     dplyr::ungroup() 
-  
+    
+    return(data)
+  }
+      
   lm_helper <- function(data,
                         ...) {
-    data |> 
+    data = data |> 
       study_weighting() |> 
       estimatr::lm_robust(data = .,...) |> 
       {dplyr::bind_cols( tidy(.), n = nobs(.) )}
+    
+    return(data)
   }
   
-  # apply on df
+# apply on df
   data <- 
     data |> 
     dplyr::group_by(study) |> 
     dplyr::mutate(
       cluster = ifelse(is.na(cluster), paste(1:dplyr::n()), cluster),
       cluster = paste0(gsub(" ", "_", tolower(country)), "_", cluster))
-  
+
   data <- 
     data |> 
     dplyr::group_by(study) |> 
