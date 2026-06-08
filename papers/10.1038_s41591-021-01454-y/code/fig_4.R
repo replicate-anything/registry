@@ -1,7 +1,6 @@
 generate_figure <- function(data){
   
-  
-  
+  # define functions
   reasons_together <- function(data, 
                                reason, 
                                num = "Yes") {
@@ -18,6 +17,15 @@ generate_figure <- function(data){
     return(data)
     }
   
+  lm_helper <- function(data,
+                        ...) {
+    data %>% 
+      study_weighting() %>% 
+      estimatr::lm_robust(data = .,...) %>% 
+      {bind_cols( tidy(.), n = nobs(.) )}
+  }
+  
+  # apply on df
   data <- 
     data |> 
     dplyr::group_by(study) |> 
