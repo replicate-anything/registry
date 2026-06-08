@@ -17,12 +17,18 @@ generate_figure <- function(data){
     return(data)
     }
   
+  study_weighting <- function(data)
+    data |> 
+    dplyr::group_by(country) |> 
+    dplyr::mutate(weight = weight/sum(weight)) |> 
+    dplyr::ungroup() 
+  
   lm_helper <- function(data,
                         ...) {
-    data %>% 
-      study_weighting() %>% 
-      estimatr::lm_robust(data = .,...) %>% 
-      {bind_cols( tidy(.), n = nobs(.) )}
+    data |> 
+      study_weighting() |> 
+      estimatr::lm_robust(data = .,...) |> 
+      {dplyr::bind_cols( tidy(.), n = nobs(.) )}
   }
   
   # apply on df
