@@ -47,6 +47,6 @@ generate_table <- function(data){
       percentage of infants per country receiving the vaccine indicated in each column.", 
       threeparttable = T) %>%
     kableExtra::landscape()
-
-  return(tab)
+  
+  return(shiny::HTML(as.character(tab)))
 }
