@@ -25,7 +25,7 @@ generate_table <- function(data){
                     "% of parents with any child that was ever vaccinated"),
       format = "latex", booktabs = T, linesep = "", align = c("l", rep("c", 7)), label = "otherv") %>% 
     kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"), 
-                              full_width = FALSE, font_size = base_font_size - 2)  %>%
+                              full_width = FALSE, font_size = 10)  %>%
     kableExtra::row_spec(0, bold = TRUE) %>% 
     kableExtra::add_header_above(c(" " = 1, 
                                    "% Respondents agreeing Vaccines are..." = 3,
