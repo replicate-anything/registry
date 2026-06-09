@@ -56,13 +56,13 @@ replications:
   - id: tab_2
     type: table
     description: "Summary of Studies' Sampling"
-    data: processed/tab_2.xlsx
+    data: processed/studies_info_sample.csv
     code: code/tab_2.R
 
   - id: tab_3
     type: table
     description: Differences in Means
-    data: processed/tab_3.csv
+    data: processed/combined.csv
     code: code/tab_3.R
 
   - id: tab_4

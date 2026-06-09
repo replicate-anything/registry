@@ -1,8 +1,42 @@
 generate_table <- function(data){
+    
+    # If no cluster information given for a study then individuals are clusters 
+    # Ensure cluster ids are distinct across studies
+    df <- 
+      data %>% 
+      dplyr::group_by(study) %>% 
+      dplyr::mutate(
+        cluster = ifelse(is.na(cluster), paste(1:n()), cluster),
+        cluster = paste0(gsub(" ", "_", tolower(country)), "_", cluster))
+    
+    # Weights sum to 1 in each study and recode age and education into bins
+    df <- 
+      df %>% 
+      dplyr::group_by(study) %>% 
+      dplyr::mutate(
+        weight_replace = mean(weight, rm.na = TRUE),
+        weight = if_else(is.na(weight), 
+                         if_else(is.na(weight_replace), 1, weight_replace), 
+                         weight),
+        weight = weight/sum(weight)) %>% 
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        age_groups = 
+          as.character(cut(x = age, breaks = c(-Inf, 18, 30, 45, 60, +Inf), right = F)),
+        age_groups_binary = ifelse(age >= 55, "55+", NA),
+        age_groups_binary = ifelse(age < 55, "<55", age_groups_binary),
+        age_less24 = ifelse(age <= 24, 1, 0),
+        age_25_54 = ifelse(age >= 25 & age <= 54, 1, 0),
+        age_55_more = ifelse(age >= 55, 1, 0),
+        age_groups_three = ifelse(age <= 24, "<25", NA),
+        age_groups_three = ifelse(age >= 25 & age <= 54, "25-54", age_groups_three),
+        age_groups_three = ifelse(age >= 55, "55+", age_groups_three),
+        educ_binary = if_else(educ == "More than secondary", "> Secondary", "Up to Secondary")) 
 
   # Analysis of differences in means only LMICs
   # Notice that Uganda 1 is dropped, because it does not have reference categories for gender or age
   # Notice that we are using df (and not df2) as data, since it does not include "All"
+
 
   # Population estimate (clustering on country)
 
@@ -37,35 +71,6 @@ generate_table <- function(data){
       data = .) %>%
     tidy %>%
     dplyr::select(estimate, std.error, p.value, data, term)
-
-
-  dif_gender <-
-    differences_means_gen_age %>%
-    dplyr::filter(term == "genderMale") %>%
-    pull(estimate) %>%
-    {. * 100} %>%
-    round(., 1)
-
-  dif_age <-
-    differences_means_gen_age %>%
-    dplyr::filter(term == "age_groups_binary55+") %>%
-    pull(estimate) %>%
-    {. * 100} %>%
-    round(., 1)
-
-  dif_age_three <-
-    differences_means_gen_age %>%
-    dplyr::filter(term == "age_groups_three25-54" | term == "age_groups_three55+") %>%
-    pull(estimate) %>%
-    {. * 100} %>%
-    round(., 1)
-
-  dif_educ <-
-    differences_means_educ %>%
-    dplyr::filter(term == "educ_binaryUp to Secondary") %>%
-    pull(estimate) %>%
-    {. * 100} %>%
-    round(., 1)
 
   diffmeans <-
     rbind(differences_means_gen_age, differences_means_educ) %>%
@@ -116,16 +121,7 @@ generate_table <- function(data){
       general = "Table S7 shows the results of subgroup mean differences. Subgroup differences were generated considering only LMICs. p-values come from a two-sided t-test from a linear regression.",
       threeparttable = T)
 
-  diffmeans %>%
-    filter(Variable != "") %>%
-    knitr::kable(
-      caption =  "Differences in means",
-      booktabs = T, linesep = "", label = "dmeans", digits = 2) %>%
-    kableExtra::kable_styling(full_width = FALSE) %>%
-    kableExtra::row_spec(0, bold = TRUE) %>%
-    kableExtra::footnote(
-      general_title = "",
-      general = "Table S7 shows the results of subgroup mean differences. Subgroup differences were generated considering only LMICs. The differences in means for gender and age do not include the Uganda 1 study, which only included female respondents under the age of 55.",
-      threeparttable = T)
+  
+  return(dmeans)
 
 }
