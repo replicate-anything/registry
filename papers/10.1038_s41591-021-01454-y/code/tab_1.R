@@ -1,6 +1,6 @@
 generate_table <- function(data){
 
-  knitr::kable(
+  tab <- knitr::kable(
     data,
     caption =  "Vaccination beliefs and coverage for the countries in our sample",
     col.names = c("",
@@ -23,5 +23,5 @@ generate_table <- function(data){
       general = "Table 2 presents an overview of vaccination beliefs and incidence across countries in our sample. Columns 2-5 use data from the Wellcome Global Monitor 2018. Column 2 shows the percentage of respondents who are parents and report having had any of their children ever vaccinated. Columns 3-5 show the percentage of all respondents that either strongly agree or somewhat agree with the statement above each column. All percentages are obtained using national weights. Columns 6-8 use data from the World Health Organization on vaccine incidence. Columns 6-8 report the percentage of infants per country receiving the vaccine indicated in each column.",
       threeparttable = T)
 
-
+  return(shiny::HTML(as.character(tab)))
 }
