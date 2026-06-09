@@ -48,7 +48,9 @@ replications:
   - id: tab_1
     type: table
     description: "Vaccine Data from WGM, WHO"
-    data: processed/tab_1.csv
+    data: 
+    - processed/table_wgm.csv
+    - processed/vacc_cov.csv
     code: code/tab_1.R
 
   - id: tab_2
