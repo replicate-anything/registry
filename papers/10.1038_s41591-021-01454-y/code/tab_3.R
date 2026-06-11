@@ -42,7 +42,7 @@ generate_table <- function(data){
 
   differences_means_gen_age <-
     lapply(c("gender", "age_groups_binary", "age_groups_three"), function(i) {
-      data %>%
+      df %>%
         dplyr::filter(country != "USA" & country != "Russia" & country != "Uganda 1") %>%
         dplyr::filter(if_all(c(all_of(i), all_of("take_vaccine_num")), ~ !is.na(.))) %>%
         study_weighting() %>%
@@ -58,7 +58,7 @@ generate_table <- function(data){
     dplyr::bind_rows(.)
 
   differences_means_educ <-
-    data %>%
+    df %>%
     dplyr::filter(country != "USA" & country != "Russia") %>%
     dplyr::filter(if_all(c(all_of("educ_binary"), all_of("take_vaccine_num")), ~ !is.na(.))) %>%
     study_weighting() %>%

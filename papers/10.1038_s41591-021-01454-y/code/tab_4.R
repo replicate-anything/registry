@@ -1,4 +1,38 @@
 generate_table <- function(data){
+  
+  # Ensure cluster ids are distinct across studies
+  df <- 
+    data %>% 
+    dplyr::group_by(study) %>% 
+    dplyr::mutate(
+      cluster = ifelse(is.na(cluster), paste(1:n()), cluster),
+      cluster = paste0(gsub(" ", "_", tolower(country)), "_", cluster))
+  
+  # Weights sum to 1 in each study and recode age and education into bins
+  df <- 
+    df %>% 
+    dplyr::group_by(study) %>% 
+    dplyr::mutate(
+      weight_replace = mean(weight, rm.na = TRUE),
+      weight = if_else(is.na(weight), 
+                       if_else(is.na(weight_replace), 1, weight_replace), 
+                       weight),
+      weight = weight/sum(weight)) %>% 
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      age_groups = 
+        as.character(cut(x = age, breaks = c(-Inf, 18, 30, 45, 60, +Inf), right = F)),
+      age_groups_binary = ifelse(age >= 55, "55+", NA),
+      age_groups_binary = ifelse(age < 55, "<55", age_groups_binary),
+      age_less24 = ifelse(age <= 24, 1, 0),
+      age_25_54 = ifelse(age >= 25 & age <= 54, 1, 0),
+      age_55_more = ifelse(age >= 55, 1, 0),
+      age_groups_three = ifelse(age <= 24, "<25", NA),
+      age_groups_three = ifelse(age >= 25 & age <= 54, "25-54", age_groups_three),
+      age_groups_three = ifelse(age >= 55, "55+", age_groups_three),
+      educ_binary = if_else(educ == "More than secondary", "> Secondary", "Up to Secondary")) 
+  
+  
 
   country_differences <-
     unique(df$country) %>%
@@ -32,16 +66,7 @@ generate_table <- function(data){
       term = ifelse(term == "age_groups_three55+", "55+", term),
       term = ifelse(term == "educ_binaryUp to Secondary", "Up to secondary", term),
       term = ifelse(term == "genderMale", "Male", term))
-
-  country_differences_summary <-
-    country_differences %>%
-    dplyr::filter(!(country %in% c("Russia", "USA"))) %>%
-    dplyr::group_by(term) %>% summarize(
-      "positive " = sum(estimate > 0),
-      "positive and significant" = sum(estimate > 0 & significant),
-      "negative and significant" = sum(estimate < 0 & significant),
-      "not significant" = sum(!significant),
-      n = n())
+  
 
   t_country_differences <- country_differences %>%
     dplyr::mutate(
@@ -55,24 +80,6 @@ generate_table <- function(data){
       std.error = round(std.error, 2),
       p.value = round(p.value, 2)) %>%
     dplyr::select(country, group, baseline, term, everything(), -significant)
-
-  t_country <- t_country_differences %>%
-    kable(digits = 2,
-          col.names = c("Country", "Variable", "Baseline category", "Group", "Estimate", "Std. Error", "P-value", "Degrees of freedom", "N Obs"),
-          caption = "Differences between groups within studies",
-          booktabs = TRUE, linesep = "",
-          format.args = list(big.mark = ",", scientific = FALSE),
-          format = "latex", label = "countrydiff") %>%
-    kableExtra::kable_styling(latex_options = c("scale_down"), font_size = base_font_size - 2, full_width = FALSE) %>%
-    kableExtra::row_spec(0, bold = TRUE) %>%
-    kableExtra::column_spec(1, width = "6em") %>%
-    kableExtra::column_spec(2:3, width = "6em") %>%
-    kableExtra::column_spec(4, width = "9em")  %>%
-    kableExtra::column_spec(5:8, width = "6em") %>%
-    kableExtra::footnote(
-      general_title = "",
-      general = "Table S9 shows differences of means between groups within single studies. Estimates are calculated through OLS and represent the difference in the average acceptance rate between the subgroup in column Group and that in column Baseline category. p-values come from a two-sided t-test from a linear regression.",
-      threeparttable = T)
 
 
   knitr::kable(t_country_differences,

@@ -8,7 +8,7 @@ generate_table <- function(data){
       caption =  "Summary of studies sampling",
       format = "latex", booktabs = T, linesep = "", label = "sampling") |>
     kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"),
-                              font_size = base_font_size - 2) |>
+                              font_size = 10) |>
     kableExtra::row_spec(0, bold = TRUE) |>
     kableExtra::column_spec(1:2, width = "8em") |>
     kableExtra::column_spec(3, width = "12em")  |>

@@ -68,48 +68,50 @@ replications:
   - id: tab_4
     type: table
     description: "Difference in Means(by study)"
-    data: processed/tab_3.csv
+    data: processed/combined.csv
     code: code/tab_4.R
 
   - id: tab_5
     type: table
     description: "Differences between groups within studies (Summary)"
-    data: processed/tab_3.csv
+    data: processed/combined.csv
     code: code/tab_5.R
 
   - id: tab_6
     type: table
-    description: Reason to take
-    data: processed/tab_4.csv
+    description: "Reason to take"
+    data: processed/combined.csv
     code: code/tab_6.R
 
 
   - id: tab_7
     type: table
     description: "Reason to take the vaccine. All categories."
-    data: processed/tab_4.csv
+    data: processed/combined.csv
     code: code/tab_7.R
 
   - id: tab_8
     type: table
     description: "Reason to take the vaccine: by age."
-    data: processed/tab_4.csv
+    data: processed/combined.csv
     code: code/tab_8.R
 
   - id: tab_9
     type: table
     description: Reason not to take the vaccine
-    data: processed/fig_3.csv
+    data: processed/combined.csv
     code: code/tab_9.R
 
   - id: tab_10
     type: table
     description: "Vaccination Decision-making: most trusted source."
-    data: processed/fig_1.csv
+    data: processed/combined.csv
     code: code/tab_10.R
 
   - id: tab_11
     type: table
     description: Summary Stats
-    data: processed/tab_11.csv
+    data: 
+    - processed/combined.csv
+    - processed/wgm_2018_publiccsv.csv
     code: code/tab_11.R

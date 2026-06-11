@@ -1,23 +1,85 @@
 generate_table <- function(data){
+  
+  # Ensure cluster ids are distinct across studies
+  df <- 
+    data %>% 
+    dplyr::group_by(study) %>% 
+    dplyr::mutate(
+      cluster = ifelse(is.na(cluster), paste(1:n()), cluster),
+      cluster = paste0(gsub(" ", "_", tolower(country)), "_", cluster))
+  
+  
+  # Weights sum to 1 in each study and recode age and education into bins
+  df <- 
+    df %>% 
+    dplyr::group_by(study) %>% 
+    dplyr::mutate(
+      weight_replace = mean(weight, rm.na = TRUE),
+      weight = if_else(is.na(weight), 
+                       if_else(is.na(weight_replace), 1, weight_replace), 
+                       weight),
+      weight = weight/sum(weight)) %>% 
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      age_groups = 
+        as.character(cut(x = age, breaks = c(-Inf, 18, 30, 45, 60, +Inf), right = F)),
+      age_groups_binary = ifelse(age >= 55, "55+", NA),
+      age_groups_binary = ifelse(age < 55, "<55", age_groups_binary),
+      age_less24 = ifelse(age <= 24, 1, 0),
+      age_25_54 = ifelse(age >= 25 & age <= 54, 1, 0),
+      age_55_more = ifelse(age >= 55, 1, 0),
+      age_groups_three = ifelse(age <= 24, "<25", NA),
+      age_groups_three = ifelse(age >= 25 & age <= 54, "25-54", age_groups_three),
+      age_groups_three = ifelse(age >= 55, "55+", age_groups_three),
+      educ_binary = if_else(educ == "More than secondary", "> Secondary", "Up to Secondary")) 
+  
+  
+  # We create a new dataframe with countries and with "All" (only LMICs). Countries are clusters in "All" analysis
+  # USA and Russia excluded from "All" set
+  
+  df2 <- 
+    dplyr::bind_rows(
+      mutate(df, group = country),
+      mutate(filter(df, country != "USA" & country != "Russia"), group = "All")) %>% 
+    mutate(
+      cluster = if_else(group == "All", 
+                        gsub(pattern = " ", replacement = "_", x = tolower(country)), 
+                        cluster)) 
+  
+  age_analysis <- function(df, 
+                           reason, 
+                           num = "Yes", 
+                           filter_by = NA) {
+    df %>%
+      dplyr::filter({{filter_by}} == 1)  %>%
+      dplyr::filter(take_vaccine %in% num, 
+                    if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
+      dplyr::nest_by(group) %>%
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(reason, "~ 1")), 
+                  cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop")
+  }
 
   yes_vars <-
-    data %>%
+    df_2 %>%
     dplyr::select(yes_vaccine_1, yes_vaccine_2, yes_vaccine_3) %>%
     names
 
   ## Generate data for analysis of yes reasons for different age groups
   yes_vacc_age_1 <-
-    lapply(yes_vars, age_analysis, df = data, num = "Yes", filter_by = `age_less24`) %>%
+    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_less24`) %>%
     dplyr::bind_rows() %>%
     mutate(age = "<25")
 
   yes_vacc_age_2 <-
-    lapply(yes_vars, age_analysis, df = data, num = "Yes", filter_by = `age_25_54`) %>%
+    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_25_54`) %>%
     dplyr::bind_rows() %>%
     mutate(age = "25-54")
 
   yes_vacc_age_3 <-
-    lapply(yes_vars, age_analysis, df = data, num = "Yes", filter_by = `age_55_more`) %>%
+    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_55_more`) %>%
     dplyr::bind_rows() %>%
     mutate(age = "55+")
 
@@ -69,32 +131,8 @@ generate_table <- function(data){
 
   cnames <- c("Study", "<25", "25-54", "55+", "<25", "25-54", "55+", "<25", "25-54", "55+")
 
-
-  #Table to Latex
-  tab_reasons_y_age <-
+  tab <- 
     yes_vacc_age %>%
-    knitr::kable(
-      col.names = cnames,
-      caption = "Reasons to take the vaccine- by age groups",
-      format = "latex", booktabs = T,
-      linesep = "", label = "yes1",
-      format.args = list(big.mark = ",", scientific = FALSE),
-      escape = F, align = c("l", rep("c", 9))) %>%
-    kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"),
-                              font_size = base_font_size - 2, full_width = FALSE) %>%
-    kableExtra::add_header_above(c(" " = 1, "Self" = 3, "Family" = 3, "Community" = 3),
-                                 bold = TRUE) %>%
-    kableExtra::row_spec(0, bold = TRUE) %>%
-    kableExtra::row_spec(seq(from = 3, to = 36, by = 3), hline_after = TRUE) %>%
-    kableExtra::column_spec(1, width = "7em") %>%
-    kableExtra::column_spec(2:10, width = "5em") %>%
-    kableExtra::footnote(
-      general_title = "",
-      general = "Table S4 shows percentage of respondents mentioning reasons why they would take the Covid-19 vaccine by age groups. The number of observations and percentage correponds only to people who would take the vaccine. Respondents in all countries could give more than one reason. A 95% confidence interval is shown between parentheses.",
-      threeparttable = T)
-
-
-  yes_vacc_age %>%
     knitr::kable(
       col.names = cnames,
       caption = "\\label{yes1}Reasons to take the vaccine",
@@ -111,6 +149,8 @@ generate_table <- function(data){
       general_title = "",
       general = "Table S4 shows percentage of respondents mentioning reasons why they would take the Covid-19 vaccine by age groups. The number of observations and percentage correponds only to people who would take the vaccine. Respondents in all countries could give more than one reason. A 95% confidence interval is shown between parentheses.",
       threeparttable = T)
+  
+  return(tab)
 
 
 }
