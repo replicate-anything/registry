@@ -7,11 +7,11 @@ generate_table <- function(data){
   
   # Put together and order labels
   
-  table_1b <- dfwgm %>%
-    left_join(df_vacc_coveragebis) %>%
+  table_1b <- dfwgm |>
+    left_join(df_vacc_coveragebis) |>
     mutate(country = as.factor(country),
-           country = forcats::fct_relevel(country, "Russia", "USA", after = Inf)) %>% 
-    arrange(country) %>%
+           country = forcats::fct_relevel(country, "Russia", "USA", after = Inf)) |> 
+    arrange(country) |>
     select(country, Effectiveness, Safety, Important, BCG, DTP1, MCV1, Coverage)
   
   tab <- 
@@ -23,17 +23,17 @@ generate_table <- function(data){
                     "Tuberculosis (BCG)", "Diphtheria, Tetanus and Pertussis (DTP1)",
                     "Measles (MCV1)",
                     "% of parents with any child that was ever vaccinated"),
-      format = "html", booktabs = T, linesep = "", align = c("l", rep("c", 7)), label = "otherv") %>% 
+      format = "html", booktabs = T, linesep = "", align = c("l", rep("c", 7)), label = "otherv") |> 
     kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"), 
-                              full_width = FALSE, font_size = 10)  %>%
-    kableExtra::row_spec(0, bold = TRUE) %>% 
+                              full_width = FALSE, font_size = 10)  |>
+    kableExtra::row_spec(0, bold = TRUE) |> 
     kableExtra::add_header_above(c(" " = 1, 
                                    "% Respondents agreeing Vaccines are..." = 3,
                                    "Vaccine coverage in 2019 (% of infants)" = 3,
-                                   " " = 1), bold = TRUE) %>%
-    kableExtra::column_spec(1:5, width = "9em") %>% 
-    kableExtra::column_spec(6:7, width = "5em") %>%
-    kableExtra::column_spec(8, width = "9em") %>% 
+                                   " " = 1), bold = TRUE) |>
+    kableExtra::column_spec(1:5, width = "9em") |> 
+    kableExtra::column_spec(6:7, width = "5em") |>
+    kableExtra::column_spec(8, width = "9em") |> 
     kableExtra::footnote(
       general_title = "",
       general = "Table 2 presents an overview of vaccination beliefs and incidence 
@@ -45,7 +45,7 @@ generate_table <- function(data){
       percentages are obtained using national weights. Columns 5-7 use data from
       the World Health Organization on vaccine incidence. Columns 5-7 report the
       percentage of infants per country receiving the vaccine indicated in each column.", 
-      threeparttable = T) %>%
+      threeparttable = T) |>
     kableExtra::landscape()
   
   return(shiny::HTML(as.character(tab)))
