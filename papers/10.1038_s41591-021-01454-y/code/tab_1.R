@@ -23,7 +23,7 @@ generate_table <- function(data){
                     "Tuberculosis (BCG)", "Diphtheria, Tetanus and Pertussis (DTP1)",
                     "Measles (MCV1)",
                     "% of parents with any child that was ever vaccinated"),
-      format = "latex", booktabs = T, linesep = "", align = c("l", rep("c", 7)), label = "otherv") %>% 
+      format = "html", booktabs = T, linesep = "", align = c("l", rep("c", 7)), label = "otherv") %>% 
     kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"), 
                               full_width = FALSE, font_size = 10)  %>%
     kableExtra::row_spec(0, bold = TRUE) %>% 
