@@ -1,5 +1,21 @@
 generate_table <- function(data){
   
+  reasons_together <- function(data, 
+                               reason, 
+                               num = "Yes") {
+    data <- data |>
+      dplyr::filter(take_vaccine %in% num, 
+                    if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) |>
+      dplyr::nest_by(group) |>
+      dplyr::summarize(
+        lm_helper(data = data, 
+                  formula = as.formula(paste0(reason, "~ 1")), 
+                  cluster = cluster,
+                  weight = weight, se_type = "stata"), .groups = "drop")
+    
+    return(data)
+  }
+  
   # Ensure cluster ids are distinct across studies
   df <- 
     data %>% 
