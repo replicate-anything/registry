@@ -1,4 +1,5 @@
 generate_table <- function(data){
+  library(dplyr)
   # Call data from WGM
   dfwgm <- data[[1]] #"3_rep_data/table_wgm.csv"
   
