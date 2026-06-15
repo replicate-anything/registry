@@ -1,5 +1,5 @@
 generate_table <- function(data){
-  
+  library(dplyr)
   # Ensure cluster ids are distinct across studies
   df <- 
     data %>% 
@@ -49,7 +49,7 @@ generate_table <- function(data){
                                    se_type = "stata",
                                    data = dff)
           m %>%
-            tidy %>%
+            broom::tidy() %>%
             dplyr::select(estimate, std.error, p.value, df, term) %>%
             dplyr::mutate(n = m$nobs)
         }}

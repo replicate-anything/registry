@@ -1,4 +1,5 @@
 generate_table <- function(data){
+    library(dplyr)
     
     # If no cluster information given for a study then individuals are clusters 
     # Ensure cluster ids are distinct across studies
@@ -52,7 +53,7 @@ generate_table <- function(data){
                             cluster = country,
                             se_type = "stata",
                             data = .) %>%
-        tidy %>%
+        broom::tidy() %>%
         dplyr::select(estimate, std.error, p.value, data, term)
     }) %>%
     dplyr::bind_rows(.)
@@ -69,7 +70,7 @@ generate_table <- function(data){
       cluster = country,
       se_type = "stata",
       data = .) %>%
-    tidy %>%
+    broom::tidy() %>%
     dplyr::select(estimate, std.error, p.value, data, term)
 
   diffmeans <-
