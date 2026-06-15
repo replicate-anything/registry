@@ -106,6 +106,7 @@ generate_table <- function(data){
       col.names = cnames,
       caption = "\\label{yes}Reasons to take the vaccine",
       booktabs = T, linesep = "",
+      format = "html",
       format.args = list(big.mark = ",", scientific = FALSE),
       align = "lcccc") %>%
     kableExtra::kable_styling(full_width = FALSE) %>%

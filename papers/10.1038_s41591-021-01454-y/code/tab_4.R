@@ -82,11 +82,13 @@ generate_table <- function(data){
     dplyr::select(country, group, baseline, term, everything(), -significant)
 
 
-  tab <- knitr::kable(t_country_differences, 
+  tab <- knitr::kable(t_country_differences,
                       format = "html",
-                      digits = 2, 
-                      caption = "Differences between groups within studies ")
-  
+                      digits = 2,
+                      caption = "Differences between groups within studies ") |>
+    kableExtra::kable_styling(full_width = FALSE) |>
+    kableExtra::row_spec(0, bold = TRUE)
+
   return(shiny::HTML(as.character(tab)))
 
 }
