@@ -159,5 +159,5 @@ generate_table <- function(data){
       general = "This table presents summarys statistics for our data and compares it with estimates from other sources of data. Data for Russia comes from census data from the Statistical Agency. For the USA, we use data from the 2019 American Community Survey. For all other countries, the Wellcome Global Monitor 2018 was used. Statistics for our surveys are not weighted, while estimates from benchmark sources are obtained using sampling weights.") %>%
     kableExtra::column_spec(1:8, width = "5em")
   
-  return(tab)
+  return(shiny::HTML(as.character(tab)))
 }

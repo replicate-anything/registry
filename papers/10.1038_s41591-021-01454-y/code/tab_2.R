@@ -6,7 +6,7 @@ generate_table <- function(data){
                   "Geographic scope", "Sampling methodology", "Survey modality", "Weights")  |> 
     knitr::kable(
       caption =  "Summary of studies sampling",
-      format = "latex", booktabs = T, linesep = "", label = "sampling") |>
+      format = "html", booktabs = T, linesep = "", label = "sampling") |>
     kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"),
                               font_size = 10) |>
     kableExtra::row_spec(0, bold = TRUE) |>
@@ -15,6 +15,6 @@ generate_table <- function(data){
     kableExtra::column_spec(4, width = "30em") |>
     kableExtra::landscape()
 
-  return(tab_sampling)
+  return(shiny::HTML(as.character(tab)))
 
 }

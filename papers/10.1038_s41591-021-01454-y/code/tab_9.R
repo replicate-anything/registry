@@ -202,5 +202,7 @@ generate_table <- function(data){
       general_title = "",
       general = "Table S5 shows percentage of respondents mentioning reasons why they would not take the Covid-19 vaccine. The number of observations and percentage correponds only to people who would NOT take the vaccine. Respondents in all countries could give more than one reason. A 95% confidence interval is shown between parentheses.",
       threeparttable = T)
+  
+  return(shiny::HTML(as.character(tab)))
 
 }

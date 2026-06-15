@@ -67,7 +67,7 @@ replications:
 
   - id: tab_4
     type: table
-    description: "Difference in Means(by study)"
+    description: "Difference in Means (by study)"
     data: processed/combined.csv
     code: code/tab_4.R
 

@@ -112,7 +112,7 @@ generate_table <- function(data){
     knitr::kable(
       digits = 2,
       caption =  "Differences in means",
-      format = "latex", booktabs = T, linesep = "", label = "dmeans", align = "c") %>%
+      format = "html", booktabs = T, linesep = "", label = "dmeans", align = "c") %>%
     kableExtra::kable_styling(latex_options = c("hold_position"),
                               font_size = base_font_size - 2, full_width = FALSE) %>%
     kableExtra::row_spec(0, bold = TRUE) %>%
@@ -122,6 +122,6 @@ generate_table <- function(data){
       threeparttable = T)
 
   
-  return(dmeans)
+  return(shiny::HTML(as.character(dmeans)))
 
 }

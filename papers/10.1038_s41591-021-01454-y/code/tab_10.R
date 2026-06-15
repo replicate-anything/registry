@@ -158,6 +158,6 @@ generate_table <- function(data){
       general = "Table S6 shows percentage of respondents that mention actors who they would trust the most to help them decide whether to get a COVID-19 vaccine. For all countries the questions was asked regardless if respondent would take a vaccine, would not take it, does not know or does not respond. For India respondents were able to mention more than one actor, for the rest of countries only one actor was allowed. While rows should sum to 100%, rounding makes number slightly above or below. A 95% confidence interval is shown between parentheses.",
       threeparttable = T)
   
-  return(tab)
+  return(shiny::HTML(as.character(tab)))
 
 }
