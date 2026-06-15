@@ -60,7 +60,7 @@ generate_table <- function(data){
                             se_type = "stata",
                             data = .) %>%
         broom::tidy() %>%
-        dplyr::select(all_of(estimate, std.error, p.value, data, term))
+        dplyr::select(estimate, std.error, p.value, df, term)
     }) %>%
     dplyr::bind_rows(.)
 
@@ -77,14 +77,14 @@ generate_table <- function(data){
       se_type = "stata",
       data = .) %>%
     broom::tidy() %>%
-    dplyr::select(all_of(estimate, std.error, p.value, data, term))
+    dplyr::select(estimate, std.error, p.value, df, term)
 
   diffmeans <-
     rbind(differences_means_gen_age, differences_means_educ) %>%
     dplyr::rename(Estimate = estimate,
                   Std.error = std.error,
                   `P-value` = p.value,
-                  "Degrees of freedom" = data,
+                  "Degrees of freedom" = df,
                   "Baseline category" = term) %>%
     dplyr::mutate(
       Variable = ifelse(`Baseline category` == "genderMale",
