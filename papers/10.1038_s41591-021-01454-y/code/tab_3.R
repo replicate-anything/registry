@@ -121,7 +121,7 @@ generate_table <- function(data){
       caption =  "Differences in means",
       format = "html", booktabs = T, linesep = "", label = "dmeans", align = "c") %>%
     kableExtra::kable_styling(latex_options = c("hold_position"),
-                              font_size = base_font_size - 2, full_width = FALSE) %>%
+                              font_size = 10, full_width = FALSE) %>%
     kableExtra::row_spec(0, bold = TRUE) %>%
     kableExtra::footnote(
       general_title = "",
