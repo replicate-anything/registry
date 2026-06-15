@@ -3,7 +3,10 @@ generate_table <- function(data){
   tab_sampling <-
     data |> 
     dplyr::select("Study" = "country", "Date" = "date",
-                  "Geographic scope", "Sampling methodology", "Survey modality", "Weights")  |> 
+                  "Geographic Scope" = "Geographic.Scope",
+                  "Sampling Methodology" = "Sampling.Methodology",
+                  "Survey Modality" = "Survey.Modality",
+                  "Weights" = "Weights")  |> 
     knitr::kable(
       caption =  "Summary of studies sampling",
       format = "html", booktabs = T, linesep = "", label = "sampling") |>
