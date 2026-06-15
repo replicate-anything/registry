@@ -1,5 +1,11 @@
 generate_table <- function(data){
     library(dplyr)
+  
+    study_weighting <- function(data)
+      data %>% 
+      dplyr::group_by(country) %>% 
+      dplyr::mutate(weight = weight/sum(weight)) %>% 
+      dplyr::ungroup() 
     
     # If no cluster information given for a study then individuals are clusters 
     # Ensure cluster ids are distinct across studies
