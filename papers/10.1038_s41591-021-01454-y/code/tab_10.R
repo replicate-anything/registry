@@ -1,5 +1,7 @@
 generate_table <- function(data){
   
+  library(dplyr)
+  
   trust_names <- c("trust_recode_1", "trust_recode_2", "trust_recode_3", 
                    "trust_recode_4", "trust_recode_5", "trust_vaccine_5", "trust_vaccine_6")
 

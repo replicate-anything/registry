@@ -1,5 +1,7 @@
 generate_table <- function(data){
   
+  library(dplyr)
+  
   # Ensure cluster ids are distinct across studies
   df <- 
     data[[1]] %>% 
@@ -81,7 +83,7 @@ generate_table <- function(data){
       return(
         paste0("`", .var, "` ~ 1") %>% 
           as.formula() %>% 
-          lm_robust(formula = ., data = .data, ...) %>% 
+          estimatr::lm_robust(formula = ., data = .data, ...) %>% 
           coef()
       )
     }
