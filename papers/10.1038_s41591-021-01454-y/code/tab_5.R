@@ -79,8 +79,10 @@ generate_table <- function(data){
       n = n()) 
   
   
-  tab <- knitr::kable(country_differences_summary, 
-               digits = 2, caption = "Differences between groups within studies (Summary)")
+  tab <- knitr::kable(country_differences_summary,
+                      digits = 2, 
+                      format = "html", 
+                      caption = "Differences between groups within studies (Summary)")
   
   return(shiny::HTML(as.character(tab)))
   
