@@ -60,7 +60,7 @@ generate_table <- function(data){
                             se_type = "stata",
                             data = .) %>%
         broom::tidy() %>%
-        dplyr::select(estimate, std.error, p.value, data, term)
+        dplyr::select(all_of(estimate, std.error, p.value, data, term))
     }) %>%
     dplyr::bind_rows(.)
 
@@ -77,7 +77,7 @@ generate_table <- function(data){
       se_type = "stata",
       data = .) %>%
     broom::tidy() %>%
-    dplyr::select(estimate, std.error, p.value, data, term)
+    dplyr::select(all_of(estimate, std.error, p.value, data, term))
 
   diffmeans <-
     rbind(differences_means_gen_age, differences_means_educ) %>%
