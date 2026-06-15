@@ -15,6 +15,6 @@ generate_table <- function(data){
     kableExtra::column_spec(4, width = "30em") |>
     kableExtra::landscape()
 
-  return(shiny::HTML(as.character(tab)))
+  return(shiny::HTML(as.character(tab_sampling)))
 
 }
