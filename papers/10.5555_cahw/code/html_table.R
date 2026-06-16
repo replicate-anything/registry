@@ -1,5 +1,7 @@
 generate_table <- function(data){
   
+  library(estimatr)
+  
   # === Standard coefficient map ===
   standard_coef_map <- 
     list(
