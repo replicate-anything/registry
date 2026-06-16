@@ -3,7 +3,7 @@ generate_figure <- function(data){
   vs <- c("y_effort_2", "n_reports_2_std", "n_animals_2_std", "findable_2_std")
   
   fig_2 <- 
-    data |> dplyr::select(all_of(vs)) |> 
+    data |> dplyr::select(dplyr::all_of(vs)) |>
     tidyr::gather(var, val) |>
     dplyr::filter(var %in% vs) |> 
     dplyr::mutate(
@@ -12,11 +12,11 @@ generate_figure <- function(data){
                      "Reports submitted", 
                      "Animals examined", 
                      "Findable CAHW"))) |>
-    ggplot2::ggplot(aes(val)) + 
+    ggplot2::ggplot(ggplot2::aes(val)) +
     ggplot2::geom_histogram(boundary = 0, closed = "left", bins = 25)  + 
     ggplot2::facet_wrap(~var, scales = "free") + 
     ggplot2::theme_bw() + 
-    labs(x = NULL)
+    ggplot2::labs(x = NULL)
   
   return(fig_2)
 }

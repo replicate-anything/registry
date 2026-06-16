@@ -19,7 +19,7 @@ generate_table <- function(data){
   
   tab_only <-
     tbl_formatted |>
-    kable(
+    kableExtra::kable(
       col.names = c(
         "", "Mean", "(sd)", "Mean", "(sd)", "Mean", "(sd)", "Mean", "(sd)",
         "F-statistic", "p-value"
@@ -27,13 +27,13 @@ generate_table <- function(data){
       booktabs = TRUE, escape = FALSE, digits = 2, format = "html"
       # no longtable, no caption => plain tabular
     ) |>
-    add_header_above(
+    kableExtra::add_header_above(
       c(" " = 1, "No incentive" = 2, "Community Monitoring" = 2,
         "Pay for Performance" = 2, "Community Monitoring + P4P" = 2,
         "Differences" = 2)
     ) |>
-    add_header_above(c(" " = 1, "All 287 with CAHWs" = 10)) |>
-    row_spec(17, hline_after = T)
+    kableExtra::add_header_above(c(" " = 1, "All 287 with CAHWs" = 10)) |>
+    kableExtra::row_spec(17, hline_after = T)
   
   
   # Optional: scale without introducing a table float

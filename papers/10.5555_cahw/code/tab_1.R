@@ -59,28 +59,28 @@ generate_table <- function(data){
   
   fit_models_community_level <- function(data, outcome_var) {
     list(
-      T1_strata1 = lm_robust(as.formula(paste(outcome_var, "~ t1_COMC")), 
+      T1_strata1 = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t1_COMC")), 
                              data = data, subset = primary_stratum == TRUE, 
                              fixed_effects = ~t1_block),
       
       # weighted
-      T1 = lm_robust(as.formula(paste(outcome_var, "~ t1_COMC")), fixed_effects = ~t1_block, data = data),
+      T1 = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t1_COMC")), fixed_effects = ~t1_block, data = data),
       
-      T2 = lm_robust(as.formula(paste(outcome_var, "~ t2_CM")), fixed_effects = ~t2t3_block,  
+      T2 = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t2_CM")), fixed_effects = ~t2t3_block,  
                      data = data),
       
-      T3 = lm_robust(as.formula(paste(outcome_var, "~ t3_P4P")), fixed_effects = ~t2t3_block, 
+      T3 = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t3_P4P")), fixed_effects = ~t2t3_block, 
                      data = data),
       
       # weighted
-      All = lm_robust(as.formula(paste(outcome_var, "~ t1_COMC * t2_CM * t3_P4P + primary_stratum")), 
-                      data = data |> mutate(t1_COMC = t1_COMC - mean(t1_COMC), 
+      All = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t1_COMC * t2_CM * t3_P4P + primary_stratum")), 
+                      data = data |> dplyr::mutate(t1_COMC = t1_COMC - mean(t1_COMC), 
                                             t2_CM = t2_CM - mean(t2_CM), 
                                             t3_P4P = t3_P4P - mean(t3_P4P))),
       
-      `All (FE)` = lm_robust(as.formula(paste(outcome_var, "~ t1_COMC * t2_CM * t3_P4P")), 
+      `All (FE)` = estimatr::lm_robust(as.formula(paste(outcome_var, "~ t1_COMC * t2_CM * t3_P4P")), 
                              fixed_effects = ~t2t3_block, 
-                             data = data |> mutate(t1_COMC = t1_COMC - mean(t1_COMC), 
+                             data = data |> dplyr::mutate(t1_COMC = t1_COMC - mean(t1_COMC), 
                                                    t2_CM = t2_CM - mean(t2_CM), 
                                                    t3_P4P = t3_P4P - mean(t3_P4P)))
     )
@@ -116,8 +116,8 @@ generate_table <- function(data){
   # === Equality tests ===
   test_treatment_equality <- function(models) {
     c(NA, NA, NA, NA, 
-      linearHypothesis(models$All, "t2_CM = t3_P4P")$`Pr(>Chisq)`[2],
-      linearHypothesis(models$`All (FE)`, "t2_CM = t3_P4P", singular.ok = TRUE)$`Pr(>Chisq)`[2])
+      car::linearHypothesis(models$All, "t2_CM = t3_P4P")$`Pr(>Chisq)`[2],
+      car::linearHypothesis(models$`All (FE)`, "t2_CM = t3_P4P", singular.ok = TRUE)$`Pr(>Chisq)`[2])
   }
   
   # === combine table objects ===
