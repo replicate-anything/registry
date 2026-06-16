@@ -1,5 +1,22 @@
 generate_table <- function(data){
   
+  # define helper functions
+  study_weighting <- function(data){ 
+    data = data |> 
+      dplyr::group_by(country) |> 
+      dplyr::mutate(weight = weight/sum(weight)) |> 
+      dplyr::ungroup() 
+    
+    return(data)
+  }
+  
+  lm_helper <- function(data, ...) {
+    data <- study_weighting(data)
+    fit  <- estimatr::lm_robust(data = data, ...)
+    out  <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
+    return(out)
+  }
+  
   reasons_together <- function(df, 
                                reason, 
                                num = "Yes") {

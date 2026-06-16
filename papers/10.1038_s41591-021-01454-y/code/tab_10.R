@@ -2,8 +2,23 @@ generate_table <- function(data){
   
   library(dplyr)
   
-  trust_names <- c("trust_recode_1", "trust_recode_2", "trust_recode_3", 
-                   "trust_recode_4", "trust_recode_5", "trust_vaccine_5", "trust_vaccine_6")
+  
+  # define helper functions
+  study_weighting <- function(data){ 
+    data = data |> 
+      dplyr::group_by(country) |> 
+      dplyr::mutate(weight = weight/sum(weight)) |> 
+      dplyr::ungroup() 
+    
+    return(data)
+  }
+  
+  lm_helper <- function(data, ...) {
+    data <- study_weighting(data)
+    fit  <- estimatr::lm_robust(data = data, ...)
+    out  <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
+    return(out)
+  }
 
   reasons_together <- function(data, 
                                reason, 
@@ -94,6 +109,14 @@ generate_table <- function(data){
         trust_recode_5 = 
           ifelse((country == "Nigeria" | country == "Sierra Leone 2" | country == "USA") &
                    is.na(trust_recode_5), 0, trust_recode_5))
+  
+  trust_names <- c("trust_recode_1", 
+                   "trust_recode_2", 
+                   "trust_recode_3", 
+                   "trust_recode_4", 
+                   "trust_recode_5", 
+                   "trust_vaccine_5", 
+                   "trust_vaccine_6")
   
   trust_vacc <- 
     plyr::ldply(

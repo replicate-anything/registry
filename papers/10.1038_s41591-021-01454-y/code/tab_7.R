@@ -86,9 +86,10 @@ generate_table <- function(data){
   
   ## Generate data for analysis of yes reasons
   yes_vacc1 <-
-    lapply(yes_vars, reasons_together, df = df2, num = "Yes") %>%
+   lapply(yes_vars, function(v) reasons_together(data = df2, reason = v, num = "Yes")) %>%
     dplyr::bind_rows() %>%
     dplyr::mutate(across(c(conf.low, conf.high, estimate), ~ round(. * 100, digits = 0)))
+  
   # All LMIcs estimate of self protection
   yes_all <- 
     yes_vacc1 %>% 
@@ -144,7 +145,7 @@ generate_table <- function(data){
   
   ## Generate data for analysis of yes reasons
   yes_vacc1 <- 
-    lapply(yes_vars, reasons_together, df = df2, num = "Yes") %>%
+    lapply(yes_vars, function(v) reasons_together(data = df2, reason = v, num = "Yes")) %>%
     dplyr::bind_rows() %>%
     dplyr::mutate(across(c(conf.low, conf.high, estimate), ~ round(. * 100, digits = 0)))
   

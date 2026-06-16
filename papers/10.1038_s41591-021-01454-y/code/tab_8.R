@@ -46,12 +46,18 @@ generate_table <- function(data){
                         gsub(pattern = " ", replacement = "_", x = tolower(country)), 
                         cluster)) 
   
-  age_analysis <- function(df, 
-                           reason, 
-                           num = "Yes", 
+  lm_helper <- function(data, ...) {
+    fit <- estimatr::lm_robust(data = data, ...)
+    out <- dplyr::bind_cols(broom::tidy(fit), n = nobs(fit))
+    return(out)
+  }
+
+  age_analysis <- function(df,
+                           reason,
+                           num = "Yes",
                            filter_by = NA) {
     df %>%
-      dplyr::filter({{filter_by}} == 1)  %>%
+      dplyr::filter(.data[[filter_by]] == 1) %>%
       dplyr::filter(take_vaccine %in% num, 
                     if_all(c(all_of(reason), cluster, weight), ~ !is.na(.))) %>%
       dplyr::nest_by(group) %>%
@@ -63,23 +69,23 @@ generate_table <- function(data){
   }
 
   yes_vars <-
-    df_2 %>%
+    df2 %>%
     dplyr::select(yes_vaccine_1, yes_vaccine_2, yes_vaccine_3) %>%
     names
 
   ## Generate data for analysis of yes reasons for different age groups
   yes_vacc_age_1 <-
-    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_less24`) %>%
+    lapply(yes_vars, function(v) age_analysis(df = df2, reason = v, num = "Yes", filter_by = "age_less24")) %>%
     dplyr::bind_rows() %>%
     mutate(age = "<25")
 
   yes_vacc_age_2 <-
-    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_25_54`) %>%
+    lapply(yes_vars, function(v) age_analysis(df = df2, reason = v, num = "Yes", filter_by = "age_25_54")) %>%
     dplyr::bind_rows() %>%
     mutate(age = "25-54")
 
   yes_vacc_age_3 <-
-    lapply(yes_vars, age_analysis, df = df2, num = "Yes", filter_by = `age_55_more`) %>%
+    lapply(yes_vars, function(v) age_analysis(df = df2, reason = v, num = "Yes", filter_by = "age_55_more")) %>%
     dplyr::bind_rows() %>%
     mutate(age = "55+")
 
@@ -137,6 +143,7 @@ generate_table <- function(data){
       col.names = cnames,
       caption = "\\label{yes1}Reasons to take the vaccine",
       booktabs = T, linesep = "",
+      format = "html",
       format.args = list(big.mark = ",", scientific = FALSE),
       align = c("l", rep("c", 9))) %>%
     kableExtra::kable_styling(full_width = FALSE) %>%
