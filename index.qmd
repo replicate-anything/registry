@@ -90,6 +90,7 @@ papers <- if (length(rows) > 0) {
 }
 
 index_csv <- papers[, c("folder", "doi", "title", "journal", "year", "authors")]
+index_csv$repo <- "replicate-anything/registry" # hotfix, needs to be changed to read repository from yaml if included; 
 write.csv(index_csv, "index.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 if (nrow(papers) == 0) {
