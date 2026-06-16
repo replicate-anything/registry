@@ -1,4 +1,15 @@
-generate_figure <- function(data){
+# Acceptance Rates (disaggregated by group) — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript fig_1.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_fig_1 <- function(data){
   
   safe_colorblind_palette <- c(
     "#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499",
@@ -39,3 +50,5 @@ generate_figure <- function(data){
   return(fig_1_ages)
   
 }
+
+make_fig_1(utils::read.csv("../data/fig_1.csv", stringsAsFactors = FALSE))

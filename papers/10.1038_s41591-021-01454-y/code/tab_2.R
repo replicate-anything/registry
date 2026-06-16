@@ -1,4 +1,15 @@
-generate_table <- function(data){
+# Summary of Studies' Sampling — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_2.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_2 <- function(data){
 
   tab_sampling <-
     data |> 
@@ -18,6 +29,8 @@ generate_table <- function(data){
     kableExtra::column_spec(4, width = "30em") |>
     kableExtra::landscape()
 
-  return(shiny::HTML(as.character(tab_sampling)))
+  as.character(tab_sampling)
 
 }
+
+make_tab_2(utils::read.csv("../data/studies_info_sample.csv", stringsAsFactors = FALSE))

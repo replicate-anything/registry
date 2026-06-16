@@ -1,5 +1,15 @@
-generate_table <- function(data){
-  library(dplyr)
+# Vaccine Data from WGM, WHO — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_1.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_1 <- function(data){
   # Call data from WGM
   dfwgm <- data[[1]] #"3_rep_data/table_wgm.csv"
   
@@ -49,5 +59,10 @@ generate_table <- function(data){
       threeparttable = T) |>
     kableExtra::landscape()
   
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
 }
+
+make_tab_1(list(
+  utils::read.csv("../data/table_wgm.csv", stringsAsFactors = FALSE),
+  utils::read.csv("../data/vacc_cov.csv", stringsAsFactors = FALSE)
+))

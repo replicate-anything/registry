@@ -1,4 +1,14 @@
-generate_figure <- function(data){
+# Results Refreshment Sample — Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1371_journal.pone.0278337
+# Run from the paper's code/ folder: Rscript fig_8.R
+
+library(dplyr)
+library(ggplot2)
+library(estimatr)
+library(bbmle)
+library(egg)
+
+make_fig_8 <- function(data){
 
   treatments_norm <- c("trading_importance", "risk", "others_number_norm", "others_giving_norm")
   treatment_labels <- c("Trading importance", "Risk", "Number of others giving (10s)", "Amount given by other countries\n(10s of billions)")
@@ -45,3 +55,6 @@ generate_figure <- function(data){
 
   return(figure_1_group)
 }
+
+
+make_fig_8(utils::read.csv("../data/fig_1.csv", stringsAsFactors = FALSE))

@@ -1,0 +1,25 @@
+paper:
+  doi: https://doi.org/10.1017/S0003055403000534
+  title: Ethnicity, Insurgency, and Civil War
+  journal: American Political Science Review
+  year: 2003
+  authors: James D. Fearon, David D. Laitin
+  dependencies:
+    - haven
+    - modelsummary
+    - kableExtra
+
+replications:
+
+  - id: tab_1
+    type: table
+    label: Table 1
+    description: Logit analyses of determinants of civil war onset, 1945–99
+    data: data/repdata.dta
+    code: code/tab_1.R
+    format: format_tab_1
+    artifact: artifacts/tab_1.rds
+    dependencies:
+      - haven
+      - modelsummary
+      - kableExtra

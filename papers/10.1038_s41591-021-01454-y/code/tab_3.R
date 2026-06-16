@@ -1,5 +1,15 @@
-generate_table <- function(data){
-    library(dplyr)
+# Differences in Means — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_3.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_3 <- function(data){
   
     study_weighting <- function(data)
       data %>% 
@@ -129,6 +139,8 @@ generate_table <- function(data){
       threeparttable = T)
 
   
-  return(shiny::HTML(as.character(dmeans)))
+  as.character(dmeans)
 
 }
+
+make_tab_3(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

@@ -1,4 +1,15 @@
-generate_figure <- function(data){
+# Robustness check using leave-m-out approach — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript fig_2.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_fig_2 <- function(data){
   
  # hist_data <- data$hist
   #ref_data  <- data$ref
@@ -43,3 +54,8 @@ generate_figure <- function(data){
 
   return(fig_2)
 }
+
+make_fig_2(list(
+  utils::read.csv("../data/fig_2_hist.csv", stringsAsFactors = FALSE),
+  utils::read.csv("../data/fig_2_ref.csv", stringsAsFactors = FALSE)
+))

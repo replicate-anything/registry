@@ -1,6 +1,15 @@
-generate_figure <- function(data){
-  library(dplyr)
-  library(ggplot2)
+# Reason not to take vaccine — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript fig_3.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_fig_3 <- function(data){
 
   safe_colorblind_palette <- c(
   "#CC6677","#DDCC77","#117733","#332288",
@@ -35,3 +44,5 @@ generate_figure <- function(data){
   return(fig_3)
 
 }
+
+make_fig_3(utils::read.csv("../data/fig_3.csv", stringsAsFactors = FALSE))

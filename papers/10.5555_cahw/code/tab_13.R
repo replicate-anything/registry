@@ -1,5 +1,17 @@
+# Appendix: Results by CAHW Performance Index's Subcomponents — Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.5555_cahw
+# Run from the paper's code/ folder: Rscript tab_13.R
 
-generate_table <- function(data){
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(estimatr)
+library(texreg)
+library(patchwork)
+library(scales)
+
+make_tab_13 <- function(data){
     
     # === Standard coefficient map ===
     standard_coef_map <- 
@@ -72,3 +84,6 @@ generate_table <- function(data){
     return(table)
     
   }
+
+
+make_tab_13(readRDS("../data/table_subcomponents_std.rds"))

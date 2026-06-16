@@ -1,7 +1,12 @@
-generate_figure <- function(data){
-  
-  library(ggplot2)
-  
+# Example figure — Bounding Causes of Effects With Mediators
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1177_00491241211036161
+# Run from the paper's code/ folder: Rscript fig_1.R
+
+library(ggplot2)
+library(dplyr)
+
+make_fig_1 <- function(data){
+
   bound_names <- c(
     "Simple bounds",
     "Unobserved mediators",
@@ -45,3 +50,6 @@ generate_figure <- function(data){
   
   return(p)
 }
+
+
+make_fig_1(utils::read.csv("../data/fig_1.csv", stringsAsFactors = FALSE))

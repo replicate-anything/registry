@@ -1,4 +1,15 @@
-generate_table <- function(data){
+# Reason to take the vaccine: by age. — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_8.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_8 <- function(data){
   
   # Ensure cluster ids are distinct across studies
   df <- 
@@ -157,7 +168,10 @@ generate_table <- function(data){
       general = "Table S4 shows percentage of respondents mentioning reasons why they would take the Covid-19 vaccine by age groups. The number of observations and percentage correponds only to people who would take the vaccine. Respondents in all countries could give more than one reason. A 95% confidence interval is shown between parentheses.",
       threeparttable = T)
   
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
 
 
 }
+
+
+make_tab_8(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

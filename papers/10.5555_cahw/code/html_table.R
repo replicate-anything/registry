@@ -1,7 +1,13 @@
+# Shared table formatter — Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.5555_cahw
+# Used by multiple replications (see replication.yml). Run via the app or a paper-specific script.
+
+library(estimatr)
+library(texreg)
+library(dplyr)
+
 generate_table <- function(data){
-  
-  library(estimatr)
-  
+
   # === Standard coefficient map ===
   standard_coef_map <- 
     list(

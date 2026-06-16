@@ -1,4 +1,16 @@
-generate_table <- function(data){
+# Additional Analyses: Wave 2 conjoint — Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1371_journal.pone.0278337
+# Run from the paper's code/ folder: Rscript tab_2.R
+
+library(dplyr)
+library(ggplot2)
+library(estimatr)
+library(bbmle)
+library(egg)
+library(modelsummary)
+library(kableExtra)
+
+make_tab_2 <- function(data){
 
   df_2 <- data$fig_3
   label <- data$labels
@@ -117,3 +129,7 @@ generate_table <- function(data){
   tbl
 }
 
+make_tab_2(list(
+  fig_3 = utils::read.csv("../data/fig_3.csv", stringsAsFactors = FALSE),
+  labels = utils::read.csv("../data/labels.csv", stringsAsFactors = FALSE)
+))

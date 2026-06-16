@@ -1,4 +1,14 @@
-generate_figure <- function(data){
+# Levels of support by party — Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1371_journal.pone.0278337
+# Run from the paper's code/ folder: Rscript fig_4.R
+
+library(dplyr)
+library(ggplot2)
+library(estimatr)
+library(bbmle)
+library(egg)
+
+make_fig_4 <- function(data){
 
   amounts_d <- seq(0, 22, .5)
 
@@ -28,3 +38,6 @@ generate_figure <- function(data){
 
   return(supports_by_party)
 }
+
+
+make_fig_4(utils::read.csv("../data/fig_1.csv", stringsAsFactors = FALSE))

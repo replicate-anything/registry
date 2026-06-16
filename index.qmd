@@ -12,6 +12,28 @@ execute:
 
 Welcome to the **Replication Registry**. This catalog lists replication packages in `papers/`, one row per study folder, with metadata from each folder's `replication.yml`.
 
+Precomputed **display defaults** for the Shiny app live in each paper's `artifacts/` folder. Regenerate them after changing code or data:
+
+```bash
+Rscript scripts/build_artifacts.R
+```
+
+Verify precomputed files are present (run after clone or before Shiny):
+
+```bash
+Rscript scripts/validate_artifacts.R
+```
+
+Each script in `code/` is **self-contained** and follows a fixed layout: `library()` calls at the top, then analysis functions (`make_*`), then optional display functions (`format_*`), then a one-line execute footer that loads `../data/...` and runs the pipeline.
+
+Artifacts store **analysis output** (e.g. `.rds` model objects) when `replication.yml` defines a separate `format:` step; otherwise they store display-ready output (`.html`, `.png`). The Shiny app applies `format_*` at display time when registered.
+
+To build artifacts for one study only, pass its folder name:
+
+```bash
+Rscript scripts/build_artifacts.R papers/10.1017S0003055403000534
+```
+
 ```{r}
 #| label: papers-table
 

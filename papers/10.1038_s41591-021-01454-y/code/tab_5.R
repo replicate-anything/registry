@@ -1,5 +1,15 @@
-generate_table <- function(data){
-  library(dplyr)
+# Differences between groups within studies (Summary) — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_5.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_5 <- function(data){
   # Ensure cluster ids are distinct across studies
   df <- 
     data %>% 
@@ -84,6 +94,9 @@ generate_table <- function(data){
                       format = "html", 
                       caption = "Differences between groups within studies (Summary)")
   
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
   
 }
+
+
+make_tab_5(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

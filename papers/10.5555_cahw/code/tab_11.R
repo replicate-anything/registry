@@ -1,4 +1,16 @@
-generate_table <- function(data){
+# Appendix: Balance table — Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.5555_cahw
+# Run from the paper's code/ folder: Rscript tab_11.R
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(estimatr)
+library(texreg)
+library(patchwork)
+library(scales)
+
+make_tab_11 <- function(data){
   
   tbl_formatted <- data
   num_cols <- 2:11
@@ -41,3 +53,6 @@ generate_table <- function(data){
   
   return(tab_only)
 }
+
+
+make_tab_11(readRDS("../data/balance_table.rds"))

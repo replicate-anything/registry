@@ -1,5 +1,15 @@
-generate_table <- function(data){
-  library(dplyr)
+# Difference in Means (by study) — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_4.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_4 <- function(data){
   # Ensure cluster ids are distinct across studies
   df <- 
     data %>% 
@@ -89,6 +99,9 @@ generate_table <- function(data){
     kableExtra::kable_styling(full_width = FALSE) |>
     kableExtra::row_spec(0, bold = TRUE)
 
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
 
 }
+
+
+make_tab_4(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

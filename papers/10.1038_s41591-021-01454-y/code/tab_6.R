@@ -1,4 +1,15 @@
-generate_table <- function(data){
+# Reason to take — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_6.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_6 <- function(data){
   
   
   # define helper functions
@@ -137,5 +148,8 @@ generate_table <- function(data){
       general = "Table S2 shows percentage of respondents mentioning reasons why they would take the Covid-19 vaccine. The number of observations and percentage correponds only to people who would take the vaccine. Respondents in all countries could give more than one reason. A 95% confidence interval is shown between parentheses. Studies India, Pakistan 1 and Pakistan 2 are not included because they either did not include the question or were not properly harmonized with the other studies.",
       threeparttable = T)
   
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
   }
+
+
+make_tab_6(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

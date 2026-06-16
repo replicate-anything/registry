@@ -4,6 +4,9 @@ paper:
   journal: Sociological Methods &amp; Research
   year: 2022
   authors: Macartan Humphreys, Philip Dawid, Monica Musio
+  dependencies:
+    - ggplot2
+    - dplyr
 
 
 replications:
@@ -11,7 +14,7 @@ replications:
   - id: fig_1
     type: figure
     description: Example figure
-    data: processed/fig_1.csv
+    data: data/fig_1.csv
     code: code/fig_1.R
 
 

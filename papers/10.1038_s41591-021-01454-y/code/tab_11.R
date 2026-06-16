@@ -1,7 +1,16 @@
-generate_table <- function(data){
-  
-  library(dplyr)
-  
+# Summary Stats — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript tab_11.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_tab_11 <- function(data){
+
   # Ensure cluster ids are distinct across studies
   df <- 
     data[[1]] %>% 
@@ -161,5 +170,10 @@ generate_table <- function(data){
       general = "This table presents summarys statistics for our data and compares it with estimates from other sources of data. Data for Russia comes from census data from the Statistical Agency. For the USA, we use data from the 2019 American Community Survey. For all other countries, the Wellcome Global Monitor 2018 was used. Statistics for our surveys are not weighted, while estimates from benchmark sources are obtained using sampling weights.") %>%
     kableExtra::column_spec(1:8, width = "5em")
   
-  return(shiny::HTML(as.character(tab)))
+  as.character(tab)
 }
+
+make_tab_11(list(
+  utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE),
+  utils::read.csv("../data/wgm_2018_publiccsv.csv", stringsAsFactors = FALSE)
+))

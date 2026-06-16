@@ -1,7 +1,16 @@
-generate_figure <- function(data){
+# Trust — COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1038_s41591-021-01454-y
+# Run from the paper's code/ folder: Rscript fig_4.R
+
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(forcats)
+library(tidyr)
+library(broom)
+
+make_fig_4 <- function(data){
   
-  library(dplyr)
-  library(ggplot2)
   
   # define functions
   reasons_together <- function(data, 
@@ -219,3 +228,5 @@ generate_figure <- function(data){
   
   return(fig_hist2)
 }
+
+make_fig_4(utils::read.csv("../data/combined.csv", stringsAsFactors = FALSE))

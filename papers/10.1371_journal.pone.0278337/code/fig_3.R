@@ -1,4 +1,14 @@
-generate_figure <- function(data){
+# Effect of video treatment on individual solidarity — Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany
+# Paper folder: https://github.com/replicate-anything/registry/tree/main/papers/10.1371_journal.pone.0278337
+# Run from the paper's code/ folder: Rscript fig_3.R
+
+library(dplyr)
+library(ggplot2)
+library(estimatr)
+library(bbmle)
+library(egg)
+
+make_fig_3 <- function(data){
 
   outcomes <- c("solidarity_behaviour", "solidarity_attitude")
   outcome_labels <- c("Solidarity Behavior", "Solidarity Attitude")
@@ -25,3 +35,6 @@ generate_figure <- function(data){
 
   return(figure_3)
 }
+
+
+make_fig_3(utils::read.csv("../data/fig_3.csv", stringsAsFactors = FALSE))
