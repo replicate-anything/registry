@@ -4,7 +4,7 @@ generate_figure <- function(data){
   
   fig_2 <- 
     data |> dplyr::select(all_of(vs)) |> 
-    dplyr::gather(var, val) |>
+    tidyr::gather(var, val) |>
     dplyr::filter(var %in% vs) |> 
     dplyr::mutate(
       var = factor(var, vs, 
