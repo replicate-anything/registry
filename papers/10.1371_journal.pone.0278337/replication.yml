@@ -8,9 +8,9 @@ paper:
   year: 2022
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke
   package: rep1371journalpone0278337
-  # Sibling folder in the monorepo (used until the package is on GitHub)
+  # Sibling folder in the monorepo (local dev; optional when package is on GitHub)
   package_folder: rep_10.1371_journal.pone.0278337
-  # Future online install address (not published yet)
+  # GitHub repo for install / update (https://github.com/replicate-anything/rep_10.1371_journal.pone.0278337)
   package_repo: replicate-anything/rep_10.1371_journal.pone.0278337
   package_ref: main
   source_repo: https://github.com/wzb-ipi/vaccine_solidarity
