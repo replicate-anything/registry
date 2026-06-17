@@ -1,90 +1,19 @@
+# Registry stub: points to the study replication package.
+# Tables/figures live in the package, not under registry/papers/.../code.
+
 paper:
   doi: https://doi.org/10.1371/journal.pone.0278337
   title: "Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany"
   journal: PLOS ONE
   year: 2022
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke
-  dependencies:
-    - dplyr
-    - ggplot2
-    - estimatr
-    - bbmle
-    - egg
+  package: rep1371journalpone0278337
+  # Sibling folder in the monorepo (used until the package is on GitHub)
+  package_folder: rep_10.1371_journal.pone.0278337
+  # Future online install address (not published yet)
+  package_repo: replicate-anything/rep_10.1371_journal.pone.0278337
+  package_ref: main
+  source_repo: https://github.com/wzb-ipi/vaccine_solidarity
 
-replications:
-
-  - id: fig_1
-    type: figure
-    description: "Distribution of support for contributions of different sizes"
-    data: data/fig_1.csv
-    code: code/fig_1.R
-    dependencies: 
-    - dplyr
-    - ggplot2
-    - egg
-
-  - id: fig_2
-    type: figure
-    description: "Marginal effects of conditions"
-    data: data/fig_1.csv
-    code: code/fig_2.R
-    
-  - id: fig_3
-    type: figure
-    description: "Effect of video treatment on individual solidarity"
-    data: data/fig_3.csv
-    code: code/fig_3.R
-
-  - id: fig_4
-    type: figure
-    description: "Levels of support by party"
-    data: data/fig_1.csv
-    code: code/fig_4.R
-    
-  - id: fig_5
-    type: figure
-    description: "Levels of support by migration background"
-    data: data/fig_1.csv
-    code: code/fig_5.R
-
-  - id: fig_6
-    type: figure
-    description: "Marginal effects of conditions by party"
-    data: data/fig_1.csv
-    code: code/fig_6.R
-
-  - id: fig_7
-    type: figure
-    description: "Marginal effects of conditions by migration background"
-    data: data/fig_1.csv
-    code: code/fig_7.R
-    
-  - id: fig_8
-    type: figure
-    description: "Results Refreshment Sample"
-    data: data/fig_1.csv
-    code: code/fig_8.R
-    
-  - id: tab_1
-    type: table
-    description: "Structural Parameter Estimates"
-    data: data/fig_1.csv
-    code: code/tab_1.R
-    dependencies: 
-    - dplyr
-    - knitr
-    - bbmle
-    - kableExtra
-    
-  - id: tab_2
-    type: table
-    description: "Additional Analyses: Wave 2 conjoint"
-    data: 
-    - data/fig_3.csv
-    - data/labels.csv
-    code: code/tab_2.R
-    dependencies: 
-    - dplyr
-    - estimatr
-    - modelsummary
-    - kableExtra
+# Top-level repo is the package GitHub slug once published (overrides index.csv for installs)
+repo: replicate-anything/rep_10.1371_journal.pone.0278337
