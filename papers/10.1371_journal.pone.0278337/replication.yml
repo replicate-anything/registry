@@ -15,5 +15,5 @@ paper:
   package_ref: main
   source_repo: https://github.com/wzb-ipi/vaccine_solidarity
 
-# Top-level repo is the package GitHub slug once published (overrides index.csv for installs)
+# Top-level repo is the package GitHub slug 
 repo: replicate-anything/rep_10.1371_journal.pone.0278337
