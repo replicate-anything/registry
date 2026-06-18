@@ -3,7 +3,7 @@
 # Build and validate replication artifacts for all papers in the registry.
 # Usage:
 #   Rscript scripts/build_artifacts.R
-#   Rscript scripts/build_artifacts.R papers/10.1177_00491241211036161
+#   Rscript scripts/build_artifacts.R 10.1177_00491241211036161
 
 args <- commandArgs(trailingOnly = TRUE)
 
@@ -74,7 +74,13 @@ for (folder in paper_folders) {
         rep_id,
         install_deps = TRUE
       )
-      out <- replicateEverything::save_artifact(result, artifact_dir)
+      out <- replicateEverything::save_artifact(
+        result,
+        artifact_dir,
+        doi = doi,
+        folder = folder,
+        install_deps = TRUE
+      )
       out_file <- file.path(artifact_dir, basename(out))
       if (!file.exists(out_file)) {
         stop("Artifact file was not created: ", out_file)
@@ -83,7 +89,13 @@ for (folder in paper_folders) {
       list(
         status = "ok",
         artifact = file.path("artifacts", basename(out)),
-        format = result$format
+        format = switch(
+          tools::file_ext(out_file),
+          html = "html",
+          png = "ggplot",
+          rds = "rds",
+          result$format
+        )
       )
     }, error = function(e) {
       failures <<- c(failures, paste0(folder, "/", rep_id, ": ", conditionMessage(e)))

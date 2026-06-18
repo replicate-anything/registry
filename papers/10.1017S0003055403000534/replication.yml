@@ -18,7 +18,7 @@ replications:
     data: data/repdata.dta
     code: code/tab_1.R
     format: format_tab_1
-    artifact: artifacts/tab_1.rds
+    artifact: artifacts/tab_1.html
     dependencies:
       - haven
       - modelsummary
