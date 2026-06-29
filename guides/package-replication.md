@@ -16,10 +16,10 @@ paper:
   doi: https://doi.org/10.1371/journal.pone.0278337
   title: "..."
   package: rep1371journalpone0278337
-  package_folder: rep_10.1371_journal.pone.0278337
-  package_repo: replicate-anything/rep_10.1371_journal.pone.0278337
+  package_folder: rep-10.1371_journal.pone.0278337
+  package_repo: replicate-anything/rep-10.1371_journal.pone.0278337
   package_ref: main
-repo: replicate-anything/rep_10.1371_journal.pone.0278337
+repo: replicate-anything/rep-10.1371_journal.pone.0278337
 ```
 
 No `code/`, `data/`, or `artifacts/` in the registry.
