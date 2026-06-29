@@ -36,6 +36,18 @@ for (folder in paper_folders) {
 
   meta <- yaml::read_yaml(yml_path)
   doi <- replicateEverything::normalize_doi(meta$paper$doi)
+
+  if (replicateEverything::is_package_replication(meta)) {
+    message("Checking ", folder, " (package-backed) ...")
+    tryCatch(
+      replicateEverything::validate_paper_artifacts(doi),
+      error = function(e) {
+        failures <<- c(failures, paste0(folder, ": ", conditionMessage(e)))
+      }
+    )
+    next
+  }
+
   message("Checking ", folder, " ...")
 
   manifest_path <- file.path(papers_dir, folder, "artifacts", "manifest.json")

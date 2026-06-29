@@ -1,5 +1,5 @@
-# Registry stub: points to the study replication package.
-# Tables/figures live in the package, not under registry/papers/.../code.
+# Lightweight registry stub for a package-backed study.
+# Code, data, replications list, and display artifacts live in the study package.
 
 paper:
   doi: https://doi.org/10.1371/journal.pone.0278337
@@ -8,12 +8,8 @@ paper:
   year: 2022
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke
   package: rep1371journalpone0278337
-  # Sibling folder in the monorepo (local dev; optional when package is on GitHub)
   package_folder: rep_10.1371_journal.pone.0278337
-  # GitHub repo for install / update (https://github.com/replicate-anything/rep_10.1371_journal.pone.0278337)
   package_repo: replicate-anything/rep_10.1371_journal.pone.0278337
   package_ref: main
-  source_repo: https://github.com/wzb-ipi/vaccine_solidarity
 
-# Top-level repo is the package GitHub slug 
 repo: replicate-anything/rep_10.1371_journal.pone.0278337

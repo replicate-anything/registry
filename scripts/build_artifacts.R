@@ -39,6 +39,15 @@ for (folder in paper_folders) {
   doi <- meta$paper$doi
   doi <- replicateEverything::normalize_doi(doi)
 
+  if (replicateEverything::is_package_replication(meta)) {
+    pkg <- as.character(meta$paper$package[[1]])
+    message(
+      "\n=== ", folder, " (package-backed; skipping registry build) ===\n",
+      "Artifacts live in ", pkg, "::build_report() -> inst/report/artifacts/"
+    )
+    next
+  }
+
   message("\n=== ", folder, " ===")
 
   local_index <- data.frame(
