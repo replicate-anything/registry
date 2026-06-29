@@ -48,6 +48,15 @@ for (folder in paper_folders) {
     next
   }
 
+  ctx <- replicateEverything::paper_context(doi, folder = folder)
+  if (isTRUE(ctx$is_folder_study)) {
+    message(
+      "\n=== ", folder, " (folder-backed; skipping registry build) ===\n",
+      "Artifacts live in study repo ", ctx$materials_repo, "/artifacts/"
+    )
+    next
+  }
+
   message("\n=== ", folder, " ===")
 
   local_index <- data.frame(
