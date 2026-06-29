@@ -1,20 +1,15 @@
+# Lightweight registry stub for a folder-backed study.
+# Code, data, replications list, and display artifacts live in the study repo.
+
 paper:
   doi: https://doi.org/10.1177/00491241211036161
   title: Bounding Causes of Effects With Mediators
-  journal: Sociological Methods &amp; Research
+  journal: Sociological Methods & Research
   year: 2022
   authors: Macartan Humphreys, Philip Dawid, Monica Musio
-  dependencies:
-    - ggplot2
+  materials: folder
+  study_repo: replicate-anything/rep-10.1177-00491241211036161
+  study_folder: rep-10.1177-00491241211036161
+  study_ref: main
 
-replications:
-
-  - id: fig_1
-    type: figure
-    label: Figure 1
-    description: Bounds on probability of causation across rho and tau
-    code: code/fig_1.R
-    format: format_fig_1
-    artifact: artifacts/fig_1.png
-    dependencies:
-      - ggplot2
+repo: replicate-anything/rep-10.1177-00491241211036161
