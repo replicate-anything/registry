@@ -2,11 +2,10 @@
 
 For studies maintained as a **simple folder repository** (not an R package), the registry holds only a lightweight stub. All code, data, replications list, and display artifacts live in the study repository.
 
-## Registry folder (stub only)
+## Registry stub file
 
 ```
-papers/10.1017S0003055403000534/
-  replication.yml
+papers/10.1017S0003055403000534.yml
 ```
 
 Example stub:
@@ -35,7 +34,7 @@ tests/
   testthat/
 ```
 
-Paths in `replication.yml` are relative to the study repo root (same as classic registry papers, but hosted externally).
+Paths in `replication.yml` are relative to the study repo root.
 
 ## Build and validate (study repo)
 
@@ -50,8 +49,8 @@ options(
 
 build_study_artifacts(".", install_deps = TRUE)
 testthat::test_dir("tests/testthat")
-check_folder_replication(".", registry_root = "../registry")
-add_folder_paper(".", registry_root = "../registry")
+prepare_folder_paper(".", build_artifacts = FALSE, registry_root = "../registry")
+sync_folder_paper(".", registry_root = "../registry")
 ```
 
 See `vignette("folder-replication-checklist", package = "replicateEverything")`.

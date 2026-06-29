@@ -2224,15 +2224,14 @@ vertical-align: -.125em;
 </header>
 
 
-<p>Welcome to the <strong>Replication Registry</strong>. This catalog lists replication packages in <code>papers/</code>, one row per study folder, with metadata from each folder’s <code>replication.yml</code>.</p>
-<p>Precomputed <strong>display defaults</strong> for the Shiny app live in each paper’s <code>artifacts/</code> folder. Regenerate them after changing code or data:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/build_artifacts.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Welcome to the <strong>Replication Registry</strong>. This catalog lists replication packages from stub files in <code>papers/</code> (<code>&lt;folder&gt;.yml</code>), one row per study. Code, data, and artifacts live in <strong>folder-backed study repos</strong> or <strong>package-backed</strong> study packages linked from each stub.</p>
+<p>For folder-backed studies, build display artifacts in the study repository:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>replicateEverything<span class="sc">::</span><span class="fu">build_study_artifacts</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For package-backed studies, use <code>build_report()</code> in the study package.</p>
 <p>Verify precomputed files are present (run after clone or before Shiny):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/validate_artifacts.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Each script in <code>code/</code> is <strong>self-contained</strong> and follows a fixed layout: <code>library()</code> calls at the top, then analysis functions (<code>make_*</code>), then optional display functions (<code>format_*</code>), then a one-line execute footer that loads <code>../data/...</code> and runs the pipeline.</p>
+<p>Each replication script in a study repo follows a fixed layout: <code>library()</code> calls at the top, then analysis functions (<code>make_*</code>), then optional display functions (<code>format_*</code>), then a one-line execute footer that loads <code>data/...</code> and runs the pipeline.</p>
 <p>Artifacts store <strong>analysis output</strong> (e.g. <code>.rds</code> model objects) when <code>replication.yml</code> defines a separate <code>format:</code> step; otherwise they store display-ready output (<code>.html</code>, <code>.png</code>). The Shiny app applies <code>format_*</code> at display time when registered.</p>
-<p>To build artifacts for one study only, pass its folder name:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/build_artifacts.R papers/10.1017S0003055403000534</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-striped caption-top table-sm small">
@@ -2244,48 +2243,54 @@ vertical-align: -.125em;
 <th style="text-align: left;" data-quarto-table-cell-role="th">Journal</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Authors</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Repository</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="papers/10.1017S0003055403000534/">10.1017S0003055403000534</a></td>
+<td style="text-align: left;"><a href="papers/10.1017S0003055403000534.yml">10.1017S0003055403000534</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.1017/S0003055403000534">https://doi.org/10.1017/S0003055403000534</a></td>
 <td style="text-align: left;">Ethnicity, Insurgency, and Civil War</td>
 <td style="text-align: left;">American Political Science Review</td>
 <td style="text-align: right;">2003</td>
 <td style="text-align: left;">James D. Fearon, David D. Laitin</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1017-S0003055403000534">replicate-anything/rep-10.1017-S0003055403000534</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="papers/10.1038_s41591-021-01454-y/">10.1038_s41591-021-01454-y</a></td>
+<td style="text-align: left;"><a href="papers/10.1038_s41591-021-01454-y.yml">10.1038_s41591-021-01454-y</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.1038/s41591-021-01454-y">https://doi.org/10.1038/s41591-021-01454-y</a></td>
 <td style="text-align: left;">COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries</td>
 <td style="text-align: left;">Nature Medicine</td>
 <td style="text-align: right;">2021</td>
 <td style="text-align: left;">Julio S. Solís Arce, Shana S. Warren, Niccolò F. Meriggi, Alexandra Scacco, Nina McMurry, Maarten Voors, Georgiy Syunyaev, Amyn Abdul Malik, Samya Aboutajdine, Opeyemi Adeojo, Deborah Anigo, Alex Armand, Saher Asad, Martin Atyera, Britta Augsburg, Manisha Awasthi, Gloria Eden Ayesiga, Antonella Bancalari, Martina Björkman Nyqvist, Ekaterina Borisova, Constantin Manuel Bosancianu, Magarita Rosa Cabra García, Ali Cheema, Elliott Collins, Filippo Cuccaro, Ahsan Zia Farooqi, Tatheer Fatima, Mattia Fracchia, Mery Len Galindo Soria, Andrea Guariso, Ali Hasanain, Sofía Jaramillo, Sellu Kallon, Anthony Kamwesigye, Arjun Kharel, Sarah Kreps, Madison Levine, Rebecca Littman, Mohammad Malik, Gisele Manirabaruta, Jean Léodomir Habarimana Mfura, Fatoma Momoh, Alberto Mucauque, Imamo Mussa, Jean Aime Nsabimana, Isaac Obara, María Juliana Otálora, Béchir Wendemi Ouédraogo, Touba Bakary Pare, Melina R. Platas, Laura Polanco, Javaeria Ashraf Qureshi, Mariam Raheem, Vasudha Ramakrishna, Ismail Rendrá, Taimur Shah, Sarene Eyla Shaked, Jacob N. Shapiro, Jakob Svensson, Ahsan Tariq, Achille Mignondo Tchibozo, Hamid Ali Tiwana, Bhartendu Trivedi, Corey Vernot, Pedro C. Vicente, Laurin B. Weissinger, Basit Zafar, Baobao Zhang, Dean Karlan, Michael Callen, Matthieu Teachout, Macartan Humphreys, Ahmed Mushfiq Mobarak, Saad B. Omer</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1038-s41591-021-01454-y">replicate-anything/rep-10.1038-s41591-021-01454-y</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="papers/10.1177_00491241211036161/">10.1177_00491241211036161</a></td>
+<td style="text-align: left;"><a href="papers/10.1177_00491241211036161.yml">10.1177_00491241211036161</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.1177/00491241211036161">https://doi.org/10.1177/00491241211036161</a></td>
 <td style="text-align: left;">Bounding Causes of Effects With Mediators</td>
 <td style="text-align: left;">Sociological Methods &amp; Research</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: left;">Macartan Humphreys, Philip Dawid, Monica Musio</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1177-00491241211036161">replicate-anything/rep-10.1177-00491241211036161</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="papers/10.1371_journal.pone.0278337/">10.1371_journal.pone.0278337</a></td>
+<td style="text-align: left;"><a href="papers/10.1371_journal.pone.0278337.yml">10.1371_journal.pone.0278337</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.1371/journal.pone.0278337">https://doi.org/10.1371/journal.pone.0278337</a></td>
 <td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
 <td style="text-align: left;">PLOS ONE</td>
 <td style="text-align: right;">2022</td>
 <td style="text-align: left;">Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1371_journal.pone.0278337">replicate-anything/rep-10.1371_journal.pone.0278337</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="papers/10.5555_cahw/">10.5555_cahw</a></td>
+<td style="text-align: left;"><a href="papers/10.5555_cahw.yml">10.5555_cahw</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.5555/cahw">https://doi.org/10.5555/cahw</a></td>
 <td style="text-align: left;">Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone</td>
 <td style="text-align: left;"></td>
 <td style="text-align: right;">2026</td>
 <td style="text-align: left;">Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo Prato, Peter van der Windt</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.5555_cahw">replicate-anything/rep-10.5555_cahw</a></td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,17 @@
+# Lightweight registry stub for a folder-backed study.
+# Copy to registry/papers/<folder>.yml in the registry repo.
+# Registry folder: 10.5555_cahw
+
+paper:
+  doi: https://doi.org/10.5555/cahw
+  title: 'Selection and Incentives in Local Service Provision: Theory and Evidence
+    from Sierra Leone'
+  year: 2026
+  authors: Maarten Voors, Macartan Humphreys, Salif Jaiteh, Niccolò F. Meriggi, Carlo
+    Prato, Peter van der Windt
+  materials: folder
+  study_repo: replicate-anything/rep-10.5555_cahw
+  study_ref: main
+  study_folder: rep-10.5555_cahw
+repo: replicate-anything/rep-10.5555_cahw
+

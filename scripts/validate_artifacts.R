@@ -3,7 +3,7 @@
 # Verify precomputed artifact files exist for every replication in the registry.
 # Usage:
 #   Rscript scripts/validate_artifacts.R
-#   Rscript scripts/validate_artifacts.R papers/10.5555_cahw
+#   Rscript scripts/validate_artifacts.R 10.5555_cahw
 
 args <- commandArgs(trailingOnly = TRUE)
 
@@ -21,15 +21,19 @@ options(replicateEverything.registry_root = registry_root)
 
 papers_dir <- file.path(registry_root, "papers")
 paper_folders <- if (length(args) > 0) {
-  args
+  sub("^papers/", "", sub("\\.yml$", "", basename(args)))
 } else {
-  list.dirs(papers_dir, recursive = FALSE, full.names = FALSE)
+  yml_files <- list.files(papers_dir, pattern = "\\.yml$", full.names = FALSE)
+  sub("\\.yml$", "", yml_files)
 }
 
 failures <- character(0)
 
 for (folder in paper_folders) {
-  yml_path <- file.path(papers_dir, folder, "replication.yml")
+  yml_path <- file.path(papers_dir, paste0(folder, ".yml"))
+  if (!file.exists(yml_path)) {
+    yml_path <- file.path(papers_dir, folder, "replication.yml")
+  }
   if (!file.exists(yml_path)) {
     next
   }
@@ -48,28 +52,11 @@ for (folder in paper_folders) {
     next
   }
 
-  message("Checking ", folder, " ...")
-
-  manifest_path <- file.path(papers_dir, folder, "artifacts", "manifest.json")
-  if (file.exists(manifest_path)) {
-    manifest <- jsonlite::read_json(manifest_path)
-    for (rep_id in names(manifest$replications)) {
-      entry <- manifest$replications[[rep_id]]
-      if (!identical(entry$status, "ok")) {
-        next
-      }
-      rel <- entry$artifact
-      if (is.null(rel) || !nzchar(rel)) {
-        next
-      }
-      full <- file.path(papers_dir, folder, rel)
-      if (!file.exists(full)) {
-        failures <- c(
-          failures,
-          paste0(folder, "/", rep_id, ": manifest ok but missing ", rel)
-        )
-      }
-    }
+  ctx <- replicateEverything::paper_context(doi, folder = folder)
+  if (isTRUE(ctx$is_folder_study)) {
+    message("Checking ", folder, " (folder-backed; study repo ", ctx$materials_repo, ") ...")
+  } else {
+    message("Checking ", folder, " ...")
   }
 
   tryCatch(
@@ -83,7 +70,7 @@ for (folder in paper_folders) {
 if (length(failures) > 0) {
   message("\nMissing artifacts:")
   cat(paste0(" - ", failures, collapse = "\n"), "\n")
-  message("\nRun: Rscript scripts/build_artifacts.R")
+  message("\nFor folder-backed studies, run build_study_artifacts() in the study repo.")
   quit(status = 1)
 }
 

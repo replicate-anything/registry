@@ -1,0 +1,15 @@
+# Lightweight registry stub for a folder-backed study.
+# Code, data, replications list, and display artifacts live in the study repo.
+
+paper:
+  doi: https://doi.org/10.1017/S0003055403000534
+  title: Ethnicity, Insurgency, and Civil War
+  journal: American Political Science Review
+  year: 2003
+  authors: James D. Fearon, David D. Laitin
+  materials: folder
+  study_repo: replicate-anything/rep-10.1017-S0003055403000534
+  study_folder: rep-10.1017-S0003055403000534
+  study_ref: main
+
+repo: replicate-anything/rep-10.1017-S0003055403000534

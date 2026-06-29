@@ -10,13 +10,15 @@ execute:
   warning: false
 ---
 
-Welcome to the **Replication Registry**. This catalog lists replication packages in `papers/`, one row per study folder, with metadata from each folder's `replication.yml`.
+Welcome to the **Replication Registry**. This catalog lists replication packages from stub files in `papers/` (`<folder>.yml`), one row per study. Code, data, and artifacts live in **folder-backed study repos** or **package-backed** study packages linked from each stub.
 
-Precomputed **display defaults** for the Shiny app live in each paper's `artifacts/` folder. Regenerate them after changing code or data:
+For folder-backed studies, build display artifacts in the study repository:
 
-```bash
-Rscript scripts/build_artifacts.R
+```r
+replicateEverything::build_study_artifacts(".")
 ```
+
+For package-backed studies, use `build_report()` in the study package.
 
 Verify precomputed files are present (run after clone or before Shiny):
 
@@ -24,15 +26,9 @@ Verify precomputed files are present (run after clone or before Shiny):
 Rscript scripts/validate_artifacts.R
 ```
 
-Each script in `code/` is **self-contained** and follows a fixed layout: `library()` calls at the top, then analysis functions (`make_*`), then optional display functions (`format_*`), then a one-line execute footer that loads `../data/...` and runs the pipeline.
+Each replication script in a study repo follows a fixed layout: `library()` calls at the top, then analysis functions (`make_*`), then optional display functions (`format_*`), then a one-line execute footer that loads `data/...` and runs the pipeline.
 
 Artifacts store **analysis output** (e.g. `.rds` model objects) when `replication.yml` defines a separate `format:` step; otherwise they store display-ready output (`.html`, `.png`). The Shiny app applies `format_*` at display time when registered.
-
-To build artifacts for one study only, pass its folder name:
-
-```bash
-Rscript scripts/build_artifacts.R papers/10.1017S0003055403000534
-```
 
 ```{r}
 #| label: papers-table
@@ -62,12 +58,20 @@ doi_href <- function(doi) {
   paste0("https://doi.org/", gsub("^https?://doi.org/", "", tolower(doi)))
 }
 
+infer_repo_slug <- function(meta) {
+  repo <- meta$repo %||% meta$paper$study_repo %||% meta$paper$package_repo %||% NULL
+  if (is.null(repo) || !nzchar(as.character(repo[[1]]))) {
+    return("replicate-anything/registry")
+  }
+  as.character(repo[[1]])
+}
+
 papers_dir <- "papers"
-folders <- list.dirs(papers_dir, recursive = FALSE, full.names = FALSE)
-folders <- sort(folders)
+yml_files <- list.files(papers_dir, pattern = "\\.yml$", full.names = FALSE)
+folders <- sort(sub("\\.yml$", "", yml_files))
 
 rows <- lapply(folders, function(folder) {
-  yml_file <- file.path(papers_dir, folder, "replication.yml")
+  yml_file <- file.path(papers_dir, paste0(folder, ".yml"))
   if (!file.exists(yml_file)) {
     return(NULL)
   }
@@ -92,6 +96,7 @@ rows <- lapply(folders, function(folder) {
     journal = field_or(paper$journal),
     year = field_or(paper$year, NA),
     authors = format_authors(paper$authors),
+    repo = infer_repo_slug(meta),
     stringsAsFactors = FALSE
   )
 })
@@ -107,24 +112,24 @@ papers <- if (length(rows) > 0) {
     journal = character(),
     year = integer(),
     authors = character(),
+    repo = character(),
     stringsAsFactors = FALSE
   )
 }
 
-index_csv <- papers[, c("folder", "doi", "title", "journal", "year", "authors")]
-index_csv$repo <- "replicate-anything/registry" # hotfix, needs to be changed to read repository from yaml if included; 
+index_csv <- papers[, c("folder", "doi", "title", "journal", "year", "authors", "repo")]
 write.csv(index_csv, "index.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
 if (nrow(papers) == 0) {
   knitr::kable(
-    data.frame(Message = "No papers with replication.yml found in papers/."),
+    data.frame(Message = "No paper stubs found in papers/*.yml."),
     format = "html",
     escape = FALSE
   )
 } else {
   display <- data.frame(
     Folder = sprintf(
-      '<a href="papers/%s/">%s</a>',
+      '<a href="papers/%s.yml">%s</a>',
       papers$folder,
       papers$folder
     ),
@@ -137,6 +142,11 @@ if (nrow(papers) == 0) {
     Journal = papers$journal,
     Year = papers$year,
     Authors = papers$authors,
+    Repository = sprintf(
+      '<a href="https://github.com/%s">%s</a>',
+      papers$repo,
+      papers$repo
+    ),
     stringsAsFactors = FALSE,
     check.names = FALSE
   )
