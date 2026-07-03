@@ -50,7 +50,8 @@ audit <- audit_everything(
   patience = patience,
   dois = dois,
   install_deps = install_deps,
-  verbose = TRUE
+  verbose = TRUE,
+  registry_root = registry_root
 )
 
 results <- audit$results
@@ -164,3 +165,5 @@ Update the package vignette snapshot after a full audit:
 ```r
 saveRDS(audit, "<path-to-replicateEverything>/inst/vignette-data/audit_latest.rds")
 ```
+
+The audit also writes `audit_summary.json` and `audit_latest.rds` in this registry repo (used by the Shiny health bar).
