@@ -8,8 +8,8 @@ paper:
   year: 2026
   authors: Junyan Jiang, Songpo Yang
   materials: folder
-  study_repo: replicate-anything/rep-10.1017-S0003055426101749
-  study_folder: rep-10.1017-S0003055426101749
+  study_repo: replicate-anything/rep-10.1017-s0003055426101749
+  study_folder: rep-10.1017-s0003055426101749
   study_ref: main
 
-repo: replicate-anything/rep-10.1017-S0003055426101749
+repo: replicate-anything/rep-10.1017-s0003055426101749
