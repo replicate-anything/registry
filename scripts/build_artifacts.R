@@ -45,10 +45,18 @@ for (folder in paper_folders) {
 
   if (replicateEverything::is_package_replication(meta)) {
     pkg <- as.character(meta$paper$package[[1]])
-    message(
-      "\n=== ", folder, " (package-backed; skipping registry build) ===\n",
-      "Artifacts live in ", pkg, "::build_report() -> inst/report/artifacts/"
-    )
+    message("\n=== ", folder, " (package-backed) ===")
+
+    status <- tryCatch({
+      replicateEverything::build_package_artifacts(pkg, install_deps = TRUE)
+      "ok"
+    }, error = function(e) {
+      failures <<- c(failures, paste0(folder, ": ", conditionMessage(e)))
+      "error"
+    })
+    if (identical(status, "error")) {
+      next
+    }
     next
   }
 
