@@ -10,7 +10,7 @@ paper_folder_name <- function(paper_path) {
 github_paper_url <- function(paper_path) {
   folder <- paper_folder_name(paper_path)
   paste0(
-    "https://github.com/", REGISTRY_REPO, "/tree/", REGISTRY_BRANCH, "/papers/", folder
+    "https://github.com/", REGISTRY_REPO, "/tree/", REGISTRY_BRANCH, "/studies/", folder
   )
 }
 

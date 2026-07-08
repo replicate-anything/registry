@@ -6,7 +6,7 @@ This guide lists the routine steps maintainers use to keep the [registry](https:
 
 | Path | Role |
 |------|------|
-| `papers/<folder>.yml` | Lightweight stub per study (DOI, title, repo link) |
+| `studies/<folder>.yml` | Lightweight stub per study (DOI, title, repo link) |
 | `index.qmd` | Renders the catalog; writes `index.csv` and `index.html` |
 | `index.csv` | Machine-readable index (`replicateEverything`, Shiny) |
 | `audit_everything.qmd` | Full replication health check + HTML report |
@@ -38,7 +38,7 @@ options(replicateEverything.registry_root = "/path/to/replicate_everything/regis
 2. Run `check_folder_replication()` and `run_replication()` locally.
 3. Build display artifacts: `build_study_artifacts(".")`.
 4. Register: `prepare_folder_paper()` / `add_folder_paper()` or merge `registry/replication.yml` + `registry/index.csv` from the study repo.
-5. Add or update `papers/<folder>.yml` in this repo (often via `add_folder_paper()`).
+5. Add or update `studies/<folder>.yml` in this repo (often via `add_folder_paper()`).
 6. Re-render the catalog (below).
 
 See [folder-replication.md](folder-replication.md).
@@ -47,7 +47,7 @@ See [folder-replication.md](folder-replication.md).
 
 1. Maintain the study R package (`inst/replication.yml`, `inst/replication_code/`, artifacts via `build_report()`).
 2. `check_package_replication()` then `add_paper()`.
-3. Stub appears under `papers/`.
+3. Stub appears under `studies/`.
 
 See [package-replication.md](package-replication.md).
 
@@ -60,7 +60,7 @@ cd registry
 quarto render index.qmd
 ```
 
-Commit `index.csv`, `index.html`, and changed `papers/*.yml`.
+Commit `index.csv`, `index.html`, and changed `studies/*.yml`.
 
 ## Check artifact consistency
 
@@ -156,7 +156,7 @@ Create `local.R` once from `local.R.example` (registry path, Stata executable, e
 ## Typical release checklist
 
 1. Study repos updated and pushed.
-2. `papers/<folder>.yml` stubs current.
+2. `studies/<folder>.yml` stubs current.
 3. `quarto render index.qmd` → commit `index.csv` / `index.html`.
 4. `Rscript scripts/validate_artifacts.R`.
 5. `quarto render audit_everything.qmd` → commit audit JSON/RDS/HTML.

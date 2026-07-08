@@ -28,12 +28,12 @@ for (study in studies) {
 }
 
 # Flatten any remaining legacy paper folders (stub-only dirs)
-papers_dir <- file.path(registry, "papers")
-legacy_dirs <- list.dirs(papers_dir, recursive = FALSE, full.names = TRUE)
+studies_dir <- file.path(registry, "studies")
+legacy_dirs <- list.dirs(studies_dir, recursive = FALSE, full.names = TRUE)
 for (legacy_dir in legacy_dirs) {
   folder <- basename(legacy_dir)
   legacy_yml <- file.path(legacy_dir, "replication.yml")
-  flat_yml <- file.path(papers_dir, paste0(folder, ".yml"))
+  flat_yml <- file.path(studies_dir, paste0(folder, ".yml"))
   if (file.exists(legacy_yml) && !file.exists(flat_yml)) {
     file.copy(legacy_yml, flat_yml, overwrite = TRUE)
   }
@@ -42,5 +42,5 @@ for (legacy_dir in legacy_dirs) {
   }
 }
 
-message("Registry papers/*.yml:")
-print(list.files(papers_dir, pattern = "\\.yml$"))
+message("Registry studies/*.yml:")
+print(list.files(studies_dir, pattern = "\\.yml$"))

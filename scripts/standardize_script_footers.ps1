@@ -1,6 +1,6 @@
 # Convert skip_self_run footers to: libraries at top, functions, execute line.
 param(
-  [string]$Root = (Join-Path (Split-Path $PSScriptRoot -Parent) "papers")
+  [string]$Root = (Join-Path (Split-Path $PSScriptRoot -Parent) "studies")
 )
 
 $footerPattern = '(?ms)\r?\nif \(!isTRUE\(getOption\(''replicateEverything\.skip_self_run'', FALSE\)\)\) \{(.*)\r?\n\} else \{\r?\n  generate_(table|figure) <- make_[^\r\n]+\r?\n\}\s*$'

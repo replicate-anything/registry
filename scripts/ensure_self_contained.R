@@ -2,16 +2,16 @@
 
 source("scripts/self_contained_snippets.R")
 
-papers_dir <- file.path(getwd(), "papers")
-paper_dirs <- list.dirs(papers_dir, recursive = FALSE, full.names = TRUE)
+studies_dir <- file.path(getwd(), "studies")
+study_dirs <- list.dirs(studies_dir, recursive = FALSE, full.names = TRUE)
 
-for (paper_path in paper_dirs) {
-  yml <- file.path(paper_path, "replication.yml")
+for (study_path in study_dirs) {
+  yml <- file.path(study_path, "replication.yml")
   if (!file.exists(yml)) next
   meta <- yaml::read_yaml(yml)
 
   for (rep in meta$replications) {
-    code_file <- file.path(paper_path, rep$code)
+    code_file <- file.path(study_path, rep$code)
     if (!file.exists(code_file)) next
 
     code_base <- tools::file_path_sans_ext(basename(code_file))
@@ -24,7 +24,7 @@ for (paper_path in paper_dirs) {
     body <- strip_existing_footer(body)
 
     deps <- collect_dependencies(meta, rep)
-    header <- make_header_lines(meta, rep, paper_path, code_file)
+    header <- make_header_lines(meta, rep, study_path, code_file)
     libraries <- make_library_block(deps)
     run_line <- make_run_line(meta, rep, make_name)
 

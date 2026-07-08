@@ -4,8 +4,8 @@
 
 source("scripts/self_contained_snippets.R")
 
-papers_dir <- file.path(getwd(), "papers")
-paper_dirs <- list.dirs(papers_dir, recursive = FALSE, full.names = TRUE)
+studies_dir <- file.path(getwd(), "studies")
+study_dirs <- list.dirs(studies_dir, recursive = FALSE, full.names = TRUE)
 
 make_footer <- function(rep, make_name) {
   data_expr <- make_data_expr(rep$data)
@@ -16,15 +16,15 @@ make_footer <- function(rep, make_name) {
   c("", paste0(make_name, "(", data_expr, ")"))
 }
 
-for (paper_path in paper_dirs) {
-  yml <- file.path(paper_path, "replication.yml")
+for (study_path in study_dirs) {
+  yml <- file.path(study_path, "replication.yml")
   if (!file.exists(yml)) next
   meta <- yaml::read_yaml(yml)
-  paper_dir <- normalizePath(paper_path, winslash = "/", mustWork = FALSE)
+  study_dir <- normalizePath(study_path, winslash = "/", mustWork = FALSE)
 
   for (rep in meta$replications) {
     code_rel <- rep$code
-    code_file <- file.path(paper_path, code_rel)
+    code_file <- file.path(study_path, code_rel)
     if (!file.exists(code_file)) next
 
     code_base <- tools::file_path_sans_ext(basename(code_file))

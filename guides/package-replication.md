@@ -5,7 +5,7 @@ For studies maintained as **R packages**, the registry holds only a lightweight 
 ## Registry folder (stub only)
 
 ```
-papers/10.1371_journal.pone.0278337/
+studies/10.1371_journal.pone.0278337/
   replication.yml
 ```
 

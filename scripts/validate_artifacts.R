@@ -19,20 +19,20 @@ if (!requireNamespace("replicateEverything", quietly = TRUE)) {
 registry_root <- Sys.getenv("REGISTRY_ROOT", unset = normalizePath(file.path(getwd()), winslash = "/"))
 options(replicateEverything.registry_root = registry_root)
 
-papers_dir <- file.path(registry_root, "papers")
-paper_folders <- if (length(args) > 0) {
-  sub("^papers/", "", sub("\\.yml$", "", basename(args)))
+studies_dir <- file.path(registry_root, "studies")
+study_folders <- if (length(args) > 0) {
+  sub("^studies/", "", sub("^papers/", "", sub("\\.yml$", "", basename(args))))
 } else {
-  yml_files <- list.files(papers_dir, pattern = "\\.yml$", full.names = FALSE)
+  yml_files <- list.files(studies_dir, pattern = "\\.yml$", full.names = FALSE)
   sub("\\.yml$", "", yml_files)
 }
 
 failures <- character(0)
 
-for (folder in paper_folders) {
-  yml_path <- file.path(papers_dir, paste0(folder, ".yml"))
+for (folder in study_folders) {
+  yml_path <- file.path(studies_dir, paste0(folder, ".yml"))
   if (!file.exists(yml_path)) {
-    yml_path <- file.path(papers_dir, folder, "replication.yml")
+    yml_path <- file.path(studies_dir, folder, "replication.yml")
   }
   if (!file.exists(yml_path)) {
     next

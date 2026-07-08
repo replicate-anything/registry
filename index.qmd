@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-Welcome to the **Replication Registry**. This catalog lists replication packages from stub files in `papers/` (`<folder>.yml`), one row per study. Code, data, and artifacts live in **folder-backed study repos** or **package-backed** study packages linked from each stub.
+Welcome to the **Replication Registry**. This catalog lists replication packages from stub files in `studies/` (`<folder>.yml`), one row per study. Code, data, and artifacts live in **folder-backed study repos** or **package-backed** study packages linked from each stub.
 
 For folder-backed studies, build display artifacts in the study repository:
 
@@ -31,7 +31,7 @@ Each replication script in a study repo follows a fixed layout: `library()` call
 Artifacts store **analysis output** (e.g. `.rds` model objects) when `replication.yml` defines a separate `format:` step; otherwise they store display-ready output (`.html`, `.png`). The Shiny app applies `format_*` at display time when registered.
 
 ```{r}
-#| label: papers-table
+#| label: studies-table
 
 library(yaml)
 
@@ -66,12 +66,12 @@ infer_repo_slug <- function(meta) {
   as.character(repo[[1]])
 }
 
-papers_dir <- "papers"
-yml_files <- list.files(papers_dir, pattern = "\\.yml$", full.names = FALSE)
+studies_dir <- "studies"
+yml_files <- list.files(studies_dir, pattern = "\\.yml$", full.names = FALSE)
 folders <- sort(sub("\\.yml$", "", yml_files))
 
 rows <- lapply(folders, function(folder) {
-  yml_file <- file.path(papers_dir, paste0(folder, ".yml"))
+  yml_file <- file.path(studies_dir, paste0(folder, ".yml"))
   if (!file.exists(yml_file)) {
     return(NULL)
   }
@@ -101,7 +101,7 @@ rows <- lapply(folders, function(folder) {
   )
 })
 
-papers <- if (length(rows) > 0) {
+studies <- if (length(rows) > 0) {
   do.call(rbind, rows)
 } else {
   data.frame(
@@ -117,35 +117,35 @@ papers <- if (length(rows) > 0) {
   )
 }
 
-index_csv <- papers[, c("folder", "doi", "title", "journal", "year", "authors", "repo")]
+index_csv <- studies[, c("folder", "doi", "title", "journal", "year", "authors", "repo")]
 write.csv(index_csv, "index.csv", row.names = FALSE, fileEncoding = "UTF-8")
 
-if (nrow(papers) == 0) {
+if (nrow(studies) == 0) {
   knitr::kable(
-    data.frame(Message = "No paper stubs found in papers/*.yml."),
+    data.frame(Message = "No study stubs found in studies/*.yml."),
     format = "html",
     escape = FALSE
   )
 } else {
   display <- data.frame(
     Folder = sprintf(
-      '<a href="papers/%s.yml">%s</a>',
-      papers$folder,
-      papers$folder
+      '<a href="studies/%s.yml">%s</a>',
+      studies$folder,
+      studies$folder
     ),
     DOI = ifelse(
-      papers$doi_href != "",
-      sprintf('<a href="%s">%s</a>', papers$doi_href, papers$doi),
-      papers$doi
+      studies$doi_href != "",
+      sprintf('<a href="%s">%s</a>', studies$doi_href, studies$doi),
+      studies$doi
     ),
-    Title = papers$title,
-    Journal = papers$journal,
-    Year = papers$year,
-    Authors = papers$authors,
+    Title = studies$title,
+    Journal = studies$journal,
+    Year = studies$year,
+    Authors = studies$authors,
     Repository = sprintf(
       '<a href="https://github.com/%s">%s</a>',
-      papers$repo,
-      papers$repo
+      studies$repo,
+      studies$repo
     ),
     stringsAsFactors = FALSE,
     check.names = FALSE
