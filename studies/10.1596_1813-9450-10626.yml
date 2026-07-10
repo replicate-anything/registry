@@ -1,5 +1,6 @@
-# Lightweight registry stub for a folder-backed Stata study.
-# Code, data, replications list, and display artifacts live in the study repo.
+# Lightweight registry stub for a folder-backed study.
+# Copy to registry/studies/<folder>.yml in the registry repo.
+# Registry folder: 10.1596_1813-9450-10626
 
 paper:
   doi: https://doi.org/10.1596/1813-9450-10626
@@ -7,10 +8,18 @@ paper:
   journal: World Bank Policy Research Working Paper
   year: 2023
   authors: Simone Bertoli, Elie Murard, David McKenzie
-  language: stata
   materials: folder
   study_repo: replicate-anything/rep-10.1596-1813-9450-10626
-  study_folder: rep-10.1596-1813-9450-10626
   study_ref: main
-
+  study_folder: rep-10.1596-1813-9450-10626
 repo: replicate-anything/rep-10.1596-1813-9450-10626
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+collections:
+- World Bank
+- PED
+languages:
+- r
+- stata
+

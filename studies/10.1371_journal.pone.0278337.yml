@@ -1,15 +1,25 @@
-# Lightweight registry stub for a package-backed study.
-# Code, data, replications list, and display artifacts live in the study package.
+# Lightweight registry stub for a folder-backed study.
+# Copy to registry/studies/<folder>.yml in the registry repo.
+# Registry folder: 10.1371_journal.pone.0278337
 
 paper:
   doi: https://doi.org/10.1371/journal.pone.0278337
-  title: "Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany"
+  title: 'Public support for global vaccine sharing in the COVID-19 pandemic: Evidence
+    from Germany'
   journal: PLOS ONE
   year: 2022
-  authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke
-  package: rep1371journalpone0278337
-  package_folder: rep-10.1371_journal.pone.0278337
-  package_repo: replicate-anything/rep-10.1371_journal.pone.0278337
-  package_ref: main
-
+  authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes
+    Giesecke
+  materials: folder
+  study_repo: replicate-anything/rep-10.1371_journal.pone.0278337
+  study_ref: main
+  study_folder: rep-10.1371_journal.pone.0278337
 repo: replicate-anything/rep-10.1371_journal.pone.0278337
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+collections:
+- IPI
+languages:
+- r
+

@@ -1,15 +1,26 @@
 # Lightweight registry stub for a folder-backed study.
-# Code, data, replications list, and display artifacts live in the study repo.
+# Copy to registry/studies/<folder>.yml in the registry repo.
+# Registry folder: 10.1017S0003055426101749
 
 paper:
   doi: https://doi.org/10.1017/S0003055426101749
-  title: "Portraits of Power: Facial Appearance and the Tacit Domain of Political Selection in China"
+  title: 'Portraits of Power: Facial Appearance and the Tacit Domain of Political
+    Selection in China'
   journal: American Political Science Review
   year: 2026
   authors: Junyan Jiang, Songpo Yang
   materials: folder
   study_repo: replicate-anything/rep-10.1017-s0003055426101749
-  study_folder: rep-10.1017-s0003055426101749
   study_ref: main
-
+  study_folder: rep-10.1017-s0003055426101749
 repo: replicate-anything/rep-10.1017-s0003055426101749
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+collections:
+- APSR
+languages:
+- stata
+- python
+- r
+
