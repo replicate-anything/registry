@@ -1,0 +1,26 @@
+# Lightweight registry stub for a reanalysis / extension study (no article DOI yet).
+# Registry folder: rep-10.1017-S0003055403000534--alt-1
+
+paper:
+  study_handle: rep-10.1017-S0003055403000534--alt-1
+  title: "Simple replication of F&L data / repo"
+  authors: An Author
+  abstract: >
+    Replication using linear models with robust standard errors rather than glm.
+    See the [study repository](https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1).
+    Prepared data are inherited from
+    [Fearon & Laitin (2003)](https://doi.org/10.1017/S0003055403000534).
+  materials: folder
+  study_repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
+  study_ref: main
+  study_folder: rep-10.1017-S0003055403000534--alt-1
+  study_url: https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1
+  related:
+    - doi: https://doi.org/10.1017/S0003055403000534
+      label: Original Fearon & Laitin (2003) replication
+repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+languages:
+  - r
