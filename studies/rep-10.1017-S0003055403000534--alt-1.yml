@@ -3,8 +3,9 @@
 
 paper:
   study_handle: rep-10.1017-S0003055403000534--alt-1
-  title: "Simple replication of F&L data / repo"
-  authors: An Author
+  title: "Same prep re-analysis"
+  year: 2026
+  authors: Macartan Humphreys
   abstract: >
     Replication using linear models with robust standard errors rather than glm.
     See the [study repository](https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1).
