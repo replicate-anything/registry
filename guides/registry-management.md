@@ -35,8 +35,8 @@ options(replicateEverything.registry_root = "/path/to/replicate_everything/regis
 ### Folder-backed
 
 1. Create or update the study repo (`replication.yml`, `code/`, `data/`, `outputs/`).
-2. Run `check_folder_replication()` and `run_replication()` locally.
-3. Build display outputs: `build_study_artifacts(".")`.
+2. Run `check_replication()` and `run_replication()` locally.
+3. Build display outputs: `build_study_outputs(".")`.
 4. Add **substantive checks** (`tests/substantive/<step_id>.R`) where published benchmarks are available; see Fearon & Laitin `tab_1`.
 5. Register: `prepare_study_for_registry()` / `add_folder_paper()` or merge `registry/replication.yml` + `registry/index.csv` from the study repo.
 6. Add or update `studies/<folder>.yml` in this repo (often via `add_folder_paper()`).
@@ -47,7 +47,7 @@ See [folder-replication.md](folder-replication.md).
 ### Package-backed
 
 1. Maintain the study R package (`replication.yml`, `inst/replication.yml`, `inst/replication_code/`, display outputs via `build_report()`).
-2. `check_package_replication()` then `add_paper()`.
+2. `check_replication()` then `add_paper()`.
 3. Stub appears under `studies/`.
 
 See [package-replication.md](package-replication.md).

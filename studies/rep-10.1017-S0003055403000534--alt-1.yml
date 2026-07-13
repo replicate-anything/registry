@@ -25,3 +25,5 @@ maintainer:
   email: macartan.humphreys@wzb.eu
 languages:
   - r
+collections:
+  - IPI

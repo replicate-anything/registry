@@ -47,7 +47,7 @@ options(
   replicateEverything.use_sibling_packages = TRUE
 )
 
-build_study_artifacts(".", install_deps = TRUE)
+build_study_outputs(".", install_deps = TRUE)
 testthat::test_dir("tests/testthat")
 prepare_study_for_registry(".", build_artifacts = FALSE, registry_root = "../registry")
 sync_study_to_registry(".", registry_root = "../registry")
@@ -57,7 +57,7 @@ See `vignette("folder-replication-checklist", package = "replicateEverything")`.
 
 ## Maintainer notes
 
-- `scripts/build_artifacts.R` **skips** folder-backed papers (outputs are built in the study repo via `build_study_artifacts()`).
+- `scripts/build_artifacts.R` **skips** folder-backed papers (outputs are built in the study repo via `build_study_outputs()`).
 - `index.csv` `repo` column should name the study repository slug.
 - For local monorepo development, clone the study repo as a sibling folder (e.g. `rep-10.1017-S0003055403000534`) and set `replicateEverything.use_sibling_packages = TRUE`.
-- **Substantive checks:** encourage submitters to add `tests/substantive/<step_id>.R` comparing replicated estimates to published benchmarks (see Fearon & Laitin `tab_1`). [check_folder_replication()] and [audit_everything()] report and run these when present.
+- **Substantive checks:** encourage submitters to add `tests/substantive/<step_id>.R` comparing replicated estimates to published benchmarks (see Fearon & Laitin `tab_1`). [check_replication()] and [audit_everything()] report and run these when present.

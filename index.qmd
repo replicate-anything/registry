@@ -17,7 +17,7 @@ Code, data, and artifacts live in **folder-backed study repos** or **package-bac
 For folder-backed studies, build display artifacts in the study repository:
 
 ```r
-replicateEverything::build_study_artifacts(".")
+replicateEverything::build_study_outputs(".")
 ```
 
 For package-backed studies, use `build_report()` in the study package.

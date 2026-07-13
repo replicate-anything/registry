@@ -33,7 +33,7 @@ verify(
 )
 
 tryCatch(
-  replicateEverything::build_study_artifacts(
+  replicateEverything::build_study_outputs(
     file.path(root, "rep-10.1038-s41591-021-01454-y"),
     install_deps = TRUE,
     ids = c("fig_1", "fig_2", "fig_3", "fig_5", "fig_6", "tab_1", "tab_2"),
@@ -43,7 +43,7 @@ tryCatch(
 )
 
 tryCatch(
-  replicateEverything::build_study_artifacts(
+  replicateEverything::build_study_outputs(
     file.path(root, "rep-10.5555_cahw"),
     install_deps = TRUE,
     ids = c("fig_1", "fig_2"),

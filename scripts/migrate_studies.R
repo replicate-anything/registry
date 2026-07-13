@@ -24,7 +24,7 @@ for (study in studies) {
   study_dir <- file.path(root, study)
   message("\n=== Building ", study, " ===")
   tryCatch(
-    replicateEverything::build_study_artifacts(
+    replicateEverything::build_study_outputs(
       study_dir,
       install_deps = TRUE,
       registry_root = registry
@@ -32,7 +32,7 @@ for (study in studies) {
     error = function(e) message("build warning: ", conditionMessage(e))
   )
 
-  result <- replicateEverything::check_folder_replication(
+  result <- replicateEverything::check_replication(
     study_dir,
     full_replication = FALSE,
     registry_root = registry

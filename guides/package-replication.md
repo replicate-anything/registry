@@ -32,7 +32,7 @@ library(replicateEverything)
 options(replicateEverything.registry_root = "path/to/registry")
 
 # Validate only
-check_package_replication("path/to/rep_package", full_replication = FALSE)
+check_replication("path/to/rep_package", full_replication = FALSE)
 
 # Validate + register
 add_paper("path/to/rep_package", full_replication = FALSE)

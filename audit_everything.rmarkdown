@@ -1,0 +1,224 @@
+---
+title: "Audit everything"
+subtitle: "Registry-wide replication health check"
+author: "replicate-anything/registry"
+embed-resources: true
+date: last-modified
+params:
+  patience: 20
+  install_deps: false
+  dois: !expr NULL
+  collections: !expr NULL
+  refresh: true
+execute:
+  echo: false
+  warning: false
+  message: false
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    theme: flatly
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(comment = NA)
+
+registry_root <- normalizePath(getwd(), winslash = "/", mustWork = FALSE)
+if (!file.exists(file.path(registry_root, "index.csv"))) {
+  stop(
+    "Render from the registry repository root (expected index.csv in working directory).",
+    call. = FALSE
+  )
+}
+
+if (!requireNamespace("replicateEverything", quietly = TRUE)) {
+  monorepo <- Sys.getenv("REPLICATE_MONOREPO", unset = "")
+  if (!nzchar(monorepo)) {
+    parent <- normalizePath(file.path(registry_root, ".."), winslash = "/", mustWork = FALSE)
+    if (file.exists(file.path(parent, "replicateEverything", "DESCRIPTION"))) {
+      monorepo <- parent
+    }
+  }
+  pkg_path <- if (nzchar(monorepo)) file.path(monorepo, "replicateEverything") else ""
+  if (nzchar(pkg_path) && file.exists(file.path(pkg_path, "DESCRIPTION")) &&
+      requireNamespace("devtools", quietly = TRUE)) {
+    devtools::load_all(pkg_path, quiet = TRUE)
+  }
+}
+if (!requireNamespace("replicateEverything", quietly = TRUE)) {
+  stop(
+    "Install replicateEverything before rendering this report, e.g.\n",
+    "  remotes::install_github('replicate-anything/replicateEverything')\n",
+    "Or set REPLICATE_MONOREPO to a checkout that contains replicateEverything/.",
+    call. = FALSE
+  )
+}
+
+library(replicateEverything)
+options(replicateEverything.registry_root = registry_root)
+
+patience <- if (is.null(params$patience)) 20 else params$patience
+install_deps <- isTRUE(params$install_deps)
+dois <- params$dois
+collections <- params$collections
+refresh <- if (is.null(params$refresh)) TRUE else isTRUE(params$refresh)
+audit_rds <- file.path(registry_root, "audit_latest.rds")
+
+if (!refresh && file.exists(audit_rds)) {
+  audit <- readRDS(audit_rds)
+  message("Loaded audit from ", audit_rds)
+} else {
+  audit <- audit_everything(
+    patience = patience,
+    dois = dois,
+    collections = collections,
+    install_deps = install_deps,
+    verbose = TRUE,
+    registry_root = registry_root
+  )
+}
+
+results <- audit$results
+summary <- audit$summary
+```
+
+This report uses [`audit_everything()`](https://github.com/replicate-anything/replicateEverything) from the **replicateEverything** package. It walks this registry and attempts every table and figure in each listed engine (R and Stata where both exist). A run is halted after **`r patience`** seconds per object; failures are recorded and the audit continues.
+
+```{r collections-note}
+#| echo: false
+#| results: asis
+if (!is.null(collections) && length(collections) > 0L) {
+  cat(sprintf(
+    "\n\n**Collections filter:** %s\n\n",
+    paste(collections, collapse = ", ")
+  ))
+}
+```
+
+**Started:** `r format(audit$started_at, "%Y-%m-%d %H:%M:%S %Z")`  
+**Finished:** `r format(audit$finished_at, "%Y-%m-%d %H:%M:%S %Z")`
+
+## Summary
+
+| Metric | Count |
+|:--|--:|
+| Studies audited | `r summary$studies` |
+| Replication runs | `r summary$runs` |
+| Successful | `r summary$success` |
+| Failed | `r summary$failed` |
+| Timed out | `r summary$timed_out` |
+| Substantive failed | `r summary$substantive_failed %||% 0L` |
+
+When a study defines `tests/substantive/<step_id>.R`, the audit compares replicated estimates to published benchmarks (Fearon & Laitin `tab_1` is the reference). Failures are counted separately and marked `[substantive]` in the console summary.
+
+```{r summary-bar}
+#| echo: false
+if (summary$runs > 0) {
+  pct <- round(100 * summary$success / summary$runs, 1)
+  cat(sprintf("**Pass rate:** %s%%\n\n", pct))
+}
+```
+
+## Results by study
+
+```{r by-study}
+#| results: asis
+if (nrow(results) == 0) {
+  cat("_No replication runs were recorded._\n")
+} else {
+  studies <- unique(results$title)
+  for (study in studies) {
+    cat("\n\n### ", study, "\n\n", sep = "")
+    sub <- results[results$title == study, , drop = FALSE]
+    sub$status <- ifelse(
+      sub$success,
+      "OK",
+      ifelse(sub$timed_out, "Timed out", "Failed")
+    )
+    sub$seconds <- ifelse(is.na(sub$seconds), NA, round(sub$seconds, 2))
+    show <- sub[, c(
+      "object_label", "object", "type", "engine",
+      "status", "seconds", "error_snippet"
+    )]
+    names(show) <- c(
+      "Object", "ID", "Type", "Engine",
+      "Status", "Seconds", "Error"
+    )
+    print(knitr::kable(show, format = "html", na = ""))
+  }
+}
+```
+
+## Failed runs (concise)
+
+```{r failures}
+#| echo: false
+fails <- results[!results$success, , drop = FALSE]
+if (nrow(fails) == 0) {
+  cat("_All recorded runs succeeded._\n")
+} else {
+  fails$seconds <- ifelse(is.na(fails$seconds), NA, round(fails$seconds, 2))
+  fails$status <- ifelse(fails$timed_out, "Timed out", "Failed")
+  show <- fails[, c(
+    "title", "object_label", "object", "engine",
+    "status", "seconds", "error_snippet"
+  )]
+  names(show) <- c(
+    "Study", "Object", "ID", "Engine",
+    "Status", "Seconds", "Error"
+  )
+  knitr::kable(show, format = "html", na = "")
+}
+```
+
+## Re-run
+
+From this registry checkout:
+
+```bash
+quarto render audit_everything.qmd -P patience:30
+```
+
+Re-render HTML from saved results (no live re-run):
+
+```bash
+Rscript scripts/run_audit.R
+quarto render audit_everything.qmd -P refresh:false
+```
+
+```{r, eval = FALSE}
+library(replicateEverything)
+options(replicateEverything.registry_root = normalizePath(getwd()))
+audit <- audit_everything(patience = 20)
+print(audit)
+```
+
+Subset of studies:
+
+```r
+quarto::quarto_render(
+  replicateEverything::audit_everything_qmd(),
+  execute_params = list(
+    patience = 20,
+    dois = c("10.1177/00491241211036161")
+  )
+)
+
+# One collection (e.g. APSR studies only)
+quarto::quarto_render(
+  replicateEverything::audit_everything_qmd(),
+  execute_params = list(patience = 20, collections = "APSR")
+)
+```
+
+Update the package vignette snapshot after a full audit:
+
+```r
+saveRDS(audit, "<path-to-replicateEverything>/inst/vignette-data/audit_latest.rds")
+```
+
+The audit also writes `audit_summary.json` and `audit_latest.rds` in this registry repo (used by the Shiny health bar).
+

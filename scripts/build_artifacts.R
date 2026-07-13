@@ -48,7 +48,7 @@ for (folder in paper_folders) {
     message("\n=== ", folder, " (package-backed) ===")
 
     status <- tryCatch({
-      replicateEverything::build_package_artifacts(pkg, install_deps = TRUE)
+      replicateEverything::build_study_outputs(pkg, install_deps = TRUE)
       "ok"
     }, error = function(e) {
       failures <<- c(failures, paste0(folder, ": ", conditionMessage(e)))

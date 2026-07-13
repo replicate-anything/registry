@@ -17,7 +17,7 @@ build_all <- function(study) {
   study_dir <- file.path(root, study)
   message("\n=== Full build: ", study, " ===")
   tryCatch(
-    replicateEverything::build_study_artifacts(
+    replicateEverything::build_study_outputs(
       study_dir,
       install_deps = TRUE,
       registry_root = registry

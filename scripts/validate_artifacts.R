@@ -70,7 +70,7 @@ for (folder in study_folders) {
 if (length(failures) > 0) {
   message("\nMissing artifacts:")
   cat(paste0(" - ", failures, collapse = "\n"), "\n")
-  message("\nFor folder-backed studies, run build_study_artifacts() in the study repo.")
+  message("\nFor folder-backed studies, run build_study_outputs() in the study repo.")
   quit(status = 1)
 }
 
