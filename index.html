@@ -2227,7 +2227,7 @@ vertical-align: -.125em;
 <p>Welcome to the <strong>Replication Registry</strong>. This catalog lists replication packages from stub files in <code>studies/</code> (<code>&lt;folder&gt;.yml</code>), one row per study.</p>
 <p>Code, data, and artifacts live in <strong>folder-backed study repos</strong> or <strong>package-backed</strong> study packages linked from each stub.</p>
 <p>For folder-backed studies, build display artifacts in the study repository:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>replicateEverything<span class="sc">::</span><span class="fu">build_study_artifacts</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>replicateEverything<span class="sc">::</span><span class="fu">build_study_outputs</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For package-backed studies, use <code>build_report()</code> in the study package.</p>
 <p>Verify precomputed files are present (run after clone or before Shiny):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> scripts/validate_artifacts.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2248,6 +2248,24 @@ vertical-align: -.125em;
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="studies/10.1017_s0003055422000284.yml">10.1017_s0003055422000284</a></td>
+<td style="text-align: left;"><a href="https://doi.org/10.1017/S0003055422000284">https://doi.org/10.1017/S0003055422000284</a></td>
+<td style="text-align: left;">Preventing Rebel Resurgence after Civil War: A Field Experiment in Security and Justice Provision in Rural Colombia</td>
+<td style="text-align: left;">American Political Science Review</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">Robert A. Blair, Manuel Moscoso, Andrés Vargas Castillo, Michael Weintraub</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1017-s0003055422000284">replicate-anything/rep-10.1017-s0003055422000284</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="studies/10.1017_s0003055426101622.yml">10.1017_s0003055426101622</a></td>
+<td style="text-align: left;"><a href="https://doi.org/10.1017/S0003055426101622">https://doi.org/10.1017/S0003055426101622</a></td>
+<td style="text-align: left;">Beyond Belief Change: The Persuasive Returns of Targeting Attitude-Relevant Beliefs</td>
+<td style="text-align: left;">American Political Science Review</td>
+<td style="text-align: right;">2026</td>
+<td style="text-align: left;">Yamil Ricardo Velez, Patrick Liu, Scott Clifford</td>
+<td style="text-align: left;"><a href="https://github.com/replicate-anything/rep-10.1017-s0003055426101622">replicate-anything/rep-10.1017-s0003055426101622</a></td>
+</tr>
 <tr class="odd">
 <td style="text-align: left;"><a href="studies/10.1017S0003055403000534.yml">10.1017S0003055403000534</a></td>
 <td style="text-align: left;"><a href="https://doi.org/10.1017/S0003055403000534">https://doi.org/10.1017/S0003055403000534</a></td>
