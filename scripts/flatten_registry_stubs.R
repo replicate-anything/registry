@@ -24,7 +24,7 @@ for (study in studies) {
   study_dir <- file.path(root, study)
   message("Writing stub for ", study)
   replicateEverything::write_folder_registry_stub(study_dir)
-  replicateEverything::sync_folder_paper(study_dir, registry_root = registry)
+  replicateEverything::sync_study_to_registry(study_dir, registry_root = registry)
 }
 
 # Flatten any remaining legacy paper folders (stub-only dirs)

@@ -13,4 +13,4 @@ quarto render audit_everything.qmd
 
 This writes `audit_summary.json` (Shiny health bar), `audit_latest.rds` (full results), and `audit_everything.html`.
 
-**Folder-backed** and **package-backed** studies keep only a lightweight stub in `studies/`. Materials live in the linked study repository or R package. See [guides/folder-replication.md](guides/folder-replication.md), [guides/package-replication.md](guides/package-replication.md), and `replicateEverything::prepare_folder_paper()` / `add_paper()`.
+**Folder-backed** and **package-backed** studies keep only a lightweight stub in `studies/`. Materials live in the linked study repository or R package. See [guides/folder-replication.md](guides/folder-replication.md), [guides/package-replication.md](guides/package-replication.md), and `replicateEverything::prepare_study_for_registry()` / `add_paper()`.

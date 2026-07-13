@@ -15,7 +15,7 @@ This guide lists the routine steps maintainers use to keep the [registry](https:
 | `guides/` | Contributor checklists |
 | `scripts/` | Maintainer automation |
 
-Folder-backed studies keep code, data, and artifacts in their own repos. Package-backed studies keep materials in an R package. The registry only holds stubs and generated indexes.
+Folder-backed studies keep code, data, and display outputs in their own repos. Package-backed studies keep materials in an R package. The registry only holds stubs and generated indexes.
 
 ## Prerequisites
 
@@ -34,18 +34,19 @@ options(replicateEverything.registry_root = "/path/to/replicate_everything/regis
 
 ### Folder-backed
 
-1. Create or update the study repo (`replication.yml`, `code/`, `data/`, `artifacts/`).
+1. Create or update the study repo (`replication.yml`, `code/`, `data/`, `outputs/`).
 2. Run `check_folder_replication()` and `run_replication()` locally.
-3. Build display artifacts: `build_study_artifacts(".")`.
-4. Register: `prepare_folder_paper()` / `add_folder_paper()` or merge `registry/replication.yml` + `registry/index.csv` from the study repo.
-5. Add or update `studies/<folder>.yml` in this repo (often via `add_folder_paper()`).
-6. Re-render the catalog (below).
+3. Build display outputs: `build_study_artifacts(".")`.
+4. Add **substantive checks** (`tests/substantive/<step_id>.R`) where published benchmarks are available; see Fearon & Laitin `tab_1`.
+5. Register: `prepare_study_for_registry()` / `add_folder_paper()` or merge `registry/replication.yml` + `registry/index.csv` from the study repo.
+6. Add or update `studies/<folder>.yml` in this repo (often via `add_folder_paper()`).
+7. Re-render the catalog (below).
 
 See [folder-replication.md](folder-replication.md).
 
 ### Package-backed
 
-1. Maintain the study R package (`inst/replication.yml`, `inst/replication_code/`, artifacts via `build_report()`).
+1. Maintain the study R package (`replication.yml`, `inst/replication.yml`, `inst/replication_code/`, display outputs via `build_report()`).
 2. `check_package_replication()` then `add_paper()`.
 3. Stub appears under `studies/`.
 
@@ -159,7 +160,7 @@ Create `local.R` once from `local.R.example` (registry path, Stata executable, e
 2. `studies/<folder>.yml` stubs current.
 3. `quarto render index.qmd` → commit `index.csv` / `index.html`.
 4. `Rscript scripts/validate_artifacts.R`.
-5. `quarto render audit_everything.qmd` → commit audit JSON/RDS/HTML.
+5. `quarto render audit_everything.qmd` → commit audit JSON/RDS/HTML (includes substantive checks when studies define `tests/substantive/`).
 6. Copy `audit_latest.rds` to `replicateEverything/inst/vignette-data/` if publishing the package.
 7. Push registry + study repos; update server Shiny copy if needed.
 

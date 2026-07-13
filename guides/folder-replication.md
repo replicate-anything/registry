@@ -1,6 +1,6 @@
 # Folder-backed studies in the registry
 
-For studies maintained as a **simple folder repository** (not an R package), the registry holds only a lightweight stub. All code, data, replications list, and display artifacts live in the study repository.
+For studies maintained as a **simple folder repository** (not an R package), the registry holds only a lightweight stub. All code, data, replications list, and display outputs live in the study repository.
 
 ## Registry stub file
 
@@ -21,7 +21,7 @@ paper:
 repo: replicate-anything/rep-10.1017-S0003055403000534
 ```
 
-No `code/`, `data/`, or `artifacts/` in the registry.
+No `code/`, `data/`, or `outputs/` in the registry.
 
 ## Study repository layout
 
@@ -29,7 +29,7 @@ No `code/`, `data/`, or `artifacts/` in the registry.
 replication.yml
 data/
 code/
-artifacts/
+outputs/
 tests/
   testthat/
 ```
@@ -49,14 +49,15 @@ options(
 
 build_study_artifacts(".", install_deps = TRUE)
 testthat::test_dir("tests/testthat")
-prepare_folder_paper(".", build_artifacts = FALSE, registry_root = "../registry")
-sync_folder_paper(".", registry_root = "../registry")
+prepare_study_for_registry(".", build_artifacts = FALSE, registry_root = "../registry")
+sync_study_to_registry(".", registry_root = "../registry")
 ```
 
 See `vignette("folder-replication-checklist", package = "replicateEverything")`.
 
 ## Maintainer notes
 
-- `scripts/build_artifacts.R` **skips** folder-backed papers (artifacts are built in the study repo via `build_study_artifacts()`).
+- `scripts/build_artifacts.R` **skips** folder-backed papers (outputs are built in the study repo via `build_study_artifacts()`).
 - `index.csv` `repo` column should name the study repository slug.
 - For local monorepo development, clone the study repo as a sibling folder (e.g. `rep-10.1017-S0003055403000534`) and set `replicateEverything.use_sibling_packages = TRUE`.
+- **Substantive checks:** encourage submitters to add `tests/substantive/<step_id>.R` comparing replicated estimates to published benchmarks (see Fearon & Laitin `tab_1`). [check_folder_replication()] and [audit_everything()] report and run these when present.

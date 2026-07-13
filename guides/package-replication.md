@@ -2,11 +2,10 @@
 
 For studies maintained as **R packages**, the registry holds only a lightweight stub. All code, data, and display artifacts live in the study package repository.
 
-## Registry folder (stub only)
+## Registry stub file
 
 ```
-studies/10.1371_journal.pone.0278337/
-  replication.yml
+studies/10.1371_journal.pone.0278337.yml
 ```
 
 Example stub:
@@ -22,7 +21,7 @@ paper:
 repo: replicate-anything/rep-10.1371_journal.pone.0278337
 ```
 
-No `code/`, `data/`, or `artifacts/` in the registry.
+No `code/`, `data/`, or display outputs in the registry.
 
 ## Adding a package-backed paper
 

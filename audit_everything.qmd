@@ -110,6 +110,9 @@ if (!is.null(collections) && length(collections) > 0L) {
 | Successful | `r summary$success` |
 | Failed | `r summary$failed` |
 | Timed out | `r summary$timed_out` |
+| Substantive failed | `r summary$substantive_failed %||% 0L` |
+
+When a study defines `tests/substantive/<step_id>.R`, the audit compares replicated estimates to published benchmarks (Fearon & Laitin `tab_1` is the reference). Failures are counted separately and marked `[substantive]` in the console summary.
 
 ```{r summary-bar}
 #| echo: false

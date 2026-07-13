@@ -1,4 +1,4 @@
-# Lightweight registry stub for a folder-backed study.
+# Lightweight registry stub for a package-backed study.
 # Copy to registry/studies/<folder>.yml in the registry repo.
 # Registry folder: 10.1371_journal.pone.0278337
 
@@ -10,10 +10,10 @@ paper:
   year: 2022
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes
     Giesecke
-  materials: folder
-  study_repo: replicate-anything/rep-10.1371_journal.pone.0278337
-  study_ref: main
-  study_folder: rep-10.1371_journal.pone.0278337
+  package: rep1371journalpone0278337
+  package_repo: replicate-anything/rep-10.1371_journal.pone.0278337
+  package_ref: main
+  package_folder: rep-10.1371_journal.pone.0278337
 repo: replicate-anything/rep-10.1371_journal.pone.0278337
 maintainer:
   name: Macartan Humphreys
@@ -22,4 +22,3 @@ collections:
 - IPI
 languages:
 - r
-

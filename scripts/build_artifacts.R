@@ -64,7 +64,7 @@ for (folder in paper_folders) {
   if (isTRUE(ctx$is_folder_study)) {
     message(
       "\n=== ", folder, " (folder-backed; skipping registry build) ===\n",
-      "Artifacts live in study repo ", ctx$materials_repo, "/artifacts/"
+      "Artifacts live in study repo ", ctx$materials_repo, "/outputs/"
     )
     next
   }

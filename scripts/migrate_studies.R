@@ -45,7 +45,7 @@ for (study in studies) {
     })
   } else {
     replicateEverything::write_folder_registry_stub(study_dir)
-    replicateEverything::sync_folder_paper(study_dir, registry_root = registry)
+    replicateEverything::sync_study_to_registry(study_dir, registry_root = registry)
     message("Synced ", study)
   }
 
