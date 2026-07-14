@@ -115,7 +115,7 @@ for (folder in paper_folders) {
       if (!file.exists(out_file)) {
         stop("Artifact file was not created: ", out_file)
       }
-      replicateEverything::validate_artifact(doi, rep_id)
+      replicateEverything::validate_outputs(doi, rep_id)
       list(
         status = "ok",
         artifact = file.path("artifacts", basename(out)),

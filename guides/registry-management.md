@@ -68,13 +68,13 @@ Commit `index.csv`, `index.html`, and changed `studies/*.yml`.
 Precomputed files referenced in `replication.yml` (for Shiny **Display**):
 
 ```bash
-Rscript scripts/validate_artifacts.R
+Rscript scripts/validate_outputs.R
 ```
 
 Optional single-study check from R:
 
 ```r
-validate_paper_artifacts("10.1017/S0003055403000534")
+validate_outputs("10.1017/S0003055403000534", what = "everything")
 ```
 
 This does **not** run live replications; it only checks that declared artifact paths exist.
@@ -159,7 +159,7 @@ Create `local.R` once from `local.R.example` (registry path, Stata executable, e
 1. Study repos updated and pushed.
 2. `studies/<folder>.yml` stubs current.
 3. `quarto render index.qmd` → commit `index.csv` / `index.html`.
-4. `Rscript scripts/validate_artifacts.R`.
+4. `Rscript scripts/validate_outputs.R`.
 5. `quarto render audit_everything.qmd` → commit audit JSON/RDS/HTML (includes substantive checks when studies define `tests/substantive/`).
 6. Copy `audit_latest.rds` to `replicateEverything/inst/vignette-data/` if publishing the package.
 7. Push registry + study repos; update server Shiny copy if needed.
