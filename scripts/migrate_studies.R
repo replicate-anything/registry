@@ -17,7 +17,7 @@ options(
 
 studies <- c(
   "rep-10.1038-s41591-021-01454-y",
-  "rep-10.5555_cahw"
+  "rep-10.5555-cahw"
 )
 
 for (study in studies) {

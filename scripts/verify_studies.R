@@ -44,7 +44,7 @@ tryCatch(
 
 tryCatch(
   replicateEverything::build_study_outputs(
-    file.path(root, "rep-10.5555_cahw"),
+    file.path(root, "rep-10.5555-cahw"),
     install_deps = TRUE,
     ids = c("fig_1", "fig_2"),
     registry_root = registry

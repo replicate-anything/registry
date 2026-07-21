@@ -11,10 +11,10 @@ paper:
   authors: Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes
     Giesecke
   package: rep1371journalpone0278337
-  package_repo: replicate-anything/rep-10.1371_journal.pone.0278337
+  package_repo: replicate-anything/rep-10.1371-journal.pone.0278337
   package_ref: main
-  package_folder: rep-10.1371_journal.pone.0278337
-repo: replicate-anything/rep-10.1371_journal.pone.0278337
+  package_folder: rep-10.1371-journal.pone.0278337
+repo: replicate-anything/rep-10.1371-journal.pone.0278337
 maintainer:
   name: Macartan Humphreys
   email: macartan.humphreys@wzb.eu

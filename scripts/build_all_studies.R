@@ -27,4 +27,4 @@ build_all <- function(study) {
 }
 
 build_all("rep-10.1038-s41591-021-01454-y")
-build_all("rep-10.5555_cahw")
+build_all("rep-10.5555-cahw")
