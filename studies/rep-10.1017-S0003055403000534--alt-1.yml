@@ -3,14 +3,13 @@
 
 paper:
   study_handle: rep-10.1017-S0003055403000534--alt-1
-  title: "Template: re-analysis repo"
+  title: "Illustration of re-analysis repo"
   year: 2026
   authors: replicateEverything Team
   abstract: >
-    Replication using linear models with robust standard errors rather than glm.
-    See the [study repository](https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1).
-    Prepared data are inherited from
-    [Fearon & Laitin (2003)](https://doi.org/10.1017/S0003055403000534).
+    Replication using linear models with robust standard errors (estimatr::lm_robust)
+    rather than glm. Prepared data are inherited from the
+    [Fearon & Laitin (2003)](https://doi.org/10.1017/S0003055403000534) study repo.
   materials: folder
   study_repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
   study_ref: main
