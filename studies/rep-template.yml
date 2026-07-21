@@ -1,0 +1,25 @@
+# Lightweight registry stub for a folder-backed study.
+# Generated from study replication.yml by sync_study_to_registry().
+# Registry folder: rep-template
+
+paper:
+  study_handle: rep-template
+  title: Minimal folder-backed template study
+  year: 2026
+  authors: ReplicateEverything Team
+  abstract: |
+    Unpublished template study for replicateEverything. Demonstrates a minimal folder-backed layout: CSV data, one estimatr table, HTML display output, and substantive tests. No journal article DOI.
+  study_url: https://github.com/replicate-anything/rep-template
+  materials: folder
+  study_repo: replicate-anything/rep-template
+  study_ref: main
+  study_folder: rep-template
+repo: replicate-anything/rep-template
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+collections:
+- IPI
+languages:
+- r
+
