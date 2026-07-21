@@ -1,6 +1,6 @@
 # Lightweight registry stub for a folder-backed study.
-# Copy to registry/studies/<folder>.yml in the registry repo.
-# Registry folder: 10.1017S0003055403000534
+# Generated from study replication.yml by sync_study_to_registry().
+# Registry folder: 10.1017_s0003055403000534
 
 paper:
   doi: https://doi.org/10.1017/S0003055403000534
@@ -22,4 +22,3 @@ collections:
 languages:
 - r
 - stata
-

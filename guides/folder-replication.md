@@ -5,7 +5,7 @@ For studies maintained as a **simple folder repository** (not an R package), the
 ## Registry stub file
 
 ```
-studies/10.1017S0003055403000534.yml
+studies/10.1017_s0003055403000534.yml
 ```
 
 Example stub:
