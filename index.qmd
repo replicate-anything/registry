@@ -37,6 +37,10 @@ Artifacts store **analysis output** (e.g. `.rds` model objects) when `replicatio
 
 library(yaml)
 
+`%||%` <- function(x, y) {
+  if (is.null(x) || length(x) == 0L) y else x
+}
+
 field_or <- function(x, default = "") {
   if (is.null(x) || length(x) == 0) default else x
 }
@@ -60,6 +64,25 @@ doi_href <- function(doi) {
   paste0("https://doi.org/", gsub("^https?://doi.org/", "", tolower(doi)))
 }
 
+normalize_doi <- function(doi) {
+  doi <- tolower(trimws(as.character(doi)))
+  doi <- gsub("^https?://doi.org/", "", doi)
+  doi <- gsub("^doi:", "", doi)
+  trimws(doi)
+}
+
+pipe_tags <- function(x) {
+  tags <- unique(na.omit(as.character(unlist(x, use.names = FALSE))))
+  tags <- tags[nzchar(tags)]
+  paste(tags, collapse = "|")
+}
+
+semi_tags <- function(x) {
+  tags <- unique(na.omit(as.character(unlist(x, use.names = FALSE))))
+  tags <- tags[nzchar(tags)]
+  paste(tags, collapse = ";")
+}
+
 infer_repo_slug <- function(meta) {
   repo <- meta$repo %||% meta$paper$study_repo %||% meta$paper$package_repo %||% NULL
   if (is.null(repo) || !nzchar(as.character(repo[[1]]))) {
@@ -68,59 +91,111 @@ infer_repo_slug <- function(meta) {
   as.character(repo[[1]])
 }
 
-studies_dir <- "studies"
-yml_files <- list.files(studies_dir, pattern = "\\.yml$", full.names = FALSE)
-folders <- sort(sub("\\.yml$", "", yml_files))
-
-rows <- lapply(folders, function(folder) {
-  yml_file <- file.path(studies_dir, paste0(folder, ".yml"))
-  if (!file.exists(yml_file)) {
-    return(NULL)
-  }
-
-  meta <- tryCatch(
-    yaml::read_yaml(yml_file),
+# Prefer package compiler so index.csv stays in sync with Shiny / load_index().
+# Quarto used to write a thin CSV (no collections/maintainer/languages), which
+# wiped those columns every time the catalog was re-rendered.
+built <- NULL
+if (requireNamespace("replicateEverything", quietly = TRUE)) {
+  built <- tryCatch(
+    replicateEverything::build_registry_index("."),
     error = function(e) NULL
-  )
-  if (is.null(meta) || is.null(meta$paper)) {
-    return(NULL)
-  }
-
-  paper <- meta$paper
-  doi <- field_or(paper$doi)
-  href <- doi_href(doi)
-
-  data.frame(
-    folder = folder,
-    doi = doi,
-    doi_href = href,
-    title = field_or(paper$title),
-    journal = field_or(paper$journal),
-    year = field_or(paper$year, NA),
-    authors = format_authors(paper$authors),
-    repo = infer_repo_slug(meta),
-    stringsAsFactors = FALSE
-  )
-})
-
-studies <- if (length(rows) > 0) {
-  do.call(rbind, rows)
-} else {
-  data.frame(
-    folder = character(),
-    doi = character(),
-    doi_href = character(),
-    title = character(),
-    journal = character(),
-    year = integer(),
-    authors = character(),
-    repo = character(),
-    stringsAsFactors = FALSE
   )
 }
 
-index_csv <- studies[, c("folder", "doi", "title", "journal", "year", "authors", "repo")]
-write.csv(index_csv, "index.csv", row.names = FALSE, fileEncoding = "UTF-8")
+if (!is.null(built) && is.data.frame(built$index) && nrow(built$index) > 0L) {
+  studies <- built$index
+  studies$doi_href <- vapply(studies$doi, doi_href, character(1))
+} else {
+  studies_dir <- "studies"
+  yml_files <- list.files(studies_dir, pattern = "\\.yml$", full.names = FALSE)
+  folders <- sort(sub("\\.yml$", "", yml_files))
+
+  rows <- lapply(folders, function(folder) {
+    yml_file <- file.path(studies_dir, paste0(folder, ".yml"))
+    if (!file.exists(yml_file)) {
+      return(NULL)
+    }
+
+    meta <- tryCatch(
+      yaml::read_yaml(yml_file),
+      error = function(e) NULL
+    )
+    if (is.null(meta) || is.null(meta$paper)) {
+      return(NULL)
+    }
+
+    paper <- meta$paper
+    doi_raw <- field_or(paper$doi)
+    doi_out <- if (nzchar(trimws(as.character(doi_raw)))) {
+      normalize_doi(doi_raw)
+    } else {
+      ""
+    }
+    href <- doi_href(doi_raw)
+    handle <- trimws(as.character(paper$handle %||% paper$study_handle %||% folder))
+    if (!nzchar(handle)) {
+      handle <- folder
+    }
+    maintainer <- meta$maintainer %||% list()
+    collections <- pipe_tags(meta$collections %||% paper$collections %||% character(0))
+    languages <- semi_tags(meta$languages %||% paper$languages %||% character(0))
+    article_url <- as.character(
+      paper$article_url %||% paper$landing_url %||% paper$study_url %||% ""
+    )
+
+    data.frame(
+      folder = folder,
+      handle = handle,
+      doi = doi_out,
+      doi_href = href,
+      title = as.character(field_or(paper$title)),
+      journal = as.character(field_or(paper$journal)),
+      year = as.integer(field_or(paper$year, NA_integer_)),
+      authors = format_authors(paper$authors),
+      repo = infer_repo_slug(meta),
+      collections = collections,
+      maintainer_name = as.character(maintainer$name %||% ""),
+      maintainer_email = as.character(maintainer$email %||% ""),
+      languages = languages,
+      article_url = article_url,
+      stringsAsFactors = FALSE
+    )
+  })
+
+  studies <- if (length(rows) > 0) {
+    do.call(rbind, rows)
+  } else {
+    data.frame(
+      folder = character(),
+      handle = character(),
+      doi = character(),
+      doi_href = character(),
+      title = character(),
+      journal = character(),
+      year = integer(),
+      authors = character(),
+      repo = character(),
+      collections = character(),
+      maintainer_name = character(),
+      maintainer_email = character(),
+      languages = character(),
+      article_url = character(),
+      stringsAsFactors = FALSE
+    )
+  }
+
+  # Keep machine-readable index aligned with build_registry_index() columns.
+  index_cols <- c(
+    "folder", "handle", "doi", "title", "journal", "year", "authors", "repo",
+    "collections", "maintainer_name", "maintainer_email", "languages", "article_url"
+  )
+  write.csv(
+    studies[, index_cols, drop = FALSE],
+    "index.csv",
+    row.names = FALSE,
+    fileEncoding = "UTF-8"
+  )
+}
 
 if (nrow(studies) == 0) {
   knitr::kable(
@@ -143,6 +218,7 @@ if (nrow(studies) == 0) {
     Title = studies$title,
     Journal = studies$journal,
     Year = studies$year,
+    Collections = studies$collections,
     Authors = studies$authors,
     Repository = sprintf(
       '<a href="https://github.com/%s">%s</a>',

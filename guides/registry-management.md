@@ -7,8 +7,8 @@ This guide lists the routine steps maintainers use to keep the [registry](https:
 | Path | Role |
 |------|------|
 | `studies/<folder>.yml` | Lightweight stub per study (DOI, title, repo link) |
-| `index.qmd` | Renders the catalog; writes `index.csv` and `index.html` |
-| `index.csv` | Machine-readable index (`replicateEverything`, Shiny) |
+| `index.qmd` | Renders the HTML catalog; also refreshes `index.csv` (full stub fields) |
+| `index.csv` | Machine-readable index (`replicateEverything`, Shiny) — includes `collections`, `maintainer_*`, `languages` |
 | `audit_everything.qmd` | Full replication health check + HTML report |
 | `audit_summary.json` | Compact pass/fail counts (Shiny health bar) |
 | `audit_latest.rds` | Full `audit_everything` object |
@@ -54,10 +54,18 @@ See [package-replication.md](package-replication.md).
 
 ## Refresh the catalog (`index.csv`)
 
-After any stub change:
+After any stub change, rebuild `index.csv` from `studies/*.yml` (preferred):
 
 ```bash
 cd registry
+Rscript scripts/build_index.R .
+# or: Rscript -e 'replicateEverything::build_registry_index(".")'
+```
+
+Optionally re-render the HTML catalog (also writes a full `index.csv` with
+`collections`, `maintainer_*`, and `languages` — do not hand-edit a thin CSV):
+
+```bash
 quarto render index.qmd
 ```
 
@@ -158,7 +166,7 @@ Create `local.R` once from `local.R.example` (registry path, Stata executable, e
 
 1. Study repos updated and pushed.
 2. `studies/<folder>.yml` stubs current.
-3. `quarto render index.qmd` → commit `index.csv` / `index.html`.
+3. Rebuild index: `Rscript scripts/build_index.R .` (and optionally `quarto render index.qmd` for HTML) → commit `index.csv` / `index.html`.
 4. `Rscript scripts/validate_outputs.R`.
 5. `quarto render audit_everything.qmd` → commit audit JSON/RDS/HTML (includes substantive checks when studies define `tests/substantive/`).
 6. Copy `audit_latest.rds` to `replicateEverything/inst/vignette-data/` if publishing the package.
