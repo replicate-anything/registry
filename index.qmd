@@ -20,12 +20,12 @@ For folder-backed studies, build display artifacts in the study repository:
 replicateEverything::build_study_outputs(".")
 ```
 
-For package-backed studies, use `build_report()` in the study package.
+For package-backed studies, use `build_study_outputs()` in the study package.
 
 Verify precomputed files are present (run after clone or before Shiny):
 
 ```bash
-Rscript scripts/validate_artifacts.R
+Rscript scripts/validate_outputs.R
 ```
 
 Each replication script in a study repo follows a fixed layout: `library()` calls at the top, then analysis functions (`make_*`), then optional display functions (`format_*`), then a one-line execute footer that loads `data/...` and runs the pipeline.

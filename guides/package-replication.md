@@ -25,25 +25,24 @@ No `code/`, `data/`, or display outputs in the registry.
 
 ## Adding a package-backed paper
 
-Use `replicateEverything::add_paper()` from the monorepo:
+Contributor validates and bakes, maintainer registers, from the monorepo:
 
 ```r
 library(replicateEverything)
 options(replicateEverything.registry_root = "path/to/registry")
 
-# Validate only
-check_replication("path/to/rep_package", full_replication = FALSE)
+# Contributor: validate + bake artifacts
+check_and_bake_study("path/to/rep_package", build_artifacts = TRUE)
 
-# Validate + register
-add_paper("path/to/rep_package", full_replication = FALSE)
+# Maintainer: write/refresh the registry stub
+sync_study_to_registry("path/to/rep_package")
+# or: register_study("path/to/rep_package")
 ```
-
-Set `full_replication = TRUE` to also run every table and figure via `run_replication()`.
 
 Full requirements: `vignette("package-replication-checklist", package = "replicateEverything")` or the [pkgdown article](https://replicate-anything.github.io/replicateEverything/articles/package-replication-checklist.html).
 
 ## Maintainer notes
 
-- `scripts/build_artifacts.R` **skips** package-backed papers.
+- `scripts/build_outputs.R` builds package-backed papers directly (installs the study package, then `build_study_outputs()`).
 - Artifacts are validated via the study package API (`load_artifact()`).
 - Re-render `index.qmd` after updating `index.csv` if you publish the HTML catalog.

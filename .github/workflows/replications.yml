@@ -39,7 +39,7 @@ jobs:
             replicate-anything/replicateEverything
 
       - name: Build replication artifacts
-        run: Rscript scripts/build_artifacts.R
+        run: Rscript scripts/build_outputs.R
 
       - name: Check for artifact changes
         run: git diff --exit-code

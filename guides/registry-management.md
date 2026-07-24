@@ -35,20 +35,18 @@ options(replicateEverything.registry_root = "/path/to/replicate_everything/regis
 ### Folder-backed
 
 1. Create or update the study repo (`replication.yml`, `code/`, `data/`, `outputs/`).
-2. Run `check_replication()` and `run_replication()` locally.
-3. Build display outputs: `build_study_outputs(".")`.
-4. Add **substantive checks** (`tests/substantive/<step_id>.R`) where published benchmarks are available; see Fearon & Laitin `tab_1`.
-5. Register: `prepare_study_for_registry()` / `add_folder_paper()` or merge `registry/replication.yml` + `registry/index.csv` from the study repo.
-6. Add or update `studies/<folder>.yml` in this repo (often via `add_folder_paper()`).
-7. Re-render the catalog (below).
+2. Contributor: `check_and_bake_study(".")` (validates and optionally bakes `outputs/` via `build_study_outputs()`).
+3. Add **substantive checks** (`tests/substantive/<step_id>.R`) where published benchmarks are available; see Fearon & Laitin `tab_1`.
+4. Maintainer: `sync_study_to_registry(study_path)` (or `register_study(study_path)`) writes `studies/<folder>.yml` in this repo from the study's `replication.yml`. Studies never commit a local `registry/` handoff.
+5. Re-render the catalog (below).
 
 See [folder-replication.md](folder-replication.md).
 
 ### Package-backed
 
-1. Maintain the study R package (`replication.yml`, `inst/replication.yml`, `inst/replication_code/`, display outputs via `build_report()`).
-2. `check_replication()` then `add_paper()`.
-3. Stub appears under `studies/`.
+1. Maintain the study R package (`replication.yml`, `inst/replication.yml`, `inst/replication_code/`, display outputs via `build_study_outputs()`).
+2. Contributor: `check_and_bake_study(".")`.
+3. Maintainer: `sync_study_to_registry(study_path)` (or `register_study(study_path)`) writes the stub under `studies/`.
 
 See [package-replication.md](package-replication.md).
 
@@ -174,4 +172,4 @@ Create `local.R` once from `local.R.example` (registry path, Stata executable, e
 
 ## CI
 
-`.github/workflows/replications.yml` runs `scripts/build_artifacts.R` on package-backed stubs only. Folder-backed artifact builds happen in study repos. The full live audit is a maintainer job (Stata, data, patience).
+`.github/workflows/replications.yml` runs `scripts/build_outputs.R` (`build_outputs(doi = "everywhere", what = "everything")`), which builds package-backed studies directly (installing the study package) and any folder-backed studies checked out locally in the runner; it skips folder-backed studies without a local checkout. Folder-backed artifact builds otherwise happen in study repos. The full live audit is a maintainer job (Stata, data, patience).
