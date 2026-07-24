@@ -1,0 +1,25 @@
+# Lightweight registry stub for a folder-backed study.
+# Generated from study replication.yml by sync_study_to_registry().
+# Registry folder: 10.1017_s0003055421001143
+
+paper:
+  doi: https://doi.org/10.1017/S0003055421001143
+  title: Sovereignty, Substance, and Public Support for European Courts' Human Rights
+    Rulings
+  journal: American Political Science Review
+  year: 2021
+  authors:
+  - Mikael Rask Madsen
+  - Juan Mayoral
+  - Anton Strezhnev
+  - Erik Voeten
+  materials: folder
+  study_repo: replicate-anything/rep-10.1017-s0003055421001143
+  study_ref: main
+  study_folder: rep-10.1017-s0003055421001143
+repo: replicate-anything/rep-10.1017-s0003055421001143
+collections:
+- APSR
+languages:
+- r
+
