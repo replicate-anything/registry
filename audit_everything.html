@@ -2251,8 +2251,8 @@ vertical-align: -.125em;
 
 
 <p>This report uses <a href="https://github.com/replicate-anything/replicateEverything"><code>audit_everything()</code></a> from the <strong>replicateEverything</strong> package. It walks this registry and attempts every table and figure in each listed engine (R and Stata where both exist). A run is halted after <strong>20</strong> seconds per object; failures are recorded and the audit continues.</p>
-<p><strong>Started:</strong> 2026-07-21 23:48:30 CEST<br>
-<strong>Finished:</strong> 2026-07-21 23:53:04 CEST</p>
+<p><strong>Started:</strong> 2026-07-25 09:08:01 CEST<br>
+<strong>Finished:</strong> 2026-07-25 09:16:03 CEST</p>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <table class="caption-top table">
@@ -2265,23 +2265,23 @@ vertical-align: -.125em;
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Studies audited</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Replication runs</td>
-<td style="text-align: right;">80</td>
+<td style="text-align: right;">84</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Successful</td>
-<td style="text-align: right;">78</td>
+<td style="text-align: right;">72</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Substantive failed</td>
@@ -2292,155 +2292,18 @@ vertical-align: -.125em;
 <p>When a study defines <code>tests/substantive/&lt;step_id&gt;.R</code>, the audit compares replicated estimates to published benchmarks (Fearon &amp; Laitin <code>tab_1</code> is the reference). Failures are counted separately and marked <code>[substantive]</code> in the console summary.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>**Pass rate:** 97.5%</code></pre>
+<pre><code>**Pass rate:** 85.7%</code></pre>
 </div>
 </div>
 </section>
 <section id="results-by-study" class="level2">
 <h2 class="anchored" data-anchor-id="results-by-study">Results by study</h2>
-<section id="ethnicity-insurgency-and-civil-war" class="level3">
-<h3 class="anchored" data-anchor-id="ethnicity-insurgency-and-civil-war">Ethnicity, Insurgency, and Civil War</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.20
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-5.47
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="preventing-rebel-resurgence-after-civil-war-a-field-experiment-in-security-and-justice-provision-in-rural-colombia" class="level3">
-<h3 class="anchored" data-anchor-id="preventing-rebel-resurgence-after-civil-war-a-field-experiment-in-security-and-justice-provision-in-rural-colombia">Preventing Rebel Resurgence after Civil War: A Field Experiment in Security and Justice Provision in Rural Colombia</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-6.47
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="beyond-belief-change-the-persuasive-returns-of-targeting-attitude-relevant-beliefs" class="level3">
 <h3 class="anchored" data-anchor-id="beyond-belief-change-the-persuasive-returns-of-targeting-attitude-relevant-beliefs">Beyond Belief Change: The Persuasive Returns of Targeting Attitude-Relevant Beliefs</h3>
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-</th>
-<th style="text-align:left;">
 Object
 </th>
 <th style="text-align:left;">
@@ -2466,9 +2329,6 @@ Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
 Table 1
 </td>
 <td style="text-align:left;">
@@ -2479,140 +2339,6 @@ table
 </td>
 <td style="text-align:left;">
 r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-12.10
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:left;">
-Table 3
-</td>
-<td style="text-align:left;">
-tab_3
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-4.99
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="portraits-of-power-facial-appearance-and-the-tacit-domain-of-political-selection-in-china" class="level3">
-<h3 class="anchored" data-anchor-id="portraits-of-power-facial-appearance-and-the-tacit-domain-of-political-selection-in-china">Portraits of Power: Facial Appearance and the Tacit Domain of Political Selection in China</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-6
-</td>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-9.41
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-7
-</td>
-<td style="text-align:left;">
-Table 2
-</td>
-<td style="text-align:left;">
-tab_2
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.51
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-Table 3
-</td>
-<td style="text-align:left;">
-tab_3
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
 </td>
 <td style="text-align:left;">
 OK
@@ -2625,319 +2351,7 @@ OK
 </tr>
 <tr>
 <td style="text-align:left;">
-9
-</td>
-<td style="text-align:left;">
-Figure 2
-</td>
-<td style="text-align:left;">
-fig_2
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-python
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-17.82
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-Figure 4
-</td>
-<td style="text-align:left;">
-fig_4
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-4.14
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-11
-</td>
-<td style="text-align:left;">
-Figure 5
-</td>
-<td style="text-align:left;">
-fig_5
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.22
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="covid-19-vaccine-acceptance-and-hesitancy-in-low--and-middle-income-countries" class="level3">
-<h3 class="anchored" data-anchor-id="covid-19-vaccine-acceptance-and-hesitancy-in-low--and-middle-income-countries">COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-12
-</td>
-<td style="text-align:left;">
-Acceptance Rates (disaggregated by group)
-</td>
-<td style="text-align:left;">
-fig_1
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.50
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-13
-</td>
-<td style="text-align:left;">
-Robustness check using leave-m-out approach
-</td>
-<td style="text-align:left;">
-fig_2
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.31
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-14
-</td>
-<td style="text-align:left;">
-Reason not to take vaccine
-</td>
-<td style="text-align:left;">
-fig_3
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.53
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-15
-</td>
-<td style="text-align:left;">
-Trust
-</td>
-<td style="text-align:left;">
-fig_4
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.56
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:left;">
-Trust by acceptance
-</td>
-<td style="text-align:left;">
-fig_5
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.19
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-17
-</td>
-<td style="text-align:left;">
-Trust by gender
-</td>
-<td style="text-align:left;">
-fig_6
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.83
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-18
-</td>
-<td style="text-align:left;">
-Vaccine Data from WGM, WHO
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.28
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-19
-</td>
-<td style="text-align:left;">
-Summary of Studies’ Sampling
-</td>
-<td style="text-align:left;">
-tab_2
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-20
-</td>
-<td style="text-align:left;">
-Differences in Means
+Table 3
 </td>
 <td style="text-align:left;">
 tab_3
@@ -2952,207 +2366,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.33
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-21
-</td>
-<td style="text-align:left;">
-Difference in Means (by study)
-</td>
-<td style="text-align:left;">
-tab_4
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.41
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-22
-</td>
-<td style="text-align:left;">
-Differences between groups within studies (Summary)
-</td>
-<td style="text-align:left;">
-tab_5
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.37
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-23
-</td>
-<td style="text-align:left;">
-Reason to take
-</td>
-<td style="text-align:left;">
-tab_6
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.31
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-24
-</td>
-<td style="text-align:left;">
-Reason to take the vaccine. All categories.
-</td>
-<td style="text-align:left;">
-tab_7
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-4.59
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-25
-</td>
-<td style="text-align:left;">
-Reason to take the vaccine: by age.
-</td>
-<td style="text-align:left;">
-tab_8
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.04
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-26
-</td>
-<td style="text-align:left;">
-Reason not to take the vaccine
-</td>
-<td style="text-align:left;">
-tab_9
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-5.24
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-27
-</td>
-<td style="text-align:left;">
-Vaccination Decision-making: most trusted source.
-</td>
-<td style="text-align:left;">
-tab_10
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.40
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-28
-</td>
-<td style="text-align:left;">
-Summary Stats
-</td>
-<td style="text-align:left;">
-tab_11
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-9.23
+4.03
 </td>
 <td style="text-align:left;">
 </td>
@@ -3193,7 +2407,7 @@ Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-29
+3
 </td>
 <td style="text-align:left;">
 Figure 1
@@ -3211,7 +2425,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.33
+0.14
 </td>
 <td style="text-align:left;">
 </td>
@@ -3219,8 +2433,8 @@ OK
 </tbody>
 </table>
 </section>
-<section id="the-colonial-origins-of-comparative-development" class="level3">
-<h3 class="anchored" data-anchor-id="the-colonial-origins-of-comparative-development">The Colonial Origins of Comparative Development</h3>
+<section id="covid-19-vaccine-acceptance-and-hesitancy-in-low--and-middle-income-countries" class="level3">
+<h3 class="anchored" data-anchor-id="covid-19-vaccine-acceptance-and-hesitancy-in-low--and-middle-income-countries">COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries</h3>
 <table>
 <thead>
 <tr>
@@ -3252,7 +2466,192 @@ Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-30
+4
+</td>
+<td style="text-align:left;">
+Table 2
+</td>
+<td style="text-align:left;">
+tab_2
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Fig. 1
+</td>
+<td style="text-align:left;">
+fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.94
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Fig. 2
+</td>
+<td style="text-align:left;">
+fig_2
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.11
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Fig. 3
+</td>
+<td style="text-align:left;">
+fig_3
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+7.35
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Extended Data Fig. 1
+</td>
+<td style="text-align:left;">
+ext_fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+7.84
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+Extended Data Fig. 2
+</td>
+<td style="text-align:left;">
+ext_fig_2
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Timed out
+</td>
+<td style="text-align:right;">
+20.02
+</td>
+<td style="text-align:left;">
+reached elapsed time limit | Call: DataMask$new(data, by, verb, error_call = error_call)
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethnicity-insurgency-and-civil-war" class="level3">
+<h3 class="anchored" data-anchor-id="ethnicity-insurgency-and-civil-war">Ethnicity, Insurgency, and Civil War</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+10
 </td>
 <td style="text-align:left;">
 Table 1
@@ -3270,14 +2669,14 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.25
+0.42
 </td>
 <td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-31
+11
 </td>
 <td style="text-align:left;">
 Table 1
@@ -3295,1286 +2694,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-1.49
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-32
-</td>
-<td style="text-align:left;">
-Table 2
-</td>
-<td style="text-align:left;">
-tab_2
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.27
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-33
-</td>
-<td style="text-align:left;">
-Table 2
-</td>
-<td style="text-align:left;">
-tab_2_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.75
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-34
-</td>
-<td style="text-align:left;">
-Table 3
-</td>
-<td style="text-align:left;">
-tab_3
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.22
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-35
-</td>
-<td style="text-align:left;">
-Table 3
-</td>
-<td style="text-align:left;">
-tab_3_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.91
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-36
-</td>
-<td style="text-align:left;">
-Table 4
-</td>
-<td style="text-align:left;">
-tab_4
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-37
-</td>
-<td style="text-align:left;">
-Table 4
-</td>
-<td style="text-align:left;">
-tab_4_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.94
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-38
-</td>
-<td style="text-align:left;">
-Table 5
-</td>
-<td style="text-align:left;">
-tab_5
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-39
-</td>
-<td style="text-align:left;">
-Table 5
-</td>
-<td style="text-align:left;">
-tab_5_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.97
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-40
-</td>
-<td style="text-align:left;">
-Table 6
-</td>
-<td style="text-align:left;">
-tab_6
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-41
-</td>
-<td style="text-align:left;">
-Table 6
-</td>
-<td style="text-align:left;">
-tab_6_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.15
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-42
-</td>
-<td style="text-align:left;">
-Table 7
-</td>
-<td style="text-align:left;">
-tab_7
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.33
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-43
-</td>
-<td style="text-align:left;">
-Table 7
-</td>
-<td style="text-align:left;">
-tab_7_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.28
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-44
-</td>
-<td style="text-align:left;">
-Table 8
-</td>
-<td style="text-align:left;">
-tab_8
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.55
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-45
-</td>
-<td style="text-align:left;">
-Table 8
-</td>
-<td style="text-align:left;">
-tab_8_stata
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.56
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="public-support-for-global-vaccine-sharing-in-the-covid-19-pandemic-evidence-from-germany" class="level3">
-<h3 class="anchored" data-anchor-id="public-support-for-global-vaccine-sharing-in-the-covid-19-pandemic-evidence-from-germany">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-46
-</td>
-<td style="text-align:left;">
-Figure 1
-</td>
-<td style="text-align:left;">
-fig_1
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-Failed
-</td>
-<td style="text-align:right;">
-3.02
-</td>
-<td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_study_dependencies(‘10.1371/journal.pone.0278337’) | Install for e…
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-47
-</td>
-<td style="text-align:left;">
-Figure 2
-</td>
-<td style="text-align:left;">
-fig_2
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-10.95
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-48
-</td>
-<td style="text-align:left;">
-Figure 3
-</td>
-<td style="text-align:left;">
-fig_3
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-2.67
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-49
-</td>
-<td style="text-align:left;">
-Figure 4
-</td>
-<td style="text-align:left;">
-fig_4
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-1.50
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-50
-</td>
-<td style="text-align:left;">
-Figure 5
-</td>
-<td style="text-align:left;">
-fig_5
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-1.56
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-51
-</td>
-<td style="text-align:left;">
-Figure 6
-</td>
-<td style="text-align:left;">
-fig_6
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-3.28
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-52
-</td>
-<td style="text-align:left;">
-Figure 7
-</td>
-<td style="text-align:left;">
-fig_7
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-6.03
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-53
-</td>
-<td style="text-align:left;">
-Figure 8
-</td>
-<td style="text-align:left;">
-fig_8
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-5.99
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-54
-</td>
-<td style="text-align:left;">
-Table 2
-</td>
-<td style="text-align:left;">
-tab_2
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-6.08
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-55
-</td>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-4.69
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="migration-families-and-counterfactual-families" class="level3">
-<h3 class="anchored" data-anchor-id="migration-families-and-counterfactual-families">Migration, Families, and Counterfactual Families</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-56
-</td>
-<td style="text-align:left;">
-Table 1
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-Timed out
-</td>
-<td style="text-align:right;">
-20.46
-</td>
-<td style="text-align:left;">
-! Native call to <code>processx_wait</code> failed | Caused by error in <code>chain_clean_call(c_processx_wait, private$status, as.integer(timeout), …</code>: | ! reached elapsed time limit | Caused by: reached elapsed time limit | Call: “process_wait(self, priv…
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-57
-</td>
-<td style="text-align:left;">
-Figure 1
-</td>
-<td style="text-align:left;">
-fig_1
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-stata
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-9.18
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="selection-and-incentives-in-local-service-provision-theory-and-evidence-from-sierra-leone" class="level3">
-<h3 class="anchored" data-anchor-id="selection-and-incentives-in-local-service-provision-theory-and-evidence-from-sierra-leone">Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Object
-</th>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Type
-</th>
-<th style="text-align:left;">
-Engine
-</th>
-<th style="text-align:left;">
-Status
-</th>
-<th style="text-align:right;">
-Seconds
-</th>
-<th style="text-align:left;">
-Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-58
-</td>
-<td style="text-align:left;">
-Components of performance outcome variable
-</td>
-<td style="text-align:left;">
-fig_1
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.47
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-59
-</td>
-<td style="text-align:left;">
-Components of quality / surveillance outcome variable
-</td>
-<td style="text-align:left;">
-fig_2
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.34
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-60
-</td>
-<td style="text-align:left;">
-Results Service Provider Quality Period 2 (post)
-</td>
-<td style="text-align:left;">
-tab_1
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.37
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-61
-</td>
-<td style="text-align:left;">
-Results Service Provider Quality Period 1 (pre)
-</td>
-<td style="text-align:left;">
-tab_2
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.24
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-62
-</td>
-<td style="text-align:left;">
-Results Service Provider Quality (Average)
-</td>
-<td style="text-align:left;">
-tab_3
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.24
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-63
-</td>
-<td style="text-align:left;">
-Results Service Provider Performance (Effort, Period 2)
-</td>
-<td style="text-align:left;">
-tab_4
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-64
-</td>
-<td style="text-align:left;">
-Results Service Provider Performance (Effort, Period 1)
-</td>
-<td style="text-align:left;">
-tab_5
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-65
-</td>
-<td style="text-align:left;">
-Results Service Provider Performance (Effort, Average)
-</td>
-<td style="text-align:left;">
-tab_6
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.30
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-66
-</td>
-<td style="text-align:left;">
-Structural Model: Posterior Distributions on Model parameters
-</td>
-<td style="text-align:left;">
-fig_3
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-67
-</td>
-<td style="text-align:left;">
-Experiments: Expected CAHW Effort
-</td>
-<td style="text-align:left;">
-fig_4
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-68
-</td>
-<td style="text-align:left;">
-Experiments: Posterior Probability that Bureaucratic Package Outperforms Community Package
-</td>
-<td style="text-align:left;">
-fig_5
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.34
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-69
-</td>
-<td style="text-align:left;">
-Model-Based Estimates of Treatment Effects
-</td>
-<td style="text-align:left;">
-fig_6
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-70
-</td>
-<td style="text-align:left;">
-Appendix: Performance Index components (without standardization)
-</td>
-<td style="text-align:left;">
-fig_7
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.28
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-71
-</td>
-<td style="text-align:left;">
-Appendix: Variable Description and Summary Information
-</td>
-<td style="text-align:left;">
-tab_a5
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.21
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-72
-</td>
-<td style="text-align:left;">
-Appendix: Manipulation checks
-</td>
-<td style="text-align:left;">
-tab_a6
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-73
-</td>
-<td style="text-align:left;">
-Appendix: Manipulation checks, frequency reward CAHW
-</td>
-<td style="text-align:left;">
-tab_8
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.19
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-74
-</td>
-<td style="text-align:left;">
-Appendix: Manipulation checks, frequency motivation CAHW
-</td>
-<td style="text-align:left;">
-tab_9
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.17
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-75
-</td>
-<td style="text-align:left;">
-Appendix: Timeline
-</td>
-<td style="text-align:left;">
-tab_10
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-76
-</td>
-<td style="text-align:left;">
-Appendix: Balance table
-</td>
-<td style="text-align:left;">
-tab_11
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.20
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-77
-</td>
-<td style="text-align:left;">
-Appendix: Distribution CAHW Performance Index by Treatment Arm
-</td>
-<td style="text-align:left;">
-fig_8
-</td>
-<td style="text-align:left;">
-figure
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.33
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-78
-</td>
-<td style="text-align:left;">
-Appendix: Results by CAHW Performance Index’s Subcomponents
-</td>
-<td style="text-align:left;">
-tab_13
-</td>
-<td style="text-align:left;">
-table
-</td>
-<td style="text-align:left;">
-r
-</td>
-<td style="text-align:left;">
-OK
-</td>
-<td style="text-align:right;">
-0.31
+4.39
 </td>
 <td style="text-align:left;">
 </td>
@@ -4615,7 +2735,7 @@ Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-79
+12
 </td>
 <td style="text-align:left;">
 Table 1
@@ -4633,7 +2753,92 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.47
+0.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="migration-families-and-counterfactual-families" class="level3">
+<h3 class="anchored" data-anchor-id="migration-families-and-counterfactual-families">Migration, Families, and Counterfactual Families</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+Timed out
+</td>
+<td style="text-align:right;">
+20.17
+</td>
+<td style="text-align:left;">
+! Native call to <code>processx_wait</code> failed | Caused by error in <code>chain_clean_call(...)</code>: | ! reached elapsed time limit | Caused by: reached elapsed time limit | Call: process_wait(self, private, timeout)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+Figure 1
+</td>
+<td style="text-align:left;">
+fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+3.83
 </td>
 <td style="text-align:left;">
 </td>
@@ -4674,7 +2879,7 @@ Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-80
+15
 </td>
 <td style="text-align:left;">
 Simple table showing from template repo
@@ -4692,7 +2897,1946 @@ r
 OK
 </td>
 <td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="portraits-of-power-facial-appearance-and-the-tacit-domain-of-political-selection-in-china" class="level3">
+<h3 class="anchored" data-anchor-id="portraits-of-power-facial-appearance-and-the-tacit-domain-of-political-selection-in-china">Portraits of Power: Facial Appearance and the Tacit Domain of Political Selection in China</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+6.93
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+Table 2
+</td>
+<td style="text-align:left;">
+tab_2
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+8.09
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18
+</td>
+<td style="text-align:left;">
+Table 3
+</td>
+<td style="text-align:left;">
+tab_3
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+6.07
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+Figure 2
+</td>
+<td style="text-align:left;">
+fig_2
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+python
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+16.97
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20
+</td>
+<td style="text-align:left;">
+Figure 4
+</td>
+<td style="text-align:left;">
+fig_4
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+3.12
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+21
+</td>
+<td style="text-align:left;">
+Figure 5
+</td>
+<td style="text-align:left;">
+fig_5
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.83
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="preventing-rebel-resurgence-after-civil-war-a-field-experiment-in-security-and-justice-provision-in-rural-colombia" class="level3">
+<h3 class="anchored" data-anchor-id="preventing-rebel-resurgence-after-civil-war-a-field-experiment-in-security-and-justice-provision-in-rural-colombia">Preventing Rebel Resurgence after Civil War: A Field Experiment in Security and Justice Provision in Rural Colombia</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+22
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.56
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="public-support-for-global-vaccine-sharing-in-the-covid-19-pandemic-evidence-from-germany" class="level3">
+<h3 class="anchored" data-anchor-id="public-support-for-global-vaccine-sharing-in-the-covid-19-pandemic-evidence-from-germany">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+Figure 1
+</td>
+<td style="text-align:left;">
+fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+44.67
+</td>
+<td style="text-align:left;">
+Replication package rep1371journalpone0278337 is not installed.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+24
+</td>
+<td style="text-align:left;">
+Figure 2
+</td>
+<td style="text-align:left;">
+fig_2
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.13
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25
+</td>
+<td style="text-align:left;">
+Figure 3
+</td>
+<td style="text-align:left;">
+fig_3
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.10
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+26
+</td>
+<td style="text-align:left;">
+Figure 4
+</td>
+<td style="text-align:left;">
+fig_4
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.10
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+27
+</td>
+<td style="text-align:left;">
+Figure 5
+</td>
+<td style="text-align:left;">
+fig_5
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+20.94
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+28
+</td>
+<td style="text-align:left;">
+Figure 6
+</td>
+<td style="text-align:left;">
+fig_6
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+20.97
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+29
+</td>
+<td style="text-align:left;">
+Figure 7
+</td>
+<td style="text-align:left;">
+fig_7
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.17
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30
+</td>
+<td style="text-align:left;">
+Figure 8
+</td>
+<td style="text-align:left;">
+fig_8
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+20.59
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+31
+</td>
+<td style="text-align:left;">
+Table 2
+</td>
+<td style="text-align:left;">
+tab_2
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.17
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+32
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+Failed
+</td>
+<td style="text-align:right;">
+21.11
+</td>
+<td style="text-align:left;">
+This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(‘10.1371/journal.pone.0278337’) | Install for every s…
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="selection-and-incentives-in-local-service-provision-theory-and-evidence-from-sierra-leone" class="level3">
+<h3 class="anchored" data-anchor-id="selection-and-incentives-in-local-service-provision-theory-and-evidence-from-sierra-leone">Selection and Incentives in Local Service Provision: Theory and Evidence from Sierra Leone</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+33
+</td>
+<td style="text-align:left;">
+Components of performance outcome variable
+</td>
+<td style="text-align:left;">
+fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+34
+</td>
+<td style="text-align:left;">
+Components of quality / surveillance outcome variable
+</td>
+<td style="text-align:left;">
+fig_2
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35
+</td>
+<td style="text-align:left;">
+Results Service Provider Quality Period 2 (post)
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:left;">
+Results Service Provider Quality Period 1 (pre)
+</td>
+<td style="text-align:left;">
+tab_2
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+37
+</td>
+<td style="text-align:left;">
+Results Service Provider Quality (Average)
+</td>
+<td style="text-align:left;">
+tab_3
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+38
+</td>
+<td style="text-align:left;">
+Results Service Provider Performance (Effort, Period 2)
+</td>
+<td style="text-align:left;">
+tab_4
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:left;">
+Results Service Provider Performance (Effort, Period 1)
+</td>
+<td style="text-align:left;">
+tab_5
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.19
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+40
+</td>
+<td style="text-align:left;">
+Results Service Provider Performance (Effort, Average)
+</td>
+<td style="text-align:left;">
+tab_6
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:left;">
+Structural Model: Posterior Distributions on Model parameters
+</td>
+<td style="text-align:left;">
+fig_3
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:left;">
+Experiments: Expected CAHW Effort
+</td>
+<td style="text-align:left;">
+fig_4
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+43
+</td>
+<td style="text-align:left;">
+Experiments: Posterior Probability that Bureaucratic Package Outperforms Community Package
+</td>
+<td style="text-align:left;">
+fig_5
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+44
+</td>
+<td style="text-align:left;">
+Model-Based Estimates of Treatment Effects
+</td>
+<td style="text-align:left;">
+fig_6
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45
+</td>
+<td style="text-align:left;">
+Appendix: Performance Index components (without standardization)
+</td>
+<td style="text-align:left;">
+fig_7
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+46
+</td>
+<td style="text-align:left;">
+Appendix: Variable Description and Summary Information
+</td>
+<td style="text-align:left;">
+tab_a5
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.13
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+47
+</td>
+<td style="text-align:left;">
+Appendix: Manipulation checks
+</td>
+<td style="text-align:left;">
+tab_a6
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+48
+</td>
+<td style="text-align:left;">
+Appendix: Manipulation checks, frequency reward CAHW
+</td>
+<td style="text-align:left;">
+tab_8
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+49
+</td>
+<td style="text-align:left;">
+Appendix: Manipulation checks, frequency motivation CAHW
+</td>
+<td style="text-align:left;">
+tab_9
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+Appendix: Timeline
+</td>
+<td style="text-align:left;">
+tab_10
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+51
+</td>
+<td style="text-align:left;">
+Appendix: Balance table
+</td>
+<td style="text-align:left;">
+tab_11
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+52
+</td>
+<td style="text-align:left;">
+Appendix: Distribution CAHW Performance Index by Treatment Arm
+</td>
+<td style="text-align:left;">
+fig_8
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.23
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+53
+</td>
+<td style="text-align:left;">
+Appendix: Results by CAHW Performance Index’s Subcomponents
+</td>
+<td style="text-align:left;">
+tab_13
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.19
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sovereignty-substance-and-public-support-for-european-courts-human-rights-rulings" class="level3">
+<h3 class="anchored" data-anchor-id="sovereignty-substance-and-public-support-for-european-courts-human-rights-rulings">Sovereignty, Substance, and Public Support for European Courts’ Human Rights Rulings</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+54
+</td>
+<td style="text-align:left;">
+Table 3a — Summary statistics, Deportation vignette
+</td>
+<td style="text-align:left;">
+tab_3a
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+1.97
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55
+</td>
+<td style="text-align:left;">
+Table 3b — Summary statistics, Quran burning and Eviction vignettes
+</td>
+<td style="text-align:left;">
+tab_3b
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+56
+</td>
+<td style="text-align:left;">
+Figure 1 — Treatment summaries
+</td>
+<td style="text-align:left;">
+fig_1
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+11.33
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+57
+</td>
+<td style="text-align:left;">
+Figure 2a — Effect of EC disagreeing with domestic court (H1)
+</td>
+<td style="text-align:left;">
+fig_2a
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+3.94
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+58
+</td>
+<td style="text-align:left;">
+Figure 2b — Effect of EC disagreeing with domestic court, by country
+</td>
+<td style="text-align:left;">
+fig_2b
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.61
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+59
+</td>
+<td style="text-align:left;">
+Figure 2c — Effect of EC disagreeing with domestic court, by country (averaged over vignettes)
+</td>
+<td style="text-align:left;">
+fig_2c
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.89
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+60
+</td>
+<td style="text-align:left;">
+Figure 3a — H1 heterogeneity by domestic rule-of-law satisfaction
+</td>
+<td style="text-align:left;">
+fig_3a
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+61
+</td>
+<td style="text-align:left;">
+Figure 3b — H1 heterogeneity by domestic rule-of-law satisfaction (UK/Denmark only)
+</td>
+<td style="text-align:left;">
+fig_3b
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.15
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+62
+</td>
+<td style="text-align:left;">
+Figure 3c — Difference in EC-disagreement effect by rule-of-law satisfaction (UK/Denmark only)
+</td>
+<td style="text-align:left;">
+fig_3c
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.67
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+63
+</td>
+<td style="text-align:left;">
+Figure 4a — Effect of case outcome (H2)
+</td>
+<td style="text-align:left;">
+fig_4a
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.58
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+64
+</td>
+<td style="text-align:left;">
+Figure 4b — Difference between case outcome effect and sovereignty effect
+</td>
+<td style="text-align:left;">
+fig_4b
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.28
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65
+</td>
+<td style="text-align:left;">
+Figure 5a — H2 interactions by sympathy toward applicant
+</td>
+<td style="text-align:left;">
+fig_5a
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+5.59
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+66
+</td>
+<td style="text-align:left;">
+Figure 5b — Difference in outcome effect between sympathetic and unsympathetic respondents
+</td>
+<td style="text-align:left;">
+fig_5b
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+4.29
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+67
+</td>
+<td style="text-align:left;">
+Figure 6 — Heterogeneity by nationalism
+</td>
+<td style="text-align:left;">
+fig_6
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+12.68
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+68
+</td>
+<td style="text-align:left;">
+Figure 7 — Heterogeneity by authoritarianism
+</td>
+<td style="text-align:left;">
+fig_7
+</td>
+<td style="text-align:left;">
+figure
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+11.79
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-colonial-origins-of-comparative-development" class="level3">
+<h3 class="anchored" data-anchor-id="the-colonial-origins-of-comparative-development">The Colonial Origins of Comparative Development</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Object
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Type
+</th>
+<th style="text-align:left;">
+Engine
+</th>
+<th style="text-align:left;">
+Status
+</th>
+<th style="text-align:right;">
+Seconds
+</th>
+<th style="text-align:left;">
+Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+69
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
 0.28
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+70
+</td>
+<td style="text-align:left;">
+Table 1
+</td>
+<td style="text-align:left;">
+tab_1_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+1.22
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+71
+</td>
+<td style="text-align:left;">
+Table 2
+</td>
+<td style="text-align:left;">
+tab_2
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+72
+</td>
+<td style="text-align:left;">
+Table 2
+</td>
+<td style="text-align:left;">
+tab_2_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.42
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+73
+</td>
+<td style="text-align:left;">
+Table 3
+</td>
+<td style="text-align:left;">
+tab_3
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.16
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+74
+</td>
+<td style="text-align:left;">
+Table 3
+</td>
+<td style="text-align:left;">
+tab_3_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.86
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75
+</td>
+<td style="text-align:left;">
+Table 4
+</td>
+<td style="text-align:left;">
+tab_4
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.16
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+76
+</td>
+<td style="text-align:left;">
+Table 4
+</td>
+<td style="text-align:left;">
+tab_4_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.70
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+77
+</td>
+<td style="text-align:left;">
+Table 5
+</td>
+<td style="text-align:left;">
+tab_5
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+78
+</td>
+<td style="text-align:left;">
+Table 5
+</td>
+<td style="text-align:left;">
+tab_5_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.52
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+79
+</td>
+<td style="text-align:left;">
+Table 6
+</td>
+<td style="text-align:left;">
+tab_6
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.19
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+80
+</td>
+<td style="text-align:left;">
+Table 6
+</td>
+<td style="text-align:left;">
+tab_6_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.67
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+81
+</td>
+<td style="text-align:left;">
+Table 7
+</td>
+<td style="text-align:left;">
+tab_7
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.17
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+82
+</td>
+<td style="text-align:left;">
+Table 7
+</td>
+<td style="text-align:left;">
+tab_7_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+2.45
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+83
+</td>
+<td style="text-align:left;">
+Table 8
+</td>
+<td style="text-align:left;">
+tab_8
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+r
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+0.39
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+84
+</td>
+<td style="text-align:left;">
+Table 8
+</td>
+<td style="text-align:left;">
+tab_8_stata
+</td>
+<td style="text-align:left;">
+table
+</td>
+<td style="text-align:left;">
+stata
+</td>
+<td style="text-align:left;">
+OK
+</td>
+<td style="text-align:right;">
+3.05
 </td>
 <td style="text-align:left;">
 </td>
@@ -4720,24 +4864,124 @@ OK
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">46</td>
-<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
-<td style="text-align: left;">Figure 1</td>
-<td style="text-align: left;">fig_1</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries</td>
+<td style="text-align: left;">Extended Data Fig. 2</td>
+<td style="text-align: left;">ext_fig_2</td>
 <td style="text-align: left;">r</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">3.02</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_study_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for e...</td>
+<td style="text-align: left;">Timed out</td>
+<td style="text-align: right;">20.02</td>
+<td style="text-align: left;">reached elapsed time limit | Call: DataMask$new(data, by, verb, error_call = error_call)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">56</td>
+<td style="text-align: left;">13</td>
 <td style="text-align: left;">Migration, Families, and Counterfactual Families</td>
 <td style="text-align: left;">Table 1</td>
 <td style="text-align: left;">tab_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">20.46</td>
-<td style="text-align: left;">! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(c_processx_wait, private$status, as.integer(timeout), …`: | ! reached elapsed time limit | Caused by: reached elapsed time limit | Call: &quot;process_wait(self, priv...</td>
+<td style="text-align: right;">20.17</td>
+<td style="text-align: left;">! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit | Caused by: reached elapsed time limit | Call: process_wait(self, private, timeout)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 1</td>
+<td style="text-align: left;">fig_1</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">44.67</td>
+<td style="text-align: left;">Replication package rep1371journalpone0278337 is not installed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">24</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 2</td>
+<td style="text-align: left;">fig_2</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.13</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 3</td>
+<td style="text-align: left;">fig_3</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.10</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">fig_4</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.10</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 5</td>
+<td style="text-align: left;">fig_5</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">20.94</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 6</td>
+<td style="text-align: left;">fig_6</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">20.97</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 7</td>
+<td style="text-align: left;">fig_7</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.17</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Figure 8</td>
+<td style="text-align: left;">fig_8</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">20.59</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Table 2</td>
+<td style="text-align: left;">tab_2</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.17</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany</td>
+<td style="text-align: left;">Table 1</td>
+<td style="text-align: left;">tab_1</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">21.11</td>
+<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Study package not installed: rep1371journalpone0278337 | Maintainers — install for this study: | install_dependencies(&#39;10.1371/journal.pone.0278337&#39;) | Install for every s...</td>
 </tr>
 </tbody>
 </table>
