@@ -1,0 +1,24 @@
+# Lightweight registry stub for a folder-backed study.
+# Generated from study replication.yml by sync_study_to_registry().
+# Registry folder: 10.1257_aer.20240673
+
+paper:
+  doi: https://doi.org/10.1257/aer.20240673
+  title: Ideological Alignment and Evidence-Based Policy Adoption
+  journal: American Economic Review
+  year: 2026
+  authors: Jorge García-Hombrados, Marcel Jansen, Ángel Martínez, Berkay Ozcan, Pedro
+    Rey-Biel, Antonio Roldán-Monés
+  materials: folder
+  study_repo: replicate-anything/rep-10.1257-aer.20240673
+  study_ref: main
+  study_folder: rep-10.1257-aer.20240673
+repo: replicate-anything/rep-10.1257-aer.20240673
+maintainer:
+  name: Macartan Humphreys
+  email: macartan.humphreys@wzb.eu
+collections:
+- AER
+languages:
+- stata
+
