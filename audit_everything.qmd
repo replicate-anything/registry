@@ -5,7 +5,7 @@ author: "replicate-anything/registry"
 embed-resources: true
 date: last-modified
 params:
-  patience: 20
+  patience: 60
   install_deps: false
   dois: !expr NULL
   collections: !expr NULL
@@ -85,7 +85,7 @@ results <- audit$results
 summary <- audit$summary
 ```
 
-This report uses [`audit_everything()`](https://github.com/replicate-anything/replicateEverything) from the **replicateEverything** package. It walks this registry and attempts every table and figure in each listed engine (R and Stata where both exist). A run is halted after **`r patience`** seconds per object; failures are recorded and the audit continues.
+This report uses [`audit_everything()`](https://github.com/replicate-anything/replicateEverything) from the **replicateEverything** package. It walks this registry and attempts every table and figure in each listed engine (R and Stata where both exist). Incomplete / blocked steps (`incomplete: true`, missing `requires_engine:`, or `data_unavailable:`) are recorded as **Skipped** and are not executed. A runnable job is halted after **`r patience`** seconds (the audit cap); timeout rows say so explicitly (`timeout_seconds` in the results). Failures are recorded and the audit continues.
 
 ```{r collections-note}
 #| echo: false
@@ -110,15 +110,17 @@ if (!is.null(collections) && length(collections) > 0L) {
 | Successful | `r summary$success` |
 | Failed | `r summary$failed` |
 | Timed out | `r summary$timed_out` |
+| Skipped | `r summary$skipped %||% 0L` |
 | Substantive failed | `r summary$substantive_failed %||% 0L` |
 
 When a study defines `tests/substantive/<step_id>.R`, the audit compares replicated estimates to published benchmarks (Fearon & Laitin `tab_1` is the reference). Failures are counted separately and marked `[substantive]` in the console summary.
 
 ```{r summary-bar}
 #| echo: false
-if (summary$runs > 0) {
-  pct <- round(100 * summary$success / summary$runs, 1)
-  cat(sprintf("**Pass rate:** %s%%\n\n", pct))
+attempted <- summary$runs - (summary$skipped %||% 0L)
+if (attempted > 0) {
+  pct <- round(100 * summary$success / attempted, 1)
+  cat(sprintf("**Pass rate (excluding skipped):** %s%%\n\n", pct))
 }
 ```
 
@@ -129,24 +131,37 @@ if (summary$runs > 0) {
 if (nrow(results) == 0) {
   cat("_No replication runs were recorded._\n")
 } else {
+  if (!"skipped" %in% names(results)) {
+    results$skipped <- FALSE
+  }
   studies <- unique(results$title)
   for (study in studies) {
     cat("\n\n### ", study, "\n\n", sep = "")
     sub <- results[results$title == study, , drop = FALSE]
-    sub$status <- ifelse(
-      sub$success,
-      "OK",
-      ifelse(sub$timed_out, "Timed out", "Failed")
-    )
+    sub$status <- audit_result_status(sub$success, sub$timed_out, sub$skipped)
     sub$seconds <- ifelse(is.na(sub$seconds), NA, round(sub$seconds, 2))
-    show <- sub[, c(
+    cols <- c(
       "object_label", "object", "type", "engine",
       "status", "seconds", "error_snippet"
-    )]
-    names(show) <- c(
-      "Object", "ID", "Type", "Engine",
-      "Status", "Seconds", "Error"
     )
+    if ("timeout_seconds" %in% names(sub)) {
+      cols <- c(
+        "object_label", "object", "type", "engine",
+        "status", "seconds", "timeout_seconds", "error_snippet"
+      )
+    }
+    show <- sub[, cols, drop = FALSE]
+    names(show) <- if ("timeout_seconds" %in% cols) {
+      c(
+        "Object", "ID", "Type", "Engine",
+        "Status", "Seconds", "Cap (s)", "Error"
+      )
+    } else {
+      c(
+        "Object", "ID", "Type", "Engine",
+        "Status", "Seconds", "Error"
+      )
+    }
     print(knitr::kable(show, format = "html", na = ""))
   }
 }
@@ -156,19 +171,58 @@ if (nrow(results) == 0) {
 
 ```{r failures}
 #| echo: false
-fails <- results[!results$success, , drop = FALSE]
+if (!"skipped" %in% names(results)) {
+  results$skipped <- FALSE
+}
+fails <- results[results$success %in% FALSE & !results$skipped %in% TRUE, , drop = FALSE]
 if (nrow(fails) == 0) {
-  cat("_All recorded runs succeeded._\n")
+  cat("_All recorded runnable jobs succeeded (or were skipped)._\n")
 } else {
   fails$seconds <- ifelse(is.na(fails$seconds), NA, round(fails$seconds, 2))
-  fails$status <- ifelse(fails$timed_out, "Timed out", "Failed")
-  show <- fails[, c(
+  fails$status <- audit_result_status(fails$success, fails$timed_out, fails$skipped)
+  fail_cols <- c(
     "title", "object_label", "object", "engine",
     "status", "seconds", "error_snippet"
+  )
+  fail_names <- c(
+    "Study", "Object", "ID", "Engine",
+    "Status", "Seconds", "Error"
+  )
+  if ("timeout_seconds" %in% names(fails)) {
+    fail_cols <- c(
+      "title", "object_label", "object", "engine",
+      "status", "seconds", "timeout_seconds", "error_snippet"
+    )
+    fail_names <- c(
+      "Study", "Object", "ID", "Engine",
+      "Status", "Seconds", "Cap (s)", "Error"
+    )
+  }
+  show <- fails[, fail_cols, drop = FALSE]
+  names(show) <- fail_names
+  knitr::kable(show, format = "html", na = "")
+}
+```
+
+## Skipped runs (incomplete / unavailable)
+
+```{r skips}
+#| echo: false
+if (!"skipped" %in% names(results)) {
+  results$skipped <- FALSE
+}
+skips <- results[results$skipped %in% TRUE, , drop = FALSE]
+if (nrow(skips) == 0) {
+  cat("_No steps were skipped as incomplete / unavailable._\n")
+} else {
+  skips$status <- "Skipped"
+  show <- skips[, c(
+    "title", "object_label", "object", "engine",
+    "status", "error_snippet"
   )]
   names(show) <- c(
     "Study", "Object", "ID", "Engine",
-    "Status", "Seconds", "Error"
+    "Status", "Reason"
   )
   knitr::kable(show, format = "html", na = "")
 }
