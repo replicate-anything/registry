@@ -140,7 +140,7 @@ if (!is.null(built) && is.data.frame(built$index) && nrow(built$index) > 0L) {
     collections <- pipe_tags(meta$collections %||% paper$collections %||% character(0))
     languages <- semi_tags(meta$languages %||% paper$languages %||% character(0))
     article_url <- as.character(
-      paper$article_url %||% paper$landing_url %||% paper$study_url %||% ""
+      paper$article_url %||% paper$landing_url %||% paper$publisher_url %||% ""
     )
 
     data.frame(
@@ -187,8 +187,14 @@ if (!is.null(built) && is.data.frame(built$index) && nrow(built$index) > 0L) {
   # Keep machine-readable index aligned with build_registry_index() columns.
   index_cols <- c(
     "folder", "handle", "doi", "title", "journal", "year", "authors", "repo",
-    "collections", "maintainer_name", "maintainer_email", "languages", "article_url"
+    "collections", "maintainer_name", "maintainer_email", "languages", "article_url",
+    "related_upstream", "related_downstream"
   )
+  for (col in c("related_upstream", "related_downstream")) {
+    if (!col %in% names(studies)) {
+      studies[[col]] <- ""
+    }
+  }
   write.csv(
     studies[, index_cols, drop = FALSE],
     "index.csv",

@@ -69,7 +69,7 @@ row_from_meta <- function(meta) {
   languages <- unique(na.omit(as.character(unlist(languages, use.names = FALSE))))
   languages <- paste(languages[nzchar(languages)], collapse = ";")
   article_url <- as.character(
-    paper$article_url %||% paper$landing_url %||% paper$study_url %||% ""
+    paper$article_url %||% paper$landing_url %||% paper$publisher_url %||% ""
   )
   repo <- as.character(
     meta$repo %||% paper$study_repo %||% paper$package_repo %||% ""
@@ -88,8 +88,107 @@ row_from_meta <- function(meta) {
     maintainer_email = maintainer_email,
     languages = languages,
     article_url = article_url,
+    related_upstream = "",
+    related_downstream = "",
     stringsAsFactors = FALSE
   )
+}
+
+normalize_repo_slug <- function(repo) {
+  repo <- trimws(as.character(repo %||% ""))
+  repo <- sub("^https?://github.com/", "", repo, ignore.case = TRUE)
+  sub("\\.git$", "", repo)
+}
+
+upstream_keys_from_meta <- function(meta, index) {
+  refs <- list()
+  paper <- meta$paper %||% list()
+  extends <- paper$extends %||% meta$extends %||% NULL
+  if (is.list(extends) && length(extends) > 0L) {
+    refs[[length(refs) + 1L]] <- extends
+  }
+  related <- paper$related %||% meta$related %||% NULL
+  if (is.list(related) && length(related) > 0L) {
+    if (!is.null(names(related)) && any(c("doi", "repo") %in% names(related)) && !is.list(related[[1]])) {
+      related <- list(related)
+    }
+    for (item in related) {
+      if (is.list(item)) refs[[length(refs) + 1L]] <- item
+    }
+  }
+  keys <- character(0)
+  for (ref in refs) {
+    doi_raw <- trimws(as.character(ref$doi[[1]] %||% ref$doi %||% ""))
+    if (nzchar(doi_raw)) {
+      doi_norm <- normalize_doi(doi_raw)
+      index_dois <- vapply(as.character(index$doi), function(x) {
+        x <- trimws(x)
+        if (!nzchar(x)) NA_character_ else normalize_doi(x)
+      }, character(1))
+      hit <- which(!is.na(index_dois) & index_dois == doi_norm)
+      if (length(hit)) {
+        row <- index[hit[[1]], , drop = FALSE]
+        key <- if (nzchar(trimws(as.character(row$doi[[1]])))) {
+          normalize_doi(row$doi[[1]])
+        } else {
+          as.character(row$handle[[1]] %||% row$folder[[1]])
+        }
+        keys <- c(keys, key)
+        next
+      }
+      keys <- c(keys, doi_norm)
+      next
+    }
+    repo_raw <- normalize_repo_slug(ref$repo[[1]] %||% ref$repo %||% "")
+    if (nzchar(repo_raw)) {
+      repos <- vapply(as.character(index$repo), normalize_repo_slug, character(1))
+      hit <- which(tolower(repos) == tolower(repo_raw))
+      if (length(hit)) {
+        row <- index[hit[[1]], , drop = FALSE]
+        key <- if (nzchar(trimws(as.character(row$doi[[1]])))) {
+          normalize_doi(row$doi[[1]])
+        } else {
+          as.character(row$handle[[1]] %||% row$folder[[1]])
+        }
+        keys <- c(keys, key)
+      }
+    }
+  }
+  unique(keys[nzchar(keys)])
+}
+
+annotate_related <- function(index, metas) {
+  n <- nrow(index)
+  upstream <- rep("", n)
+  down_lists <- vector("list", n)
+  for (i in seq_len(n)) {
+    keys <- upstream_keys_from_meta(metas[[i]], index)
+    upstream[i] <- paste(keys, collapse = "|")
+    self_key <- if (nzchar(trimws(as.character(index$doi[[i]])))) {
+      normalize_doi(index$doi[[i]])
+    } else {
+      as.character(index$handle[[i]] %||% index$folder[[i]])
+    }
+    for (uk in keys) {
+      index_dois <- vapply(as.character(index$doi), function(x) {
+        x <- trimws(x)
+        if (!nzchar(x)) NA_character_ else normalize_doi(x)
+      }, character(1))
+      handles <- tolower(as.character(index$handle))
+      hit <- which(
+        (!is.na(index_dois) & index_dois == uk) |
+          handles == tolower(uk)
+      )
+      if (length(hit) && hit[[1]] != i) {
+        down_lists[[hit[[1]]]] <- c(down_lists[[hit[[1]]]], self_key)
+      }
+    }
+  }
+  index$related_upstream <- upstream
+  index$related_downstream <- vapply(seq_len(n), function(i) {
+    paste(unique(down_lists[[i]]), collapse = "|")
+  }, character(1))
+  index
 }
 
 studies_dir <- file.path(registry_root, "studies")
@@ -98,10 +197,10 @@ if (length(yml_files) == 0L) {
   stop("No study stubs in ", studies_dir)
 }
 
-rows <- lapply(yml_files, function(path) {
-  folder <- sub("\\.yml$", "", basename(path))
-  meta <- yaml::read_yaml(path)
-  row <- row_from_meta(meta)
+metas <- lapply(yml_files, yaml::read_yaml)
+rows <- lapply(seq_along(yml_files), function(i) {
+  folder <- sub("\\.yml$", "", basename(yml_files[[i]]))
+  row <- row_from_meta(metas[[i]])
   row$folder <- folder
   if (!nzchar(row$handle)) {
     row$handle <- folder
@@ -109,6 +208,7 @@ rows <- lapply(yml_files, function(path) {
   row
 })
 index <- do.call(rbind, rows)
+index <- annotate_related(index, metas)
 ord <- order(index$title, index$year, index$folder)
 index <- index[ord, , drop = FALSE]
 
