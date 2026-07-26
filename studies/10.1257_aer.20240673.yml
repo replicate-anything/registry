@@ -21,4 +21,7 @@ collections:
 - AER
 languages:
 - stata
+notes:
+  data_unavailable: yes
+  missing_engine: no
 

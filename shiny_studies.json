@@ -1,0 +1,512 @@
+{
+  "generated_at": "2026-07-26T10:40:54Z",
+  "schema_version": 1,
+  "n": 14,
+  "studies": [
+    {
+      "folder": "10.1257_aer.91.5.1369",
+      "handle": "10.1257_aer.91.5.1369",
+      "doi": "10.1257/aer.91.5.1369",
+      "key": "10.1257/aer.91.5.1369",
+      "title": "The Colonial Origins of Comparative Development",
+      "authors": "Daron Acemoglu, Simon Johnson, James A. Robinson",
+      "year": "2001",
+      "journal": "American Economic Review",
+      "citation_label": "Acemoglu et al (2001) \"The Colonial Origins of Comparative Development\"",
+      "collections": [
+        "PED",
+        "AER"
+      ],
+      "languages": [
+        "r",
+        "stata"
+      ],
+      "engines": {
+        "r": true,
+        "stata": true,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1257-aer.91.5.1369",
+      "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.91.5.1369",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1596_1813-9450-10626",
+      "handle": "10.1596_1813-9450-10626",
+      "doi": "10.1596/1813-9450-10626",
+      "key": "10.1596/1813-9450-10626",
+      "title": "Migration, Families, and Counterfactual Families",
+      "authors": "Simone Bertoli, Elie Murard, David McKenzie",
+      "year": "2023",
+      "journal": "World Bank Policy Research Working Paper",
+      "citation_label": "Bertoli et al (2023) \"Migration, Families, and Counterfactual Families\"",
+      "collections": [
+        "World Bank",
+        "PED"
+      ],
+      "languages": [
+        "r",
+        "stata"
+      ],
+      "engines": {
+        "r": true,
+        "stata": true,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1596-1813-9450-10626",
+      "study_url": "https://github.com/replicate-anything/rep-10.1596-1813-9450-10626",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1017_s0003055422000284",
+      "handle": "10.1017_s0003055422000284",
+      "doi": "10.1017/s0003055422000284",
+      "key": "10.1017/s0003055422000284",
+      "title": "Preventing Rebel Resurgence after Civil War: A Field Experiment in Security and Justice Provision in Rural Colombia",
+      "authors": "Robert A. Blair, Manuel Moscoso, Andrés Vargas Castillo, Michael Weintraub",
+      "year": "2022",
+      "journal": "American Political Science Review",
+      "citation_label": "Blair et al (2022) \"Preventing Rebel Resurgence after Civil War: A Field Experiment in Security and Justice Provision in Rural Colombia\"",
+      "collections": [
+        "APSR"
+      ],
+      "languages": [
+        "r",
+        "stata"
+      ],
+      "engines": {
+        "r": true,
+        "stata": true,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1017-s0003055422000284",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055422000284",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1177_00491241211036161",
+      "handle": "10.1177_00491241211036161",
+      "doi": "10.1177/00491241211036161",
+      "key": "10.1177/00491241211036161",
+      "title": "Bounding Causes of Effects With Mediators",
+      "authors": "Philip Dawid, Macartan Humphreys, Monica Musio",
+      "year": "2022",
+      "journal": "Sociological Methods & Research",
+      "citation_label": "Dawid et al (2022) \"Bounding Causes of Effects With Mediators\"",
+      "collections": [
+        "IPI"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1177-00491241211036161",
+      "study_url": "https://github.com/replicate-anything/rep-10.1177-00491241211036161",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1017_s0003055403000534",
+      "handle": "10.1017_s0003055403000534",
+      "doi": "10.1017/s0003055403000534",
+      "key": "10.1017/s0003055403000534",
+      "title": "Ethnicity, Insurgency, and Civil War",
+      "authors": "James Fearon, David Laitin",
+      "year": "2003",
+      "journal": "American Political Science Review",
+      "citation_label": "Fearon and Laitin (2003) \"Ethnicity, Insurgency, and Civil War\"",
+      "collections": [
+        "APSR"
+      ],
+      "languages": [
+        "r",
+        "stata"
+      ],
+      "engines": {
+        "r": true,
+        "stata": true,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [
+        {
+          "key": "rep-10.1017-S0003055403000534--alt-1",
+          "title": "Minimal reanalysis template repo",
+          "doi": "",
+          "repo": "replicate-anything/rep-10.1017-S0003055403000534--alt-1",
+          "href": "https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1",
+          "in_registry": true,
+          "label": "Downstream: Minimal reanalysis template repo"
+        }
+      ],
+      "article_url": "https://www.cambridge.org/core/journals/american-political-science-review/article/abs/ethnicity-insurgency-and-civil-war/B1D5D0E7C782483C5D7E102A61AD6605",
+      "repo": "replicate-anything/rep-10.1017-S0003055403000534",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-S0003055403000534",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1257_aer.20240673",
+      "handle": "10.1257_aer.20240673",
+      "doi": "10.1257/aer.20240673",
+      "key": "10.1257/aer.20240673",
+      "title": "Ideological Alignment and Evidence-Based Policy Adoption",
+      "authors": "Jorge García-Hombrados, Marcel Jansen, Ángel Martínez, Berkay Ozcan, Pedro Rey-Biel, Antonio Roldán-Monés",
+      "year": "2026",
+      "journal": "American Economic Review",
+      "citation_label": "García-Hombrados et al (2026) \"Ideological Alignment and Evidence-Based Policy Adoption\"",
+      "collections": [
+        "AER"
+      ],
+      "languages": [
+        "stata"
+      ],
+      "engines": {
+        "r": false,
+        "stata": true,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": true,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1257-aer.20240673",
+      "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.20240673",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1371_journal.pone.0278337",
+      "handle": "10.1371_journal.pone.0278337",
+      "doi": "10.1371/journal.pone.0278337",
+      "key": "10.1371/journal.pone.0278337",
+      "title": "Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany",
+      "authors": "Ferdinand Geissler, Felix Hartmann, Macartan Humphreys, Heike Klüver, Johannes Giesecke",
+      "year": "2022",
+      "journal": "PLOS ONE",
+      "citation_label": "Geissler et al (2022) \"Public support for global vaccine sharing in the COVID-19 pandemic: Evidence from Germany\"",
+      "collections": [
+        "IPI"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1371-journal.pone.0278337",
+      "study_url": "https://github.com/replicate-anything/rep-10.1371-journal.pone.0278337",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1257_aer.20250166",
+      "handle": "10.1257_aer.20250166",
+      "doi": "10.1257/aer.20250166",
+      "key": "10.1257/aer.20250166",
+      "title": "A Welfare Analysis of Policies Impacting Climate Change",
+      "authors": "Robert W. Hahn, Nathaniel Hendren, Robert D. Metcalfe, Ben Sprung-Keyser",
+      "year": "2026",
+      "journal": "American Economic Review",
+      "citation_label": "Hahn et al (2026) \"A Welfare Analysis of Policies Impacting Climate Change\"",
+      "collections": [
+        "AER"
+      ],
+      "languages": [
+        "stata",
+        "mathematica"
+      ],
+      "engines": {
+        "r": false,
+        "stata": true,
+        "python": false,
+        "mathematica": true
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": true
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1257-aer.20250166",
+      "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.20250166",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1017_s0003055426101749",
+      "handle": "10.1017_s0003055426101749",
+      "doi": "10.1017/s0003055426101749",
+      "key": "10.1017/s0003055426101749",
+      "title": "Portraits of Power: Facial Appearance and the Tacit Domain of Political Selection in China",
+      "authors": "Junyan Jiang, Songpo Yang",
+      "year": "2026",
+      "journal": "American Political Science Review",
+      "citation_label": "Jiang and Yang (2026) \"Portraits of Power: Facial Appearance and the Tacit Domain of Political Selection in China\"",
+      "collections": [
+        "APSR"
+      ],
+      "languages": [
+        "stata",
+        "python",
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": true,
+        "python": true,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1017-s0003055426101749",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055426101749",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1017_s0003055421001143",
+      "handle": "10.1017_s0003055421001143",
+      "doi": "10.1017/s0003055421001143",
+      "key": "10.1017/s0003055421001143",
+      "title": "Sovereignty, Substance, and Public Support for European Courts' Human Rights Rulings",
+      "authors": "Madsen, Mikael Rask, Mayoral, Juan, Strezhnev, Anton, Voeten, Erik",
+      "year": "2021",
+      "journal": "American Political Science Review",
+      "citation_label": "Madsen et al (2021) \"Sovereignty, Substance, and Public Support for European Courts' Human Rights Rulings\"",
+      "collections": [
+        "APSR"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1017-s0003055421001143",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055421001143",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1038_s41591-021-01454-y",
+      "handle": "10.1038_s41591-021-01454-y",
+      "doi": "10.1038/s41591-021-01454-y",
+      "key": "10.1038/s41591-021-01454-y",
+      "title": "COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries",
+      "authors": "Julio S. Solís Arce, Shana S. Warren, Niccolò F. Meriggi, Alexandra Scacco, Nina McMurry, Maarten Voors, Georgiy Syunyaev, Amyn Abdul Malik, Samya Aboutajdine, Opeyemi Adeojo, Deborah Anigo, Alex Armand, Saher Asad, Martin Atyera, Britta Augsburg, Manisha Awasthi, Gloria Eden Ayesiga, Antonella Bancalari, Martina Björkman Nyqvist, Ekaterina Borisova, Constantin Manuel Bosancianu, Magarita Rosa Cabra García, Ali Cheema, Elliott Collins, Filippo Cuccaro, Ahsan Zia Farooqi, Tatheer Fatima, Mattia Fracchia, Mery Len Galindo Soria, Andrea Guariso, Ali Hasanain, Sofía Jaramillo, Sellu Kallon, Anthony Kamwesigye, Arjun Kharel, Sarah Kreps, Madison Levine, Rebecca Littman, Mohammad Malik, Gisele Manirabaruta, Jean Léodomir Habarimana Mfura, Fatoma Momoh, Alberto Mucauque, Imamo Mussa, Jean Aime Nsabimana, Isaac Obara, María Juliana Otálora, Béchir Wendemi Ouédraogo, Touba Bakary Pare, Melina R. Platas, Laura Polanco, Javaeria Ashraf Qureshi, Mariam Raheem, Vasudha Ramakrishna, Ismail Rendrá, Taimur Shah, Sarene Eyla Shaked, Jacob N. Shapiro, Jakob Svensson, Ahsan Tariq, Achille Mignondo Tchibozo, Hamid Ali Tiwana, Bhartendu Trivedi, Corey Vernot, Pedro C. Vicente, Laurin B. Weissinger, Basit Zafar, Baobao Zhang, Dean Karlan, Michael Callen, Matthieu Teachout, Macartan Humphreys, Ahmed Mushfiq Mobarak, Saad B. Omer",
+      "year": "2021",
+      "journal": "Nature Medicine",
+      "citation_label": "Solís Arce et al (2021) \"COVID-19 vaccine acceptance and hesitancy in low- and middle-income countries\"",
+      "collections": [
+        "IPI"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1038-s41591-021-01454-y",
+      "study_url": "https://github.com/replicate-anything/rep-10.1038-s41591-021-01454-y",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "rep-template",
+      "handle": "rep-template",
+      "doi": "",
+      "key": "rep-template",
+      "title": "Minimal folder-backed template study",
+      "authors": "ReplicateEverything Team",
+      "year": "2026a",
+      "journal": "",
+      "citation_label": "Team (2026a) \"Minimal folder-backed template study\"",
+      "collections": [
+        "IPI"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-template",
+      "study_url": "https://github.com/replicate-anything/rep-template",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "rep-10.1017-S0003055403000534--alt-1",
+      "handle": "rep-10.1017-S0003055403000534--alt-1",
+      "doi": "",
+      "key": "rep-10.1017-S0003055403000534--alt-1",
+      "title": "Minimal reanalysis template repo",
+      "authors": "ReplicateEverything Team",
+      "year": "2026b",
+      "journal": "",
+      "citation_label": "Team (2026b) \"Minimal reanalysis template repo\"",
+      "collections": [
+        "IPI"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [
+        {
+          "key": "10.1017/s0003055403000534",
+          "title": "Ethnicity, Insurgency, and Civil War",
+          "doi": "10.1017/s0003055403000534",
+          "repo": "replicate-anything/rep-10.1017-S0003055403000534",
+          "href": "https://doi.org/10.1017/s0003055403000534",
+          "in_registry": true,
+          "label": "Upstream: Ethnicity, Insurgency, and Civil War"
+        }
+      ],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1017-S0003055403000534--alt-1",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    },
+    {
+      "folder": "10.1017_s0003055426101622",
+      "handle": "10.1017_s0003055426101622",
+      "doi": "10.1017/s0003055426101622",
+      "key": "10.1017/s0003055426101622",
+      "title": "Beyond Belief Change: The Persuasive Returns of Targeting Attitude-Relevant Beliefs",
+      "authors": "Velez, Yamil Ricardo, Liu, Patrick, Clifford, Scott",
+      "year": "2026",
+      "journal": "American Political Science Review",
+      "citation_label": "Velez et al (2026) \"Beyond Belief Change: The Persuasive Returns of Targeting Attitude-Relevant Beliefs\"",
+      "collections": [
+        "APSR"
+      ],
+      "languages": [
+        "r"
+      ],
+      "engines": {
+        "r": true,
+        "stata": false,
+        "python": false,
+        "mathematica": false
+      },
+      "notes": {
+        "data_unavailable": false,
+        "missing_engine": false
+      },
+      "related_upstream": [],
+      "related_downstream": [],
+      "article_url": "",
+      "repo": "replicate-anything/rep-10.1017-s0003055426101622",
+      "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055426101622",
+      "maintainer_name": "Macartan Humphreys",
+      "maintainer_email": "macartan.humphreys@wzb.eu"
+    }
+  ]
+}
