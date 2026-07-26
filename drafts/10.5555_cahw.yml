@@ -1,5 +1,4 @@
-# Lightweight registry stub for a folder-backed study.
-# Copy to registry/studies/<folder>.yml in the registry repo.
+# Draft stub — not indexed in index.csv / Shiny until moved back to studies/.
 # Registry folder: 10.5555_cahw
 
 paper:
@@ -21,4 +20,3 @@ collections:
 - IPI
 languages:
 - r
-

@@ -3,9 +3,9 @@
 
 paper:
   study_handle: rep-10.1017-S0003055403000534--alt-1
-  title: "Illustration of re-analysis repo"
-  year: 2026
-  authors: replicateEverything Team
+  title: "Minimal reanalysis template repo"
+  year: "2026b"
+  authors: ReplicateEverything Team
   abstract: >
     Replication using linear models with robust standard errors (estimatr::lm_robust)
     rather than glm. Prepared data are inherited from the

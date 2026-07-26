@@ -18,6 +18,7 @@ maintainer:
   email: macartan.humphreys@wzb.eu
 collections:
 - PED
+- AER
 languages:
 - r
 - stata
