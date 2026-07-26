@@ -9,10 +9,10 @@ paper:
   journal: American Political Science Review
   year: 2021
   authors:
-  - Mikael Rask Madsen
-  - Juan Mayoral
-  - Anton Strezhnev
-  - Erik Voeten
+  - Madsen, Mikael Rask
+  - Mayoral, Juan
+  - Strezhnev, Anton
+  - Voeten, Erik
   materials: folder
   study_repo: replicate-anything/rep-10.1017-s0003055421001143
   study_ref: main
