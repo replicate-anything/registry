@@ -1,12 +1,27 @@
 {
-  "patience": 60,
-  "started_at": "2026-07-27T07:36:53Z",
-  "finished_at": "2026-07-27T07:40:42Z",
-  "studies": 1,
-  "runs": 19,
-  "success": 14,
-  "failed": 0,
-  "timed_out": 0,
-  "skipped": 5,
-  "substantive_failed": 0
+  "patience": 20,
+  "started_at": "2026-07-27T08:21:01Z",
+  "finished_at": "2026-07-27T08:30:20Z",
+  "studies": 14,
+  "runs": 97,
+  "success": 79,
+  "failed": 7,
+  "timed_out": 7,
+  "skipped": 11,
+  "substantive_failed": 0,
+  "missing_source_repository": [
+    "10.1257/aer.20250166",
+    "10.1017/s0003055426101622",
+    "10.1177/00491241211036161",
+    "10.1038/s41591-021-01454-y",
+    "10.1017/s0003055403000534",
+    "10.1257/aer.20240673",
+    "rep-template",
+    "rep-10.1017-S0003055403000534--alt-1",
+    "10.1017/s0003055426101749",
+    "10.1017/s0003055422000284",
+    "10.1371/journal.pone.0278337",
+    "10.1017/s0003055421001143",
+    "10.1257/aer.91.5.1369"
+  ]
 }
