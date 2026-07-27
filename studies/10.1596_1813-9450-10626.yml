@@ -8,6 +8,7 @@ paper:
   journal: World Bank Policy Research Working Paper
   year: 2023
   authors: Simone Bertoli, Elie Murard, David McKenzie
+  source_repository: https://reproducibility.worldbank.org/catalog/84
   materials: folder
   study_repo: replicate-anything/rep-10.1596-1813-9450-10626
   study_ref: main
@@ -22,7 +23,4 @@ collections:
 languages:
 - r
 - stata
-notes:
-  data_unavailable: yes
-  missing_engine: no
 
