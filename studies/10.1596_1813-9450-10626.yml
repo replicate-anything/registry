@@ -1,5 +1,5 @@
 # Lightweight registry stub for a folder-backed study.
-# Copy to registry/studies/<folder>.yml in the registry repo.
+# Generated from study replication.yml by sync_study_to_registry().
 # Registry folder: 10.1596_1813-9450-10626
 
 paper:
@@ -22,4 +22,7 @@ collections:
 languages:
 - r
 - stata
+notes:
+  data_unavailable: yes
+  missing_engine: no
 
