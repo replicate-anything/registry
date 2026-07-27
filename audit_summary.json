@@ -1,12 +1,12 @@
 {
-  "patience": 20,
-  "started_at": "2026-07-27T07:00:17Z",
-  "finished_at": "2026-07-27T07:03:26Z",
+  "patience": 60,
+  "started_at": "2026-07-27T07:36:53Z",
+  "finished_at": "2026-07-27T07:40:42Z",
   "studies": 1,
   "runs": 19,
-  "success": 7,
-  "failed": 7,
-  "timed_out": 7,
+  "success": 14,
+  "failed": 0,
+  "timed_out": 0,
   "skipped": 5,
   "substantive_failed": 0
 }
