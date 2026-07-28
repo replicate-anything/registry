@@ -8,6 +8,9 @@ paper:
   journal: American Economic Review
   year: 2026
   authors: Robert W. Hahn, Nathaniel Hendren, Robert D. Metcalfe, Ben Sprung-Keyser
+  abstract: |
+    Learning-by-doing (LBD) cost-curve kernel: original Mathematica scripts are retained under code/original/cost_curve/. Live replication defaults to an R reimplementation (code/cost_curve/) invoked from Stata via cost_curve_masterfile.ado. Set REPLICATE_COST_CURVE_ENGINE=mathematica for the original wolframscript path (optional greyed step cost_curve_mathematica). Numerical fidelity vs Mathematica is spot-check status only (see README).
+  source_repository: https://www.openicpsr.org/openicpsr/project/239169/version/V1/view?path=/openicpsr/239169/fcr:versions/V1/data/0_log
   materials: folder
   study_repo: replicate-anything/rep-10.1257-aer.20250166
   study_ref: main
@@ -20,6 +23,7 @@ collections:
 - AER
 languages:
 - stata
+- r
 - mathematica
 notes:
   data_unavailable: no
