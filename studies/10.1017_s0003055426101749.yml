@@ -9,6 +9,7 @@ paper:
   journal: American Political Science Review
   year: 2026
   authors: Junyan Jiang, Songpo Yang
+  source_repository: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCZERW
   materials: folder
   study_repo: replicate-anything/rep-10.1017-s0003055426101749
   study_ref: main
@@ -23,3 +24,4 @@ languages:
 - stata
 - python
 - r
+

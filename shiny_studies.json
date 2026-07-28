@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T08:21:01Z",
+  "generated_at": "2026-07-28T21:45:17Z",
   "schema_version": 1,
   "n": 14,
   "studies": [
@@ -38,6 +38,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.91.5.1369",
       "source_repository": "https://economics.mit.edu/people/faculty/daron-acemoglu/data-archive",
       "source_repository_kind": "personal",
+      "source_repositories": [
+        "https://economics.mit.edu/people/faculty/daron-acemoglu/data-archive"
+      ],
+      "source_repository_kinds": {
+        "https://economics.mit.edu/people/faculty/daron-acemoglu/data-archive": "personal"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -76,6 +82,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1596-1813-9450-10626",
       "source_repository": "https://reproducibility.worldbank.org/catalog/84",
       "source_repository_kind": "worldbank",
+      "source_repositories": [
+        "https://reproducibility.worldbank.org/catalog/84"
+      ],
+      "source_repository_kinds": {
+        "https://reproducibility.worldbank.org/catalog/84": "worldbank"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -113,6 +125,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055422000284",
       "source_repository": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OXSQMU",
       "source_repository_kind": "dataverse",
+      "source_repositories": [
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OXSQMU"
+      ],
+      "source_repository_kinds": {
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OXSQMU": "dataverse"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -149,6 +167,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1177-00491241211036161",
       "source_repository": "https://macartan.github.io/code/2022_markov.html",
       "source_repository_kind": "personal",
+      "source_repositories": [
+        "https://macartan.github.io/code/2022_markov.html"
+      ],
+      "source_repository_kinds": {
+        "https://macartan.github.io/code/2022_markov.html": "personal"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -196,6 +220,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-S0003055403000534",
       "source_repository": "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/",
       "source_repository_kind": "personal",
+      "source_repositories": [
+        "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/"
+      ],
+      "source_repository_kinds": {
+        "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/": "personal"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -232,6 +262,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.20240673",
       "source_repository": "https://www.openicpsr.org/openicpsr/project/236844/version/V1/view",
       "source_repository_kind": "icpsr",
+      "source_repositories": [
+        "https://www.openicpsr.org/openicpsr/project/236844/version/V1/view"
+      ],
+      "source_repository_kinds": {
+        "https://www.openicpsr.org/openicpsr/project/236844/version/V1/view": "icpsr"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -268,6 +304,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1371-journal.pone.0278337",
       "source_repository": "https://github.com/wzb-ipi/vaccine_solidarity",
       "source_repository_kind": "git",
+      "source_repositories": [
+        "https://github.com/wzb-ipi/vaccine_solidarity"
+      ],
+      "source_repository_kinds": {
+        "https://github.com/wzb-ipi/vaccine_solidarity": "git"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -286,10 +328,11 @@
       ],
       "languages": [
         "stata",
+        "r",
         "mathematica"
       ],
       "engines": {
-        "r": false,
+        "r": true,
         "stata": true,
         "python": false,
         "mathematica": true
@@ -303,8 +346,16 @@
       "article_url": "",
       "repo": "replicate-anything/rep-10.1257-aer.20250166",
       "study_url": "https://github.com/replicate-anything/rep-10.1257-aer.20250166",
-      "source_repository": "https://www.openicpsr.org/openicpsr/project/239169/version/V1/view?path=/openicpsr/239169/fcr:versions/V1/data/0_log",
-      "source_repository_kind": "icpsr",
+      "source_repository": "https://github.com/Policy-Impacts/mvpf-climate",
+      "source_repository_kind": "git",
+      "source_repositories": [
+        "https://github.com/Policy-Impacts/mvpf-climate",
+        "https://www.openicpsr.org/openicpsr/project/239169/version/V1/view"
+      ],
+      "source_repository_kinds": {
+        "https://github.com/Policy-Impacts/mvpf-climate": "git",
+        "https://www.openicpsr.org/openicpsr/project/239169/version/V1/view": "icpsr"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -343,6 +394,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055426101749",
       "source_repository": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCZERW",
       "source_repository_kind": "dataverse",
+      "source_repositories": [
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCZERW"
+      ],
+      "source_repository_kinds": {
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LCZERW": "dataverse"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -379,6 +436,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055421001143",
       "source_repository": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WJQITU",
       "source_repository_kind": "dataverse",
+      "source_repositories": [
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WJQITU"
+      ],
+      "source_repository_kinds": {
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WJQITU": "dataverse"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -415,6 +478,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1038-s41591-021-01454-y",
       "source_repository": "https://github.com/wzb-ipi/covid_vaccines_nmed",
       "source_repository_kind": "git",
+      "source_repositories": [
+        "https://github.com/wzb-ipi/covid_vaccines_nmed"
+      ],
+      "source_repository_kinds": {
+        "https://github.com/wzb-ipi/covid_vaccines_nmed": "git"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -451,6 +520,12 @@
       "study_url": "https://github.com/replicate-anything/rep-template",
       "source_repository": "https://github.com/replicate-anything/rep-template",
       "source_repository_kind": "git",
+      "source_repositories": [
+        "https://github.com/replicate-anything/rep-template"
+      ],
+      "source_repository_kinds": {
+        "https://github.com/replicate-anything/rep-template": "git"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -495,6 +570,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1",
       "source_repository": "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/",
       "source_repository_kind": "personal",
+      "source_repositories": [
+        "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/"
+      ],
+      "source_repository_kinds": {
+        "https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/": "personal"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     },
@@ -531,6 +612,12 @@
       "study_url": "https://github.com/replicate-anything/rep-10.1017-s0003055426101622",
       "source_repository": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZOCDJ",
       "source_repository_kind": "dataverse",
+      "source_repositories": [
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZOCDJ"
+      ],
+      "source_repository_kinds": {
+        "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZOCDJ": "dataverse"
+      },
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     }

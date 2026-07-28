@@ -24,6 +24,7 @@ paper:
     Trivedi, Corey Vernot, Pedro C. Vicente, Laurin B. Weissinger, Basit Zafar, Baobao
     Zhang, Dean Karlan, Michael Callen, Matthieu Teachout, Macartan Humphreys, Ahmed
     Mushfiq Mobarak, Saad B. Omer
+  source_repository: https://github.com/wzb-ipi/covid_vaccines_nmed
   materials: folder
   study_repo: replicate-anything/rep-10.1038-s41591-021-01454-y
   study_ref: main

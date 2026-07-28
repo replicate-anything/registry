@@ -13,6 +13,7 @@ paper:
   - Mayoral, Juan
   - Strezhnev, Anton
   - Voeten, Erik
+  source_repository: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WJQITU
   materials: folder
   study_repo: replicate-anything/rep-10.1017-s0003055421001143
   study_ref: main

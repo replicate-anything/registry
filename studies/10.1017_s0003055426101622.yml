@@ -1,5 +1,5 @@
 # Lightweight registry stub for a folder-backed study.
-# Copy to registry/studies/<folder>.yml in the registry repo.
+# Generated from study replication.yml by sync_study_to_registry().
 # Registry folder: 10.1017_s0003055426101622
 
 paper:
@@ -8,7 +8,9 @@ paper:
     Beliefs'
   journal: American Political Science Review
   year: 2026
-  authors: "Velez, Yamil Ricardo, Liu, Patrick, Clifford, Scott"
+  authors: Velez, Yamil Ricardo, Liu, Patrick, Clifford, Scott
+  article_url: https://doi.org/10.1017/S0003055426101622
+  source_repository: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BZOCDJ
   materials: folder
   study_repo: replicate-anything/rep-10.1017-s0003055426101622
   study_ref: main

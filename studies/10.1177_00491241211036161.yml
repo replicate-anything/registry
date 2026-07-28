@@ -1,5 +1,5 @@
 # Lightweight registry stub for a folder-backed study.
-# Copy to registry/studies/<folder>.yml in the registry repo.
+# Generated from study replication.yml by sync_study_to_registry().
 # Registry folder: 10.1177_00491241211036161
 
 paper:
@@ -8,6 +8,7 @@ paper:
   journal: Sociological Methods & Research
   year: 2022
   authors: Philip Dawid, Macartan Humphreys, Monica Musio
+  source_repository: https://macartan.github.io/code/2022_markov.html
   materials: folder
   study_repo: replicate-anything/rep-10.1177-00491241211036161
   study_ref: main

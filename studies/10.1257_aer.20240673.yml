@@ -9,6 +9,7 @@ paper:
   year: 2026
   authors: Jorge García-Hombrados, Marcel Jansen, Ángel Martínez, Berkay Ozcan, Pedro
     Rey-Biel, Antonio Roldán-Monés
+  source_repository: https://www.openicpsr.org/openicpsr/project/236844/version/V1/view
   materials: folder
   study_repo: replicate-anything/rep-10.1257-aer.20240673
   study_ref: main

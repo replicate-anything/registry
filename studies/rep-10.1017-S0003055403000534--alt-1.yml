@@ -1,32 +1,31 @@
-# Lightweight registry stub for a reanalysis / extension study (no article DOI yet).
+# Lightweight registry stub for a folder-backed study.
+# Generated from study replication.yml by sync_study_to_registry().
 # Registry folder: rep-10.1017-S0003055403000534--alt-1
 
 paper:
   study_handle: rep-10.1017-S0003055403000534--alt-1
-  title: "Minimal reanalysis template repo"
-  year: "2026b"
+  title: Minimal reanalysis template repo
+  year: 2026b
   authors: ReplicateEverything Team
-  abstract: >
-    Replication using linear models with robust standard errors (estimatr::lm_robust)
-    rather than glm. Prepared data are inherited from the
-    [Fearon & Laitin (2003)](https://doi.org/10.1017/S0003055403000534) study repo.
-  materials: folder
-  study_repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
-  study_ref: main
-  study_folder: rep-10.1017-S0003055403000534--alt-1
+  abstract: |
+    Replication using linear models with robust standard errors (estimatr::lm_robust) rather than glm. Prepared data are inherited from the [Fearon & Laitin (2003)](https://doi.org/10.1017/S0003055403000534) study repo.
   study_url: https://github.com/replicate-anything/rep-10.1017-S0003055403000534--alt-1
+  source_repository: https://fearonresearch.stanford.edu/paperspublished/journal-articles-2/
   related:
-    - doi: https://doi.org/10.1017/S0003055403000534
-      label: Original Fearon & Laitin (2003) replication
+  - doi: https://doi.org/10.1017/S0003055403000534
+    label: Original Fearon & Laitin (2003) replication
   extends:
     repo: replicate-anything/rep-10.1017-S0003055403000534
     ref: main
     doi: 10.1017/S0003055403000534
+  materials: folder
+  study_repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
+  study_ref: main
+  study_folder: rep-10.1017-S0003055403000534--alt-1
 repo: replicate-anything/rep-10.1017-S0003055403000534--alt-1
 maintainer:
   name: Macartan Humphreys
   email: macartan.humphreys@wzb.eu
 languages:
-  - r
-collections:
-  - IPI
+- r
+
