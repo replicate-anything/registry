@@ -9,7 +9,7 @@ paper:
   year: 2026
   authors: Robert W. Hahn, Nathaniel Hendren, Robert D. Metcalfe, Ben Sprung-Keyser
   abstract: |
-    Learning-by-doing (LBD) cost-curve kernel: original Mathematica scripts are retained under code/original/cost_curve/. Live replication defaults to an R reimplementation (code/cost_curve/) invoked from Stata via cost_curve_masterfile.ado. Set REPLICATE_COST_CURVE_ENGINE=mathematica for the original wolframscript path (optional greyed step cost_curve_mathematica). Numerical fidelity vs Mathematica is spot-check status only (see README).
+    Learning-by-doing (LBD) cost-curve kernel: original Mathematica scripts are retained under code/original/cost_curve/. Live replication defaults to an R reimplementation (code/cost_curve/) invoked from Stata via cost_curve_masterfile.ado. Original Mathematica appears only as the greyed [Stata / Mathematica] path on compute_mvpf_main (needs wolframscript). Numerical fidelity vs Mathematica is spot-check status only (see README).
   source_repository:
   - https://github.com/Policy-Impacts/mvpf-climate
   - https://www.openicpsr.org/openicpsr/project/239169/version/V1/view
