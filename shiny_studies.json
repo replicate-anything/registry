@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-28T21:45:17Z",
-  "schema_version": 1,
+  "generated_at": "2026-07-29T18:34:09Z",
+  "schema_version": 2,
   "n": 14,
   "studies": [
     {
@@ -621,5 +621,91 @@
       "maintainer_name": "Macartan Humphreys",
       "maintainer_email": "macartan.humphreys@wzb.eu"
     }
-  ]
+  ],
+  "ui": {
+    "select_choices": [
+      {
+        "value": "10.1257/aer.91.5.1369",
+        "label": "Acemoglu et al (2001) The Colonial..."
+      },
+      {
+        "value": "10.1596/1813-9450-10626",
+        "label": "Bertoli et al (2023) Migration,..."
+      },
+      {
+        "value": "10.1017/s0003055422000284",
+        "label": "Blair et al (2022) Preventing..."
+      },
+      {
+        "value": "10.1177/00491241211036161",
+        "label": "Dawid et al (2022) Bounding Causes..."
+      },
+      {
+        "value": "10.1017/s0003055403000534",
+        "label": "Fearon and Laitin (2003) Ethnicity,..."
+      },
+      {
+        "value": "10.1257/aer.20240673",
+        "label": "García-Hombrados et al (2026) Ideological..."
+      },
+      {
+        "value": "10.1371/journal.pone.0278337",
+        "label": "Geissler et al (2022) Public support..."
+      },
+      {
+        "value": "10.1257/aer.20250166",
+        "label": "Hahn et al (2026) A Welfare..."
+      },
+      {
+        "value": "10.1017/s0003055426101749",
+        "label": "Jiang and Yang (2026) Portraits of..."
+      },
+      {
+        "value": "10.1017/s0003055421001143",
+        "label": "Madsen et al (2021) Sovereignty,..."
+      },
+      {
+        "value": "10.1038/s41591-021-01454-y",
+        "label": "Solís Arce et al (2021) COVID-19..."
+      },
+      {
+        "value": "rep-template",
+        "label": "Team (2026a) Minimal..."
+      },
+      {
+        "value": "rep-10.1017-S0003055403000534--alt-1",
+        "label": "Team (2026b) Minimal..."
+      },
+      {
+        "value": "10.1017/s0003055426101622",
+        "label": "Velez et al (2026) Beyond Belief..."
+      }
+    ],
+    "collection_choices": [
+      {
+        "value": "__all_studies__",
+        "label": "All studies"
+      },
+      {
+        "value": "AER",
+        "label": "AER"
+      },
+      {
+        "value": "APSR",
+        "label": "APSR"
+      },
+      {
+        "value": "IPI",
+        "label": "IPI"
+      },
+      {
+        "value": "PED",
+        "label": "PED"
+      },
+      {
+        "value": "World Bank",
+        "label": "World Bank"
+      }
+    ]
+  }
 }

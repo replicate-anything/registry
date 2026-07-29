@@ -5,7 +5,7 @@ author: "replicate-anything/registry"
 embed-resources: true
 date: last-modified
 params:
-  patience: 60
+  patience: 120
   install_deps: false
   dois: !expr NULL
   collections: !expr NULL
