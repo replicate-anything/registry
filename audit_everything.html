@@ -2252,8 +2252,8 @@ vertical-align: -.125em;
 
 
 <p>This report uses <a href="https://github.com/replicate-anything/replicateEverything"><code>audit_everything()</code></a> from the <strong>replicateEverything</strong> package. It walks this registry and attempts every table and figure in each listed engine (R and Stata where both exist). Incomplete / blocked steps (<code>incomplete: true</code>, missing <code>requires_engine:</code>, or <code>data_unavailable:</code>) are recorded as <strong>Skipped</strong> and are not executed. A runnable job is halted after <strong>60</strong> seconds (the audit cap); timeout rows say so explicitly (<code>timeout_seconds</code> in the results). Failures are recorded and the audit continues.</p>
-<p><strong>Started:</strong> 2026-07-28 23:00:03 CEST<br>
-<strong>Finished:</strong> 2026-07-28 23:13:10 CEST</p>
+<p><strong>Started:</strong> 2026-07-29 03:12:24 CEST<br>
+<strong>Finished:</strong> 2026-07-29 03:25:58 CEST</p>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <table class="caption-top table">
@@ -2274,11 +2274,11 @@ vertical-align: -.125em;
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Successful</td>
-<td style="text-align: right;">64</td>
+<td style="text-align: right;">66</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">31</td>
+<td style="text-align: right;">29</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Timed out</td>
@@ -2297,7 +2297,7 @@ vertical-align: -.125em;
 <p>When a study defines <code>tests/substantive/&lt;step_id&gt;.R</code>, the audit compares replicated estimates to published benchmarks (Fearon &amp; Laitin <code>tab_1</code> is the reference). Failures are counted separately and marked <code>[substantive]</code> in the console summary.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>**Pass rate (excluding skipped):** 67.4%</code></pre>
+<pre><code>**Pass rate (excluding skipped):** 69.5%</code></pre>
 </div>
 </div>
 </section>
@@ -2352,7 +2352,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.37
+60.33
 </td>
 <td style="text-align:right;">
 60
@@ -2378,7 +2378,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.09
+60.20
 </td>
 <td style="text-align:right;">
 60
@@ -2404,7 +2404,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.16
+60.22
 </td>
 <td style="text-align:right;">
 60
@@ -2430,7 +2430,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.10
+60.05
 </td>
 <td style="text-align:right;">
 60
@@ -2456,7 +2456,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.14
+60.20
 </td>
 <td style="text-align:right;">
 60
@@ -2479,15 +2479,16 @@ figure
 stata
 </td>
 <td style="text-align:left;">
-OK
+Failed
 </td>
 <td style="text-align:right;">
-9.83
+4.00
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
+Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_subsidies_Fig4_scc193.png | Stata ran: yes | Executable: C:/Program Files/Stata17/StataM…
 </td>
 </tr>
 <tr>
@@ -2504,15 +2505,16 @@ figure
 stata
 </td>
 <td style="text-align:left;">
-OK
+Failed
 </td>
 <td style="text-align:right;">
-6.70
+4.89
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
+Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_taxes_Fig7_scc193_with_CIs.png | Stata ran: yes | Executable: C:/Program Files/Stata17/S…
 </td>
 </tr>
 <tr>
@@ -2529,15 +2531,16 @@ figure
 stata
 </td>
 <td style="text-align:left;">
-OK
+Failed
 </td>
 <td style="text-align:right;">
-6.61
+4.86
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
+Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_intl_Fig8_scc193_with_CIs.png | Stata ran: yes | Executable: C:/Program Files/Stata17/St…
 </td>
 </tr>
 <tr>
@@ -2557,7 +2560,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.18
+60.13
 </td>
 <td style="text-align:right;">
 60
@@ -2583,7 +2586,7 @@ stata
 Timed out
 </td>
 <td style="text-align:right;">
-60.16
+60.11
 </td>
 <td style="text-align:right;">
 60
@@ -2649,7 +2652,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-13.46
+8.70
 </td>
 <td style="text-align:right;">
 60
@@ -2677,7 +2680,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.61
+3.52
 </td>
 <td style="text-align:right;">
 60
@@ -2742,7 +2745,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.13
+0.14
 </td>
 <td style="text-align:right;">
 60
@@ -2807,7 +2810,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.32
+0.11
 </td>
 <td style="text-align:right;">
 60
@@ -2835,7 +2838,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.46
+4.60
 </td>
 <td style="text-align:right;">
 60
@@ -2863,7 +2866,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.53
+3.75
 </td>
 <td style="text-align:right;">
 60
@@ -2891,7 +2894,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-7.25
+8.02
 </td>
 <td style="text-align:right;">
 60
@@ -2919,7 +2922,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-7.62
+8.64
 </td>
 <td style="text-align:right;">
 60
@@ -2947,7 +2950,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-33.56
+38.03
 </td>
 <td style="text-align:right;">
 60
@@ -3012,7 +3015,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.45
+0.43
 </td>
 <td style="text-align:right;">
 60
@@ -3040,7 +3043,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-5.08
+4.72
 </td>
 <td style="text-align:right;">
 60
@@ -3131,16 +3134,15 @@ table
 stata
 </td>
 <td style="text-align:left;">
-Failed
+OK
 </td>
 <td style="text-align:right;">
-3.15
+9.00
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(’10….
 </td>
 </tr>
 <tr>
@@ -3160,16 +3162,15 @@ table
 stata
 </td>
 <td style="text-align:left;">
-Failed
+OK
 </td>
 <td style="text-align:right;">
-2.66
+6.36
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(’10….
 </td>
 </tr>
 <tr>
@@ -3189,16 +3190,15 @@ table
 stata
 </td>
 <td style="text-align:left;">
-Failed
+OK
 </td>
 <td style="text-align:right;">
-2.66
+6.32
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(’10….
 </td>
 </tr>
 <tr>
@@ -3218,16 +3218,15 @@ table
 stata
 </td>
 <td style="text-align:left;">
-Failed
+OK
 </td>
 <td style="text-align:right;">
-2.65
+5.84
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(’10….
 </td>
 </tr>
 <tr>
@@ -3247,16 +3246,15 @@ figure
 stata
 </td>
 <td style="text-align:left;">
-Failed
+OK
 </td>
 <td style="text-align:right;">
-2.61
+8.78
 </td>
 <td style="text-align:right;">
 60
 </td>
 <td style="text-align:left;">
-This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(’10….
 </td>
 </tr>
 </tbody>
@@ -3316,7 +3314,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.08
+2.26
 </td>
 <td style="text-align:right;">
 60
@@ -3345,7 +3343,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.01
+2.11
 </td>
 <td style="text-align:right;">
 60
@@ -3374,7 +3372,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.03
+2.13
 </td>
 <td style="text-align:right;">
 60
@@ -3403,7 +3401,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.03
+2.15
 </td>
 <td style="text-align:right;">
 60
@@ -3432,7 +3430,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.02
+2.21
 </td>
 <td style="text-align:right;">
 60
@@ -3461,7 +3459,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.06
+2.25
 </td>
 <td style="text-align:right;">
 60
@@ -3490,7 +3488,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.03
+2.17
 </td>
 <td style="text-align:right;">
 60
@@ -3519,7 +3517,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.05
+2.14
 </td>
 <td style="text-align:right;">
 60
@@ -3548,7 +3546,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.01
+2.12
 </td>
 <td style="text-align:right;">
 60
@@ -3577,7 +3575,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.01
+2.24
 </td>
 <td style="text-align:right;">
 60
@@ -3606,7 +3604,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.05
+2.36
 </td>
 <td style="text-align:right;">
 60
@@ -3635,7 +3633,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.02
+2.08
 </td>
 <td style="text-align:right;">
 60
@@ -3664,7 +3662,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.01
+2.23
 </td>
 <td style="text-align:right;">
 60
@@ -3693,7 +3691,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.00
+2.27
 </td>
 <td style="text-align:right;">
 60
@@ -3722,7 +3720,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-2.02
+2.10
 </td>
 <td style="text-align:right;">
 60
@@ -3751,7 +3749,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-1.95
+2.09
 </td>
 <td style="text-align:right;">
 60
@@ -3780,7 +3778,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-1.95
+2.11
 </td>
 <td style="text-align:right;">
 60
@@ -3809,7 +3807,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-1.93
+2.09
 </td>
 <td style="text-align:right;">
 60
@@ -3838,7 +3836,7 @@ stata
 Failed
 </td>
 <td style="text-align:right;">
-1.95
+2.13
 </td>
 <td style="text-align:right;">
 60
@@ -4034,7 +4032,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-8.67
+8.64
 </td>
 <td style="text-align:right;">
 60
@@ -4062,7 +4060,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-8.04
+8.55
 </td>
 <td style="text-align:right;">
 60
@@ -4090,7 +4088,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-8.89
+8.99
 </td>
 <td style="text-align:right;">
 60
@@ -4118,7 +4116,7 @@ python
 OK
 </td>
 <td style="text-align:right;">
-27.42
+13.83
 </td>
 <td style="text-align:right;">
 60
@@ -4146,7 +4144,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.36
+3.86
 </td>
 <td style="text-align:right;">
 60
@@ -4174,7 +4172,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.45
+3.65
 </td>
 <td style="text-align:right;">
 60
@@ -4239,7 +4237,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-5.46
+5.91
 </td>
 <td style="text-align:right;">
 60
@@ -4304,7 +4302,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.42
+4.97
 </td>
 <td style="text-align:right;">
 60
@@ -4332,7 +4330,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-8.51
+10.26
 </td>
 <td style="text-align:right;">
 60
@@ -4360,7 +4358,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.28
+1.44
 </td>
 <td style="text-align:right;">
 60
@@ -4388,7 +4386,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.14
+1.39
 </td>
 <td style="text-align:right;">
 60
@@ -4416,7 +4414,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.71
+1.89
 </td>
 <td style="text-align:right;">
 60
@@ -4444,7 +4442,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-2.42
+3.02
 </td>
 <td style="text-align:right;">
 60
@@ -4472,7 +4470,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.92
+5.06
 </td>
 <td style="text-align:right;">
 60
@@ -4500,7 +4498,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.90
+6.11
 </td>
 <td style="text-align:right;">
 60
@@ -4528,7 +4526,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.65
+6.72
 </td>
 <td style="text-align:right;">
 60
@@ -4556,7 +4554,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.59
+4.46
 </td>
 <td style="text-align:right;">
 60
@@ -4621,7 +4619,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.51
+2.10
 </td>
 <td style="text-align:right;">
 60
@@ -4649,7 +4647,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-1.36
+1.77
 </td>
 <td style="text-align:right;">
 60
@@ -4677,7 +4675,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-11.54
+12.24
 </td>
 <td style="text-align:right;">
 60
@@ -4705,7 +4703,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.01
+4.03
 </td>
 <td style="text-align:right;">
 60
@@ -4733,7 +4731,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.41
+4.70
 </td>
 <td style="text-align:right;">
 60
@@ -4761,7 +4759,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-2.52
+3.39
 </td>
 <td style="text-align:right;">
 60
@@ -4789,7 +4787,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-5.52
+8.08
 </td>
 <td style="text-align:right;">
 60
@@ -4817,7 +4815,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-3.68
+5.26
 </td>
 <td style="text-align:right;">
 60
@@ -4845,7 +4843,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-2.71
+3.58
 </td>
 <td style="text-align:right;">
 60
@@ -4873,7 +4871,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-2.47
+4.00
 </td>
 <td style="text-align:right;">
 60
@@ -4901,7 +4899,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-2.07
+2.97
 </td>
 <td style="text-align:right;">
 60
@@ -4929,7 +4927,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-5.86
+7.22
 </td>
 <td style="text-align:right;">
 60
@@ -4957,7 +4955,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-4.23
+4.83
 </td>
 <td style="text-align:right;">
 60
@@ -4985,7 +4983,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-11.84
+12.64
 </td>
 <td style="text-align:right;">
 60
@@ -5013,7 +5011,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-11.52
+9.97
 </td>
 <td style="text-align:right;">
 60
@@ -5078,7 +5076,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.94
+0.25
 </td>
 <td style="text-align:right;">
 60
@@ -5106,7 +5104,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-1.87
+1.98
 </td>
 <td style="text-align:right;">
 60
@@ -5134,7 +5132,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.14
+0.11
 </td>
 <td style="text-align:right;">
 60
@@ -5162,7 +5160,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-2.89
+2.99
 </td>
 <td style="text-align:right;">
 60
@@ -5190,7 +5188,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.14
+0.12
 </td>
 <td style="text-align:right;">
 60
@@ -5218,7 +5216,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.13
+3.12
 </td>
 <td style="text-align:right;">
 60
@@ -5246,7 +5244,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.21
+0.17
 </td>
 <td style="text-align:right;">
 60
@@ -5274,7 +5272,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.16
+3.56
 </td>
 <td style="text-align:right;">
 60
@@ -5302,7 +5300,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.22
+0.15
 </td>
 <td style="text-align:right;">
 60
@@ -5330,7 +5328,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.30
+3.36
 </td>
 <td style="text-align:right;">
 60
@@ -5358,7 +5356,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.21
+0.20
 </td>
 <td style="text-align:right;">
 60
@@ -5386,7 +5384,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.25
+3.48
 </td>
 <td style="text-align:right;">
 60
@@ -5414,7 +5412,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.19
+0.17
 </td>
 <td style="text-align:right;">
 60
@@ -5442,7 +5440,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.20
+3.49
 </td>
 <td style="text-align:right;">
 60
@@ -5470,7 +5468,7 @@ r
 OK
 </td>
 <td style="text-align:right;">
-0.34
+0.35
 </td>
 <td style="text-align:right;">
 60
@@ -5498,7 +5496,7 @@ stata
 OK
 </td>
 <td style="text-align:right;">
-3.99
+4.30
 </td>
 <td style="text-align:right;">
 60
@@ -5536,7 +5534,7 @@ OK
 <td style="text-align: left;">fig_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.37</td>
+<td style="text-align: right;">60.33</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
@@ -5547,7 +5545,7 @@ OK
 <td style="text-align: left;">fig_2</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.09</td>
+<td style="text-align: right;">60.20</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
@@ -5558,7 +5556,7 @@ OK
 <td style="text-align: left;">fig_3</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.16</td>
+<td style="text-align: right;">60.22</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
@@ -5569,7 +5567,7 @@ OK
 <td style="text-align: left;">fig_5</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.10</td>
+<td style="text-align: right;">60.05</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
@@ -5580,86 +5578,64 @@ OK
 <td style="text-align: left;">fig_6</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.14</td>
+<td style="text-align: right;">60.20</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">A Welfare Analysis of Policies Impacting Climate Change</td>
+<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">fig_4</td>
+<td style="text-align: left;">stata</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_subsidies_Fig4_scc193.png | Stata ran: yes | Executable: C:/Program Files/Stata17/StataM...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">A Welfare Analysis of Policies Impacting Climate Change</td>
+<td style="text-align: left;">Figure 7</td>
+<td style="text-align: left;">fig_7</td>
+<td style="text-align: left;">stata</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">4.89</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_taxes_Fig7_scc193_with_CIs.png | Stata ran: yes | Executable: C:/Program Files/Stata17/S...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">A Welfare Analysis of Policies Impacting Climate Change</td>
+<td style="text-align: left;">Figure 8</td>
+<td style="text-align: left;">fig_8</td>
+<td style="text-align: left;">stata</td>
+<td style="text-align: left;">Failed</td>
+<td style="text-align: right;">4.86</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">Expected Stata output not found. | Expected file: C:/WZB Dropbox/Macartan Humphreys/5_github/replicate_everything/rep-10.1257-aer.20250166/outputs/mvpf_intl_Fig8_scc193_with_CIs.png | Stata ran: yes | Executable: C:/Program Files/Stata17/St...</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">9</td>
 <td style="text-align: left;">A Welfare Analysis of Policies Impacting Climate Change</td>
 <td style="text-align: left;">Table 1</td>
 <td style="text-align: left;">tab_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.18</td>
+<td style="text-align: right;">60.13</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">10</td>
 <td style="text-align: left;">A Welfare Analysis of Policies Impacting Climate Change</td>
 <td style="text-align: left;">Table 2</td>
 <td style="text-align: left;">tab_2</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Timed out</td>
-<td style="text-align: right;">60.16</td>
+<td style="text-align: right;">60.11</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">Timed out after 60 seconds (audit cap; timeout_seconds: 60) | ! Native call to `processx_wait` failed | Caused by error in `chain_clean_call(...)`: | ! reached elapsed time limit</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">23</td>
-<td style="text-align: left;">Ideological Alignment and Evidence-Based Policy Adoption</td>
-<td style="text-align: left;">Table 1</td>
-<td style="text-align: left;">tab_1</td>
-<td style="text-align: left;">stata</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">3.15</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(&#39;10....</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">24</td>
-<td style="text-align: left;">Ideological Alignment and Evidence-Based Policy Adoption</td>
-<td style="text-align: left;">Table 2</td>
-<td style="text-align: left;">tab_2</td>
-<td style="text-align: left;">stata</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.66</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(&#39;10....</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">25</td>
-<td style="text-align: left;">Ideological Alignment and Evidence-Based Policy Adoption</td>
-<td style="text-align: left;">Table 3</td>
-<td style="text-align: left;">tab_3</td>
-<td style="text-align: left;">stata</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.66</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(&#39;10....</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">26</td>
-<td style="text-align: left;">Ideological Alignment and Evidence-Based Policy Adoption</td>
-<td style="text-align: left;">Table 4</td>
-<td style="text-align: left;">tab_4</td>
-<td style="text-align: left;">stata</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.65</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(&#39;10....</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">27</td>
-<td style="text-align: left;">Ideological Alignment and Evidence-Based Policy Adoption</td>
-<td style="text-align: left;">Figure 2</td>
-<td style="text-align: left;">fig_2</td>
-<td style="text-align: left;">stata</td>
-<td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.61</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: reghdfe, coefplot, texdoc, cibar, geonear, spmap, shp2dta, sdid, csdid, drdid, randomize | Maintainers — install for this study: | install_dependencies(&#39;10....</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">28</td>
@@ -5668,7 +5644,7 @@ OK
 <td style="text-align: left;">tab_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.08</td>
+<td style="text-align: right;">2.26</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5679,7 +5655,7 @@ OK
 <td style="text-align: left;">tab_2</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">2.11</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5690,7 +5666,7 @@ OK
 <td style="text-align: left;">tab_3</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.03</td>
+<td style="text-align: right;">2.13</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5701,7 +5677,7 @@ OK
 <td style="text-align: left;">tab_A_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.03</td>
+<td style="text-align: right;">2.15</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5712,7 +5688,7 @@ OK
 <td style="text-align: left;">tab_A_2</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">2.21</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5723,7 +5699,7 @@ OK
 <td style="text-align: left;">tab_A_3</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">2.25</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5734,7 +5710,7 @@ OK
 <td style="text-align: left;">tab_A_4</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.03</td>
+<td style="text-align: right;">2.17</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5745,7 +5721,7 @@ OK
 <td style="text-align: left;">tab_A_5</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.05</td>
+<td style="text-align: right;">2.14</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5756,7 +5732,7 @@ OK
 <td style="text-align: left;">fig_1</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">2.12</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5767,7 +5743,7 @@ OK
 <td style="text-align: left;">fig_1_panel_b</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">2.24</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5778,7 +5754,7 @@ OK
 <td style="text-align: left;">fig_A_2</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.05</td>
+<td style="text-align: right;">2.36</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5789,7 +5765,7 @@ OK
 <td style="text-align: left;">fig_2_panel_a</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">2.08</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5800,7 +5776,7 @@ OK
 <td style="text-align: left;">fig_2_panel_b</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">2.23</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5811,7 +5787,7 @@ OK
 <td style="text-align: left;">fig_A_1_panel_a</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">2.27</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5822,7 +5798,7 @@ OK
 <td style="text-align: left;">fig_A_1_panel_b</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">2.10</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5833,7 +5809,7 @@ OK
 <td style="text-align: left;">fig_3_panel_a</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">1.95</td>
+<td style="text-align: right;">2.09</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5844,7 +5820,7 @@ OK
 <td style="text-align: left;">fig_3_panel_b</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">1.95</td>
+<td style="text-align: right;">2.11</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5855,7 +5831,7 @@ OK
 <td style="text-align: left;">fig_4_panel_a</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">1.93</td>
+<td style="text-align: right;">2.09</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>
@@ -5866,7 +5842,7 @@ OK
 <td style="text-align: left;">fig_4_panel_b</td>
 <td style="text-align: left;">stata</td>
 <td style="text-align: left;">Failed</td>
-<td style="text-align: right;">1.95</td>
+<td style="text-align: right;">2.13</td>
 <td style="text-align: right;">60</td>
 <td style="text-align: left;">This machine is missing dependencies declared in replication.yml. | Stata missing: estout, outreg, moremata | Maintainers — install for this study: | install_dependencies(&#39;10.1596/1813-9450-10626&#39;) | Install for every study in the registry...</td>
 </tr>

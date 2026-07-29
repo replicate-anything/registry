@@ -1,21 +1,21 @@
 {
   "patience": 60,
-  "started_at": "2026-07-28T21:00:03Z",
-  "finished_at": "2026-07-28T21:13:10Z",
+  "started_at": "2026-07-29T01:12:24Z",
+  "finished_at": "2026-07-29T01:25:58Z",
   "studies": 14,
   "runs": 96,
-  "success": 64,
-  "failed": 31,
+  "success": 66,
+  "failed": 29,
   "timed_out": 7,
   "skipped": 1,
   "substantive_failed": 0,
   "missing_engine": 0,
   "progress": {
-    "replicating": 64,
+    "replicating": 66,
     "timed_out": 7,
     "substantive_fail": 0,
     "missing_engine": 0,
-    "other": 25,
+    "other": 23,
     "total": 96
   },
   "missing_source_repository": []
