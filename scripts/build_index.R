@@ -27,7 +27,7 @@ if (!requireNamespace("replicateEverything", quietly = TRUE)) {
 }
 
 if (exists("build_registry_index", where = asNamespace("replicateEverything"), inherits = FALSE)) {
-  built <- replicateEverything::build_registry_index(registry_root)
+  built <- replicateEverything:::build_registry_index(registry_root)
   message("Wrote ", built$index_path, " (", built$n, " studies)")
 } else if (file.exists(standalone)) {
   status <- system2("Rscript", c(standalone, registry_root), stdout = "", stderr = "")

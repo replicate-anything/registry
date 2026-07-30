@@ -97,7 +97,7 @@ infer_repo_slug <- function(meta) {
 built <- NULL
 if (requireNamespace("replicateEverything", quietly = TRUE)) {
   built <- tryCatch(
-    replicateEverything::build_registry_index("."),
+    replicateEverything:::build_registry_index("."),
     error = function(e) NULL
   )
 }

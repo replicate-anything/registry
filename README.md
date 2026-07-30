@@ -1,6 +1,6 @@
 # registry
 
-Study metadata lives in `studies/<folder>.yml` stub files. Rebuild the machine-readable index with `Rscript scripts/build_index.R .` (or `replicateEverything::build_registry_index(".")`). Rendering `index.qmd` updates `index.html` and also writes a full `index.csv` (including `collections`, `maintainer_*`, `languages`) for `replicateEverything` and Shiny.
+Study metadata lives in `studies/<folder>.yml` stub files. Rebuild derived registry files with `refresh_registry(".")` (or `Rscript scripts/build_index.R .`). Rendering `index.qmd` updates `index.html` and also writes a full `index.csv` (including `collections`, `maintainer_*`, `languages`) for `replicateEverything` and Shiny.
 
 **Maintainer guide:** [guides/registry-management.md](guides/registry-management.md) — catalog updates, artifact checks, audit workflow, Shiny deploy.
 
@@ -13,4 +13,4 @@ quarto render audit_everything.qmd
 
 This upserts `audit_jobs.csv` (doi × object × engine) and rebuilds derived `audit_summary.json` (Shiny health bar), `audit_latest.rds` (full portfolio snapshot), and `audit_everything.html`. Subset audits (`dois` / `collections`) no longer wipe other studies.
 
-**Folder-backed** and **package-backed** studies keep only a lightweight stub in `studies/`. Materials live in the linked study repository or R package. See [guides/folder-replication.md](guides/folder-replication.md), [guides/package-replication.md](guides/package-replication.md). Contributors run `replicateEverything::check_and_bake_study()` against the study; maintainers write the stub with `sync_study_to_registry()` / `register_study()`.
+**Folder-backed** and **package-backed** studies keep only a lightweight stub in `studies/`. Materials live in the linked study repository or R package. See [guides/folder-replication.md](guides/folder-replication.md), [guides/package-replication.md](guides/package-replication.md). Contributors run `replicateEverything::check_and_bake_study()` against the study; maintainers write the stub with `register_study()` and refresh with `refresh_registry()`.

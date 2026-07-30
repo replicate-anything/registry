@@ -38,7 +38,7 @@ options(replicateEverything.registry_root = "/path/to/replicate_everything/regis
 1. Create or update the study repo (`replication.yml`, `code/`, `data/`, `outputs/`).
 2. Contributor: `check_and_bake_study(".")` (validates and optionally bakes `outputs/` via `build_study_outputs()`).
 3. Add **substantive checks** (`tests/substantive/<step_id>.R`) where published benchmarks are available; see Fearon & Laitin `tab_1`.
-4. Maintainer: `sync_study_to_registry(study_path)` (or `register_study(study_path)`) writes `studies/<folder>.yml` in this repo from the study's `replication.yml`. Studies never commit a local `registry/` handoff.
+4. Maintainer: `register_study(study_path)` writes `studies/<folder>.yml` in this repo from the study's `replication.yml`. Studies never commit a local `registry/` handoff.
 5. Re-render the catalog (below).
 
 See [folder-replication.md](folder-replication.md).
@@ -47,18 +47,25 @@ See [folder-replication.md](folder-replication.md).
 
 1. Maintain the study R package (`replication.yml`, `inst/replication.yml`, `inst/replication_code/`, display outputs via `build_study_outputs()`).
 2. Contributor: `check_and_bake_study(".")`.
-3. Maintainer: `sync_study_to_registry(study_path)` (or `register_study(study_path)`) writes the stub under `studies/`.
+3. Maintainer: `register_study(study_path)` writes the stub under `studies/`.
 
 See [package-replication.md](package-replication.md).
 
 ## Refresh the catalog (`index.csv`)
 
-After any stub change, rebuild `index.csv` from `studies/*.yml` (preferred):
+After any stub change, rebuild derived registry files (preferred):
+
+```r
+# Light: index.csv + shiny_studies.json + seed audit gaps + summary
+refresh_registry(".")
+```
+
+Or rebuild the index only via the script:
 
 ```bash
 cd registry
 Rscript scripts/build_index.R .
-# or: Rscript -e 'replicateEverything::build_registry_index(".")'
+# or: Rscript -e 'replicateEverything:::build_registry_index(".")'
 ```
 
 Optionally re-render the HTML catalog (also writes a full `index.csv` with
@@ -109,9 +116,9 @@ Rendering `audit_everything.qmd` (or `scripts/run_audit.R`) writes:
 
 | Goal | Call |
 |------|------|
-| Run live replications (full or subset) | `audit_everything(...)` or Quarto / `scripts/run_audit.R` |
-| Fill gaps from bake timings / prior RDS (no live runs) | `seed_registry_audit_jobs()` |
-| Rebuild JSON/RDS after editing the CSV | `refresh_registry_audit_summary()` |
+| Light refresh (index + Shiny cache + seed + summary) | `refresh_registry(...)` |
+| Live replications (full or subset) | `refresh_registry(audit = TRUE)` / `audit = <dois>`, or `audit_everything(...)` / Quarto |
+| Read-only portfolio health | `audit_report(...)` |
 
 `audit_everything()` already upserts and refreshes the derived files; you do not need a separate summary rebuild after a normal audit.
 

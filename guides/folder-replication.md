@@ -49,7 +49,8 @@ options(
 
 check_and_bake_study(".", build_artifacts = TRUE)   # contributor: validate + bake outputs/
 testthat::test_dir("tests/testthat")
-sync_study_to_registry(".", registry_root = "../registry")   # maintainer: write the stub
+register_study(".", registry_root = "../registry")   # maintainer: write the stub
+refresh_registry("../registry")                      # light: index + seed + summary
 ```
 
 See `vignette("folder-replication-checklist", package = "replicateEverything")`.

@@ -35,8 +35,8 @@ options(replicateEverything.registry_root = "path/to/registry")
 check_and_bake_study("path/to/rep_package", build_artifacts = TRUE)
 
 # Maintainer: write/refresh the registry stub
-sync_study_to_registry("path/to/rep_package")
-# or: register_study("path/to/rep_package")
+register_study("path/to/rep_package")
+refresh_registry("path/to/registry")
 ```
 
 Full requirements: `vignette("package-replication-checklist", package = "replicateEverything")` or the [pkgdown article](https://replicate-anything.github.io/replicateEverything/articles/package-replication-checklist.html).

@@ -1,7 +1,7 @@
 {
-  "patience": 180,
-  "started_at": "2026-07-30T06:44:55Z",
-  "finished_at": "2026-07-30T07:15:39Z",
+  "patience": "NA",
+  "started_at": "2026-07-30T08:48:55Z",
+  "finished_at": "2026-07-30T08:48:55Z",
   "studies": 14,
   "runs": 96,
   "success": 88,
