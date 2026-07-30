@@ -274,4 +274,4 @@ Update the package vignette snapshot after a full audit:
 saveRDS(audit, "<path-to-replicateEverything>/inst/vignette-data/audit_latest.rds")
 ```
 
-The audit also writes `audit_summary.json` and `audit_latest.rds` in this registry repo (used by the Shiny health bar).
+The audit **upserts** into `audit_jobs.csv` (doi × object × engine) and rebuilds derived `audit_summary.json` and `audit_latest.rds` from the **full** CSV (Shiny health bar uses the JSON `progress` counts). A one-DOI or one-collection run does not wipe other studies. With `refresh:true`, this HTML body shows the current run’s return value; disk artifacts always reflect the portfolio. Use `-P refresh:false` to render from the full RDS without re-running.

@@ -11,6 +11,6 @@ quarto render audit_everything.qmd
 # or: Rscript scripts/run_audit.R && quarto render audit_everything.qmd
 ```
 
-This writes `audit_summary.json` (Shiny health bar), `audit_latest.rds` (full results), and `audit_everything.html`.
+This upserts `audit_jobs.csv` (doi × object × engine) and rebuilds derived `audit_summary.json` (Shiny health bar), `audit_latest.rds` (full portfolio snapshot), and `audit_everything.html`. Subset audits (`dois` / `collections`) no longer wipe other studies.
 
 **Folder-backed** and **package-backed** studies keep only a lightweight stub in `studies/`. Materials live in the linked study repository or R package. See [guides/folder-replication.md](guides/folder-replication.md), [guides/package-replication.md](guides/package-replication.md). Contributors run `replicateEverything::check_and_bake_study()` against the study; maintainers write the stub with `sync_study_to_registry()` / `register_study()`.

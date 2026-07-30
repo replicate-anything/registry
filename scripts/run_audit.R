@@ -1,4 +1,5 @@
-# Run registry-wide audit_everything() and write audit_summary.json + audit_latest.rds.
+# Run registry-wide audit_everything() (upserts audit_jobs.csv; rebuilds
+# derived audit_summary.json + audit_latest.rds from the full CSV).
 #
 # Usage (from registry repo root):
 #   Rscript scripts/run_audit.R
@@ -48,14 +49,18 @@ audit <- audit_everything(
   verbose = TRUE,
   registry_root = registry_root
 )
-
-paths <- write_registry_audit_record(audit, registry_root)
+# audit_everything() already upserts CSV + rebuilds summary/RDS.
 print(audit)
-message("Wrote ", paths$summary)
-message("Wrote ", paths$rds)
+
+jobs_path <- file.path(registry_root, "audit_jobs.csv")
+summary_path <- file.path(registry_root, "audit_summary.json")
+rds_path <- file.path(registry_root, "audit_latest.rds")
+message("Wrote ", jobs_path)
+message("Wrote ", summary_path)
+message("Wrote ", rds_path)
 
 vignette_rds <- file.path(monorepo, "replicateEverything", "inst", "vignette-data", "audit_latest.rds")
-if (dir.exists(dirname(vignette_rds))) {
-  file.copy(paths$rds, vignette_rds, overwrite = TRUE)
+if (dir.exists(dirname(vignette_rds)) && file.exists(rds_path)) {
+  file.copy(rds_path, vignette_rds, overwrite = TRUE)
   message("Copied audit snapshot to ", vignette_rds)
 }
